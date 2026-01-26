@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Clone - Home</title>
+
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  </head>
+
+  <body class="bg-dark text-white">
+    <main class="container-fluid px-3 pt-3 pb-4">
+      <!-- SEZIONE 1: TOP BAR -->
+      <header class="d-flex justify-content-between align-items-center py-2 mb-3">
+        <h1 class="m-0 fw-bold fs-2 text-white">Buonasera</h1>
+
+        <div class="d-flex align-items-center gap-4 fs-4">
+          <button class="btn btn-link p-0 text-white position-relative" type="button" aria-label="Notifiche">
+            <i class="bi bi-bell"></i>
+            <span class="position-absolute top-0 start-100 translate-middle p-1 bg-primary border border-dark rounded-circle">
+              <span class="visually-hidden">Nuove notifiche</span>
+            </span>
+          </button>
+
+          <button class="btn btn-link p-0 text-white" type="button" aria-label="Recenti">
+            <i class="bi bi-clock"></i>
+          </button>
+
+          <button class="btn btn-link p-0 text-white" type="button" aria-label="Impostazioni">
+            <i class="bi bi-gear"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- SEZIONE 2: TAB -->
+      <nav class="d-flex justify-content-start gap-5 ps-1 mb-3">
+        <a class="text-white fw-semibold fs-5 text-decoration-none" href="#">Musica</a>
+        <a class="text-white-50 fw-semibold fs-5 text-decoration-none" href="#">Podcast e show</a>
+      </nav>
+
+      <!-- SEZIONE 3: TOP GRID (6 box) -->
+      <section class="row row-cols-2 gx-4 gy-4 mt-2">
+        <!-- Card 1 -->
+        <div class="col">
+          <a href="#" class="d-flex align-items-center gap-3 text-white text-decoration-none">
+            <div class="d-flex flex-column rounded-3 overflow-hidden flex-shrink-0">
+              <div class="d-flex">
+                <img src="./assets/imgs/main/image-1.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+                <img src="./assets/imgs/main/image-2.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+              </div>
+              <div class="d-flex">
+                <img src="./assets/imgs/main/image-3.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+                <img src="./assets/imgs/main/image-4.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+              </div>
+            </div>
+
+            <div class="fw-semibold lh-sm flex-grow-1">early stage<br />emily syndr...</div>
+
+            <!-- ✅ 3 puntini: solo icona (no dropdown) -->
+            <button class="btn btn-link p-0 text-success sp-ellipsis ms-auto" type="button" aria-label="Opzioni brano">
+              <i class="bi bi-three-dots"></i>
+            </button>
+          </a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col">
+          <a href="#" class="d-flex align-items-center gap-3 text-white text-decoration-none">
+            <div class="d-flex flex-column rounded-3 overflow-hidden flex-shrink-0">
+              <div class="d-flex">
+                <img src="./assets/imgs/main/image-5.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+                <img src="./assets/imgs/main/image-6.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+              </div>
+              <div class="d-flex">
+                <img src="./assets/imgs/main/image-7.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+                <img src="./assets/imgs/main/image-8.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+              </div>
+            </div>
+
+            <div class="fw-semibold lh-sm flex-grow-1">Be The Young</div>
+
+            <button class="btn btn-link p-0 text-success sp-ellipsis ms-auto" type="button" aria-label="Opzioni brano">
+              <i class="bi bi-three-dots"></i>
+            </button>
+          </a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col">
+          <a href="#" class="d-flex align-items-center gap-3 text-white text-decoration-none">
+            <div class="d-flex flex-column rounded-3 overflow-hidden flex-shrink-0">
+              <div class="d-flex">
+                <img src="./assets/imgs/main/image-9.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+                <img src="./assets/imgs/main/image-10.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+              </div>
+              <div class="d-flex">
+                <img src="./assets/imgs/main/image-11.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+                <img src="./assets/imgs/main/image-12.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+              </div>
+            </div>
+
+            <div class="fw-semibold lh-sm flex-grow-1">saggio vibes 🕺🪩👡</div>
+
+            <button class="btn btn-link p-0 text-success sp-ellipsis ms-auto" type="button" aria-label="Opzioni brano">
+              <i class="bi bi-three-dots"></i>
+            </button>
+          </a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col">
+          <a href="#" class="d-flex align-items-center gap-3 text-white text-decoration-none">
+            <div class="rounded-3 flex-shrink-0 d-flex align-items-center justify-content-center bg-primary bg-gradient" style="width: 64px; height: 64px">
+              <i class="bi bi-heart-fill fs-3 text-white"></i>
+            </div>
+
+            <div class="fw-semibold lh-sm flex-grow-1">Brani che ti<br />piacciono</div>
+
+            <span class="bg-primary rounded-circle p-1"></span>
+          </a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col">
+          <a href="#" class="d-flex align-items-center gap-3 text-white text-decoration-none">
+            <div class="d-flex flex-column rounded-3 overflow-hidden flex-shrink-0">
+              <div class="d-flex">
+                <img src="./assets/imgs/main/image-13.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+                <img src="./assets/imgs/main/image-14.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+              </div>
+              <div class="d-flex">
+                <img src="./assets/imgs/main/image-1.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+                <img src="./assets/imgs/main/image-2.jpg" width="32" height="32" class="d-block object-fit-cover" alt="" />
+              </div>
+            </div>
+
+            <div class="fw-semibold lh-sm flex-grow-1">2021 lol</div>
+
+            <button class="btn btn-link p-0 text-success sp-ellipsis ms-auto" type="button" aria-label="Opzioni brano">
+              <i class="bi bi-three-dots"></i>
+            </button>
+          </a>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="col">
+          <a href="#" class="d-flex align-items-center gap-3 text-white text-decoration-none">
+            <img src="./assets/imgs/main/image-12.jpg" width="64" height="64" class="d-block rounded-3 object-fit-cover flex-shrink-0" alt="" />
+
+            <div class="fw-semibold lh-sm flex-grow-1">Deep Dive<br />with Ali Ab...</div>
+
+            <button class="btn btn-link p-0 text-success sp-ellipsis ms-auto" type="button" aria-label="Opzioni brano">
+              <i class="bi bi-three-dots"></i>
+            </button>
+          </a>
+        </div>
+      </section>
+
+      <!-- SEZIONE 4: CARD GRANDI (Playlist) -->
+      <section class="row row-cols-1 g-3 mt-3 sp-bigcards">
+        <!-- CARD 1 -->
+        <div class="col">
+          <article class="sp-playlist-card sp-glow-warm rounded-4 p-3 position-relative overflow-hidden">
+            <div class="d-flex gap-3 align-items-start">
+              <div class="sp-collage flex-shrink-0">
+                <div class="sp-collage__tile"><img src="./assets/imgs/main/image-1.jpg" alt="" /></div>
+                <div class="sp-collage__tile"><img src="./assets/imgs/main/image-2.jpg" alt="" /></div>
+                <div class="sp-collage__tile"><img src="./assets/imgs/main/image-3.jpg" alt="" /></div>
+                <div class="sp-collage__tile"><img src="./assets/imgs/main/image-4.jpg" alt="" /></div>
+              </div>
+
+              <div class="flex-grow-1">
+                <div class="sp-subtitle text-white-50">Playlist</div>
+                <div class="sp-title fw-bold text-white lh-sm">
+                  study and work<br />
+                  space
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-between mt-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-heart-fill text-success sp-icon"></i>
+                <i class="bi bi-three-dots-vertical text-white-50 sp-icon"></i>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <div class="text-white-50 sp-meta">16</div>
+
+                <button type="button" class="sp-play-btn" aria-label="Play">
+                  <i class="bi bi-play-fill"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="col">
+          <article class="sp-playlist-card sp-glow-neutral rounded-4 p-3 position-relative overflow-hidden">
+            <div class="d-flex gap-3 align-items-start">
+              <div class="sp-collage flex-shrink-0">
+                <div class="sp-collage__tile"><img src="./assets/imgs/main/image-7.jpg" alt="" /></div>
+                <div class="sp-collage__tile"><img src="./assets/imgs/main/image-8.jpg" alt="" /></div>
+                <div class="sp-collage__tile"><img src="./assets/imgs/main/image-9.jpg" alt="" /></div>
+                <div class="sp-collage__tile"><img src="./assets/imgs/main/image-10.jpg" alt="" /></div>
+              </div>
+
+              <div class="flex-grow-1">
+                <div class="sp-subtitle text-white-50">Playlist</div>
+                <div class="sp-title fw-bold text-white lh-sm">Mix Indie</div>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-between mt-3">
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-heart-fill text-success sp-icon"></i>
+                <i class="bi bi-three-dots-vertical text-white-50 sp-icon"></i>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <div class="text-white-50 sp-meta">14</div>
+
+                <button type="button" class="sp-play-btn" aria-label="Play">
+                  <i class="bi bi-play-fill"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
