@@ -116,6 +116,6 @@ header div input::placeholder {
   width: 50px;
 }
 
-#searcheSongsContainer:hover {
+.searcheSongsContainer:hover {
   background-color: #282828;
 }/*# sourceMappingURL=search.css.map */
