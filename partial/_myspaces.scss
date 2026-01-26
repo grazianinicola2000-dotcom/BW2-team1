@@ -1,0 +1,14 @@
+@each $name, $value in $spaces {
+  .w-#{$name} {
+    width: $value;
+  }
+  .h-#{$name} {
+    height: $value;
+  }
+}
+
+@each $name, $value in $letter-spacing {
+  .ls-#{$name} {
+    letter-spacing: $value;
+  }
+}

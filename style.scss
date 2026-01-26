@@ -1,0 +1,17 @@
+@import "./scss/functions";
+@import "./scss/variables";
+
+$new-font-sizes: (
+  7: $font-size-base * 1.05,
+  8: $font-size-base * 0.9,
+  9: $font-size-base * 0.7,
+  10: $font-size-base * 0.6,
+);
+
+$font-sizes: map-merge($font-sizes, $new-font-sizes);
+
+@import "./scss/maps";
+@import "./scss/utilities";
+@import "./scss/bootstrap.scss";
+@import "./partial/myvariables";
+@import "./partial/myspaces";
