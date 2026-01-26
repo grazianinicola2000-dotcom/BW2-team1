@@ -12370,4 +12370,19 @@ textarea.form-control-lg {
 .row.row-cols-2.gx-4.gy-4.mt-2 .col > a:focus-visible {
   transform: scale(1.03); /* zoom */
   z-index: 2; /* sopra */
+}
+
+main::-webkit-scrollbar,
+.friend-list::-webkit-scrollbar {
+  width: 12px;
+}
+
+main::-webkit-scrollbar-thumb,
+.friend-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+main::-webkit-scrollbar-track,
+.friend-list::-webkit-scrollbar-track {
+  background: transparent;
 }/*# sourceMappingURL=style.css.map */
