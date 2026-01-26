@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Album</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/css/album.css" />
+  </head>
+
+  <body>
+    <div class="layout">
+      <aside class="sidebar-left">
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="search.html" class="nav-link">Cerca</a>
+          <a href="#" class="nav-link">La tua libreria</a>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <section class="album-header">
+          <img src="https://picsum.photos/300" alt="Album cover" class="album-cover" />
+
+          <div class="album-info">
+            <span class="album-type">ALBUM</span>
+            <h1 class="album-title">Nome Album</h1>
+
+            <div class="album-meta">
+              <span class="album-artist">Nome Artista</span>
+              <span>2026</span>
+              <span>12 brani</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ACTIONS -->
+        <section class="album-actions">
+          <button class="btn-play">
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <button class="btn-icon">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <button class="btn-icon">
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+        </section>
+
+        <!-- TRACKLIST -->
+        <section class="tracklist">
+          <div class="tracklist-header">
+            <span>#</span>
+            <span>Titolo</span>
+            <span>Durata</span>
+          </div>
+
+          <div class="track-row">
+            <span>1</span>
+            <span>Intro</span>
+            <span>2:34</span>
+          </div>
+
+          <div class="track-row">
+            <span>2</span>
+            <span>First Song</span>
+            <span>3:55</span>
+          </div>
+
+          <div class="track-row">
+            <span>3</span>
+            <span>Another Track</span>
+            <span>4:12</span>
+          </div>
+        </section>
+      </main>
+
+      <!-- SIDEBAR RIGHT -->
+      <aside class="sidebar-right">
+        <h6>Friend Activity</h6>
+        <p>- - -</p>
+      </aside>
+    </div>
+  </body>
+</html>

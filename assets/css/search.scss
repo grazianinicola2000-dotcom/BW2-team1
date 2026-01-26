@@ -6,90 +6,42 @@ body {
   padding: 0;
 }
 
-.bg-dark-main {
-  background: linear-gradient(to bottom, #1e1e1e 0%, #121212 100%);
-}
-
-.text-secondary-custom {
-  color: #b3b3b3 !important;
-}
-
-.nav-link {
-  font-size: 14px;
-  font-weight: 700;
-  transition: color 0.2s;
-  white-space: nowrap;
-}
-
-.nav-link:hover {
-  color: #ffffff !important;
-}
-
-.icon-square {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 2px;
-  font-size: 12px;
-  color: white;
-}
-
-.liked-gradient {
-  background: linear-gradient(135deg, #450af5, #c4efd9);
-}
-
-.episodes-bg {
-  background-color: #004638;
-  color: #1ed760;
-}
-
-.playlist-scroll::-webkit-scrollbar,
+main::-webkit-scrollbar,
 .friend-list::-webkit-scrollbar {
   width: 12px;
 }
 
-.playlist-scroll::-webkit-scrollbar-thumb,
+main::-webkit-scrollbar-thumb,
 .friend-list::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.3);
 }
 
-.playlist-scroll::-webkit-scrollbar-track,
+main::-webkit-scrollbar-track,
 .friend-list::-webkit-scrollbar-track {
   background: transparent;
-}
-
-.smaller-text {
-  font-size: 13px;
-}
-
-.extra-small {
-  font-size: 11px;
-}
-
-.text-truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-hr {
-  margin: 1rem 0;
 }
 
 #inputSearchContainer {
   position: relative;
 }
 
-header div i {
+header div button i {
   color: #fdfdfd;
+}
+
+header div button {
   position: absolute;
   left: 15px;
+  top: 9px;
+  opacity: 50%;
+}
+
+header div button:hover {
+  opacity: 100%;
 }
 
 header div input {
-  background-color: #2c2c2c;
+  background-color: #282828;
   color: #fdfdfd;
   font-family: "Circular";
   padding: 20px 0 15px 70px;
@@ -135,7 +87,42 @@ header div input::placeholder {
 }
 
 .cardGenresNav:hover {
-  transform: scale(1.3);
+  transform: scale(1.15);
   z-index: 1;
   box-shadow: 1px -2px 175px -1px rgba(0, 0, 0, 0.81);
+}
+
+.card {
+  background-color: #2c2c2c;
+  color: #fdfdfd;
+}
+
+#artistProfileImg {
+  width: 90px;
+  box-shadow: 0px 0px 50px -2px rgba(0, 0, 0, 0.74);
+}
+
+#searchedArtistContainer {
+  background-color: #1e1e1e;
+}
+
+#searchedArtistContainer:hover {
+  background-color: #282828;
+}
+
+#artistName {
+  font-size: 2.1rem;
+}
+
+#searchedArtistContainer p {
+  color: #aaaaaa;
+  font-size: 0.8rem;
+}
+
+.songCover {
+  width: 50px;
+}
+
+#searcheSongsContainer:hover {
+  background-color: #282828;
 }
