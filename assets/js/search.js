@@ -27,7 +27,7 @@ function cardColorsGenerator() {
 
 async function tokenSearch() {
   const searchBar = document.querySelector("input");
-  const searchButton = document.querySelector(".fa-solid.fa-magnifying-glass.m-0.p-0.fs-1");
+  const searchButton = document.querySelector("bg-transparent.border-0.m-0.p-0");
 
   searchButton.addEventListener("click", (e) => {
     let query = "";
