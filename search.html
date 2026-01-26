@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -15,10 +16,10 @@
     <link rel="stylesheet" href="./assets/css/search.css" />
     <title>Search</title>
   </head>
-  <body class="m-5">
-    <div class="container-fluid overflow-hidden">
+  <body>
+    <div class="overflow-hidden">
       <div class="row vh-100 g-0">
-        <nav class="col-3 d-flex flex-column p-3 bg-black border-end border-dark h-100">
+        <nav class="col-3 d-none d-lg-flex flex-column p-3 bg-black border-end border-dark h-100">
           <div class="mb-4 ps-2">
             <i class="bi bi-three-dots fs-4 text-secondary"></i>
           </div>
@@ -83,7 +84,7 @@
           </div>
         </nav>
 
-        <main class="col-7 bg-dark-main overflow-y-auto p-4">
+        <main class="col-12 col-lg-7 bg-dark-main p-4 overflow-y-auto h-100">
           <header class="row">
             <h1 class="col-12 m-0 p-0 mb-5">Cerca</h1>
             <div id="inputSearchContainer" class="d-flex align-items-center col-12 m-0 p-0">
@@ -94,35 +95,203 @@
           <section class="d-flex flex-column align-items-center">
             <h3 class="mt-5">Sfoglia tutto</h3>
             <nav id="genresNav" class="row w-100 g">
-              <div class="col-6 col-md-4 col-lg-3 mb-3">
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
                 <div class="cardGenresNav">
-                  <p class="card-inner-text">Musica</p>
+                  <p class="card-inner-text">Dissect</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-2.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Create per te</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-1.jpeg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-lg-3 mb-3">
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
                 <div class="cardGenresNav">
-                  <p class="card-inner-text">Musica</p>
-                  <img class="imgGenresNav" src="./assets/imgs/search/image-2.jpg" alt="" />
+                  <p class="card-inner-text">Nuove uscite</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-3.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-lg-3 mb-3">
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
                 <div class="cardGenresNav">
-                  <p class="card-inner-text">Musica</p>
-                  <img class="imgGenresNav" src="./assets/imgs/search/image-2.jpg" alt="" />
+                  <p class="card-inner-text">Pop</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-4.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-lg-3 mb-3">
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
                 <div class="cardGenresNav">
-                  <p class="card-inner-text">Musica</p>
-                  <img class="imgGenresNav" src="./assets/imgs/search/image-2.jpg" alt="" />
+                  <p class="card-inner-text">Latina</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-5.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">R&B</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-6.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Rock</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-7.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Allenamento</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-8.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Autori</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-9.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Lo-fi</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-10.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">In auto</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-11.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">10s</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-12.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Estate</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-13.jpeg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Classifiche</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-14.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Podcast</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-15.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Soul</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-16.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Chill</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-17.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Sleep</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-18.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Island Pop</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-19.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Jazz</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-20.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Vibes</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-22.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Focus</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-23.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Peaceful</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-24.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Nuove uscite</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-25.jpeg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Out now</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-26.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Party</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-27.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Afro</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-28.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Classica</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-29.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Gaming</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-30.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Metal</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-31.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Funk</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-32.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 mb-3">
+                <div class="cardGenresNav">
+                  <p class="card-inner-text">Punk</p>
+                  <img class="imgGenresNav" src="./assets/imgs/search/image-33.jpg" alt="" />
                 </div>
               </div>
             </nav>
           </section>
         </main>
 
-        <aside class="col-2 d-flex flex-column p-3 bg-black border-start border-dark h-100">
+        <aside class="col-2 d-none d-lg-flex flex-column p-3 bg-black border-start border-dark h-100">
           <div class="d-flex justify-content-between align-items-center mb-4">
             <span class="fw-bold small">Friend Activity</span>
             <div class="d-flex gap-3 text-secondary">
