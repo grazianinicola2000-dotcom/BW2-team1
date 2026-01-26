@@ -1,0 +1,50 @@
+body {
+  background-color: #121212;
+  color: #fdfdfd;
+  font-family: "Circular";
+  padding-top: 30px;
+}
+
+#inputSearchContainer {
+  position: relative;
+}
+
+header div i {
+  color: #fdfdfd;
+  position: absolute;
+  left: 15px;
+}
+
+header div input {
+  background-color: #1b1b1b;
+  padding: 20px 0 15px 60px;
+}
+
+header div input::-moz-placeholder {
+  font-size: 1.4rem;
+}
+
+header div input::placeholder {
+  font-size: 1.4rem;
+}
+
+.card-inner-text {
+  padding-left: 10px;
+  padding-top: 15px;
+}
+
+.cardGenresNav {
+  position: relative;
+  overflow: hidden;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.imgGenresNav {
+  width: 45%;
+  position: absolute;
+  right: -10px;
+  rotate: 20deg;
+  bottom: -5px;
+  border-radius: 10px;
+}/*# sourceMappingURL=search.css.map */
