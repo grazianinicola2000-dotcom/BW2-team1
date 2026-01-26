@@ -6,14 +6,38 @@ body {
   padding: 0;
 }
 
+main::-webkit-scrollbar,
+.friend-list::-webkit-scrollbar {
+  width: 12px;
+}
+
+main::-webkit-scrollbar-thumb,
+.friend-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+main::-webkit-scrollbar-track,
+.friend-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 #inputSearchContainer {
   position: relative;
 }
 
-header div i {
+header div button i {
   color: #fdfdfd;
+}
+
+header div button {
   position: absolute;
   left: 15px;
+  top: 9px;
+  opacity: 50%;
+}
+
+header div button:hover {
+  opacity: 100%;
 }
 
 header div input {
