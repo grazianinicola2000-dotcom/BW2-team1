@@ -1,3 +1,6 @@
+let query = "";
+
+
 function cardColorsGenerator() {
   const cardColors = [
     "#e13300",
@@ -27,22 +30,65 @@ function cardColorsGenerator() {
 
 async function tokenSearch() {
   const searchBar = document.querySelector("input");
+  const searchButton = document.querySelector(".bg-transparent.border-0.m-0.p-0");
+  
 
-  searchButton.addEventListener("click", (e) => {
-    let query = "";
+  searchButton.addEventListener("click", async (e) => {
     let urlAPI = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
-
     e.preventDefault();
     if (searchBar.value.toLowerCase() == "") {
       alert("inserisci un'artista o un brano");
     } else {
-      query = searchBar.value;
 
+      query = searchBar.value;
       urlAPI = urlAPI + query;
-      console.log(urlAPI);
-      getData(urlAPI);
+      const dataToken = await getData(urlAPI);
+
+      populateCard(dataToken.data);
+      generateSongsCard(dataToken.data);
+      ///
     }
   });
+}
+
+async function generateSongsCard(data) {
+  const songsContainer = document.querySelector("#songsContainer");
+songsContainer.innerHTML = '<h3>Songs</h3>'
+  for (let i = 0; i < 4; i++) {
+    let duration = await secondsToMinutes(data[i]);
+    songsContainer.innerHTML += `
+  <div class="d-flex p-2 rounded-2 searcheSongsContainer">
+                <img class="songCover me-2" src="${data[i].album.cover_medium}" alt="song_cover" />
+                <div class="d-flex justify-content-between flex-grow-1 align-items-center">
+                  <div>
+                    <h4 class="m-0">${data[i].title}</h4>
+                    <div class="d-flex">
+                      <i class="bi bi-explicit-fill"></i>
+                      <p class="m-0 p-0">${data[i].artist.name}</p>
+                    </div>
+                  </div>
+                  <p class="m-0">${duration}</p>
+                </div>
+              </div>
+              `;
+  }
+}
+
+async function secondsToMinutes(data) {
+  let duration = await data.duration;
+  let minutes = Math.floor(duration / 60);
+  let seconds = duration % 60;
+  console.log(seconds);
+
+  let finalDuration = minutes.toString() + ":" + seconds.toString();
+  return finalDuration;
+}
+
+function populateCard(data) {
+  const artistImage = document.querySelector("#artistProfileImg");
+  const artistName = document.querySelector("#artistName");
+  artistImage.src = data[0].artist.picture_medium;
+  artistName.innerText = data[0].artist.name;
 }
 
 async function getData(searchAPI) {
@@ -51,7 +97,7 @@ async function getData(searchAPI) {
     if (!response.ok) {
       throw new Error("Errore");
     }
-    const data = response.json();
+    const data = await response.json();
     console.log(data);
     return data;
   } catch (error) {
