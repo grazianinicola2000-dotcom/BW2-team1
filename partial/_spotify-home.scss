@@ -1,0 +1,174 @@
+:root {
+  --sp-card-bg: rgba(255, 255, 255, 0.08); /* sfondo | HTML: globale (body riga 12 / main riga 13) */
+  --sp-card-border: rgba(255, 255, 255, 0.1); /* bordo | HTML: globale (body riga 12 / main riga 13) */
+  --sp-card-shadow: rgba(0, 0, 0, 0.45); /* ombra | HTML: globale (body riga 12 / main riga 13) */
+  --sp-tile-border: rgba(255, 255, 255, 0.1); /* tile | HTML: globale (body riga 12 / main riga 13) */
+}
+
+/* CARD PLAYLIST GRANDI → HTML righe: 164, 201 */
+.sp-playlist-card {
+  /* card */
+  background: var(--sp-card-bg); /* colore */
+  box-shadow: 0 18px 40px var(--sp-card-shadow); /* profondità */
+  overflow: hidden; /* taglio */
+
+  --sp-glow: rgba(0, 0, 0, 0); /* base */
+
+  &::before {
+    /* glow */
+    content: ""; /* crea */
+    position: absolute; /* overlay */
+    inset: -60px; /* esteso */
+    background: radial-gradient(circle at 10% 15%, var(--sp-glow) 0%, rgba(0, 0, 0, 0) 55%); /* luce */
+    filter: blur(14px); /* sfocatura */
+    opacity: 0.95; /* intensità */
+    pointer-events: none; /* ignora */
+  }
+
+  &::after {
+    /* bordo */
+    content: ""; /* crea */
+    position: absolute; /* overlay */
+    inset: 0; /* pieno */
+    border-radius: inherit; /* curva */
+    box-shadow: 0 0 0 1px var(--sp-card-border) inset; /* contorno */
+    pointer-events: none; /* ignora */
+  }
+}
+
+/* GLOW VARIANTI → HTML:
+   - .sp-glow-warm: riga 164
+   - .sp-glow-neutral: riga 201 */
+.sp-glow-warm {
+  /* caldo */
+  --sp-glow: rgba(255, 90, 70, 0.4); /* rosso */
+}
+
+.sp-glow-neutral {
+  /* neutro */
+  --sp-glow: rgba(255, 255, 255, 0.1); /* bianco */
+}
+
+/* TESTI CARD → HTML:
+   - .sp-subtitle: righe 174, 211
+   - .sp-title: righe 175, 212 */
+.sp-subtitle {
+  /* etichetta */
+  font-size: 0.85rem; /* piccolo */
+  line-height: 1.2; /* aria */
+  margin-top: 0.1rem; /* spazio */
+}
+
+.sp-title {
+  /* titolo */
+  font-size: 1.55rem; /* grande */
+  line-height: 1.12; /* stretto */
+}
+
+/* ICONE → HTML righe: 184, 185, 218, 219 */
+.sp-icon {
+  /* icona */
+  font-size: 1.45rem; /* misura */
+  line-height: 1; /* blocco */
+}
+
+/* NUMERO BRANI → HTML righe: 189, 223 */
+.sp-meta {
+  /* numero */
+  font-size: 0.95rem; /* medio */
+}
+
+/* BOTTONE PLAY → HTML righe: 191, 225 */
+.sp-play-btn {
+  /* play */
+  width: 42px; /* larghezza */
+  height: 42px; /* altezza */
+  border: 0; /* niente */
+  border-radius: 999px; /* tondo */
+  background: rgba(0, 0, 0, 0.35); /* scuro */
+  display: inline-flex; /* flex */
+  align-items: center; /* centro */
+  justify-content: center; /* centro */
+
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; /* bordo */
+
+  i {
+    /* icona */
+    color: #fff; /* bianco */
+    font-size: 1.6rem; /* grande */
+    line-height: 1; /* pulito */
+    margin-left: 2px; /* shift */
+  }
+}
+
+/* COLLAGE 2x2 → HTML:
+   - .sp-collage: righe 166, 203
+   - .sp-collage__tile: righe 167–170, 204–207 */
+.sp-collage {
+  /* griglia */
+  width: 132px; /* misura */
+  aspect-ratio: 1 / 1; /* quadrato */
+  display: grid; /* grid */
+  grid-template-columns: 1fr 1fr; /* colonne */
+  grid-template-rows: 1fr 1fr; /* righe */
+  gap: 0; /* unito */
+
+  overflow: hidden; /* taglio */
+
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; /* cornice */
+}
+
+.sp-collage__tile {
+  /* tile */
+  position: relative; /* contesto */
+  overflow: hidden; /* taglio */
+
+  img {
+    /* immagine */
+    width: 100%; /* pieno */
+    height: 100%; /* pieno */
+    display: block; /* blocco */
+    object-fit: cover; /* crop */
+  }
+
+  &::after {
+    /* bordo */
+    content: ""; /* crea */
+    position: absolute; /* overlay */
+    inset: 0; /* pieno */
+    pointer-events: none; /* ignora */
+    box-shadow: 0 0 0 1px var(--sp-tile-border) inset; /* linea */
+  }
+}
+
+/* TRE PUNTINI → HTML righe: 61, 83, 105, 140, 153 */
+.sp-ellipsis {
+  /* menu */
+  text-decoration: none; /* niente */
+
+  &:focus-visible {
+    /* focus */
+    outline: 2px solid rgba(255, 255, 255, 0.35); /* bordo */
+    outline-offset: 3px; /* distanza */
+    border-radius: 999px; /* tondo */
+  }
+}
+
+/* HOVER: INGRANDIMENTO CARD */
+
+/* Card piccole → HTML: righe 45, 68, 90, 112, 125, 147 */
+.row.row-cols-2.gx-4.gy-4.mt-2 .col > a {
+  position: relative; /* livello */
+  transition: transform 0.18s ease; /* animazione */
+  will-change: transform; /* performance */
+}
+
+.row.row-cols-2.gx-4.gy-4.mt-2 .col > a:hover {
+  transform: scale(1.03); /* zoom */
+  z-index: 2; /* sopra */
+}
+
+.row.row-cols-2.gx-4.gy-4.mt-2 .col > a:focus-visible {
+  transform: scale(1.03); /* zoom */
+  z-index: 2; /* sopra */
+}
