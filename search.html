@@ -17,6 +17,7 @@
     <title>Search</title>
   </head>
   <body>
+    <!-- INIZIO SIDE BAR DI SINISTRA -->
     <div class="overflow-hidden">
       <div class="row vh-100 g-0">
         <nav class="col-3 d-none d-lg-flex flex-column p-3 bg-black border-end border-dark h-100">
@@ -84,14 +85,90 @@
           </div>
         </nav>
 
-        <main class="col-12 col-lg-7 bg-dark-main p-4 overflow-y-auto h-100">
+        <!-- FINE SIDE BAR DI SINISTRA -->
+        <!-- INIZIO HEADER CON INPUT RICERCA -->
+
+        <main class="row col-12 col-lg-7 bg-dark-main p-4 overflow-y-auto h-100">
           <header class="row">
             <h1 class="col-12 m-0 p-0 mb-5">Cerca</h1>
             <div id="inputSearchContainer" class="d-flex align-items-center col-12 m-0 p-0">
-              <i class="fa-solid fa-magnifying-glass m-0 p-0 fs-1"></i>
+              <button class="bg-transparent border-0 m-0 p-0"><i class="bi bi-search m-0 p-0 fs-1"></i></button>
               <input type="text" placeholder="Cosa vuoi ascoltare?" class="border-0 w-100 rounded-2 ms-0" />
             </div>
           </header>
+
+          <!-- FINE HEADER CON INPUT RICERCA -->
+          <!-- INIZIO CARD RISULTATI -->
+
+          <section id="searchResults" class="row row-cols-1 row-cols-lg-2 mt-5">
+            <div class="mb-5">
+              <h3>Top result</h3>
+              <div id="searchedArtistContainer" class="container-fluid d-flex flex-column rounded-3 ps-4">
+                <img id="artistProfileImg" src="https://picsum.photos/200/200" class="rounded-circle my-4" alt="artist_profile" />
+                <h2 id="artistName" class="m-0">Salmo</h2>
+                <p class="mt-0">Artist</p>
+              </div>
+            </div>
+            <div>
+              <h3>Songs</h3>
+              <div id="searcheSongsContainer" class="d-flex p-2 rounded-2">
+                <img class="songCover me-2" src="https://picsum.photos/200/200" alt="song_cover" />
+                <div class="d-flex justify-content-between flex-grow-1 align-items-center">
+                  <div>
+                    <h4 class="m-0"></h4>
+                    <div class="d-flex">
+                      <i class="bi bi-explicit-fill"></i>
+                      <p class="m-0 p-0"></p>
+                    </div>
+                  </div>
+                  <p class="m-0"></p>
+                </div>
+              </div>
+              <div id="searcheSongsContainer" class="d-flex p-2 rounded-2">
+                <img class="songCover me-2" src="https://picsum.photos/200/200" alt="song_cover" />
+                <div class="d-flex justify-content-between flex-grow-1 align-items-center">
+                  <div>
+                    <h4 class="m-0"></h4>
+                    <div class="d-flex">
+                      <i class="bi bi-explicit-fill"></i>
+                      <p class="m-0 p-0"></p>
+                    </div>
+                  </div>
+                  <p class="m-0"></p>
+                </div>
+              </div>
+              <div id="searcheSongsContainer" class="d-flex p-2 rounded-2">
+                <img class="songCover me-2" src="https://picsum.photos/200/200" alt="song_cover" />
+                <div class="d-flex justify-content-between flex-grow-1 align-items-center">
+                  <div>
+                    <h4 class="m-0"></h4>
+                    <div class="d-flex">
+                      <i class="bi bi-explicit-fill"></i>
+                      <p class="m-0 p-0"></p>
+                    </div>
+                  </div>
+                  <p class="m-0"></p>
+                </div>
+              </div>
+              <div id="searcheSongsContainer" class="d-flex p-2 rounded-2">
+                <img class="songCover me-2" src="https://picsum.photos/200/200" alt="song_cover" />
+                <div class="d-flex justify-content-between flex-grow-1 align-items-center">
+                  <div>
+                    <h4 class="m-0"></h4>
+                    <div class="d-flex">
+                      <i class="bi bi-explicit-fill"></i>
+                      <p class="m-0 p-0"></p>
+                    </div>
+                  </div>
+                  <p class="m-0"></p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- FINE CARD RISULTATI -->
+          <!-- INIZIO SEZIONE SFOGLIA -->
+
           <section class="d-flex flex-column align-items-center">
             <h3 class="mt-5">Sfoglia tutto</h3>
             <nav id="genresNav" class="row w-100 g">
@@ -291,6 +368,9 @@
           </section>
         </main>
 
+        <!-- FINE SEZIONE SFOGLIA -->
+        <!-- INIZIO SIDE BAR DI DESTRA "FRIEND ACTIVITY" -->
+
         <aside class="col-2 d-none d-lg-flex flex-column p-3 bg-black border-start border-dark h-100">
           <div class="d-flex justify-content-between align-items-center mb-4">
             <span class="fw-bold small">Friend Activity</span>
@@ -340,6 +420,8 @@
         </aside>
       </div>
     </div>
+
+    <!-- FINE SIDE BAR "FRIEND ACTIVITY" -->
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
