@@ -30,22 +30,40 @@ function cardColorsGenerator() {
 async function tokenSearch() {
   const searchBar = document.querySelector("input");
   const searchButton = document.querySelector(".bg-transparent.border-0.m-0.p-0");
-
+  const spinner = document.querySelector(".spinner-border.me-3");
+  spinner.classList.add("d-none");
   searchButton.addEventListener("click", async (e) => {
     let urlAPI = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
+
     e.preventDefault();
     if (searchBar.value.toLowerCase() == "") {
-      alert("inserisci un'artista o un brano");
+      addAnimationSearchBar(searchBar);
     } else {
+      spinner.classList.remove("d-none");
+      searchBar.classList.add("border-0")
       query = searchBar.value;
       urlAPI = urlAPI + query;
       const dataToken = await getData(urlAPI);
-
+      if (dataToken) {
+        spinner.classList.add("d-none");
+        searchBar.classList.remove("border","border-danger")
+      }
       populateCard(dataToken.data);
       generateSongsCard(dataToken.data);
       ///
     }
   });
+}
+
+function addAnimationSearchBar(searchBar) {
+  searchBar.classList.remove("border-0")
+  searchBar.classList.add("horizontal-shaking");
+  searchBar.classList.add("border","border-danger");
+
+  setTimeout(() =>{
+    searchBar.classList.remove("horizontal-shaking")
+  }
+  , 600);
 }
 
 async function generateSongsCard(data) {

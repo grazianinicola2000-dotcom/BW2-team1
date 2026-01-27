@@ -138,3 +138,18 @@ header div form input::placeholder {
   -webkit-line-clamp: 1;
   overflow: hidden;
 }/*# sourceMappingURL=search.css.map */
+
+
+.horizontal-shaking {
+animation-name: 'horizontal-shaking';
+animation-duration: 0.5s;
+}
+
+
+@keyframes horizontal-shaking {
+ 0% { transform: translateX(0) }
+ 25% { transform: translateX(10px) }
+ 50% { transform: translateX(-10px) }
+ 75% { transform: translateX(10px) }
+ 100% { transform: translateX(0) }
+}
