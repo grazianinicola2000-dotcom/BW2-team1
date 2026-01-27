@@ -196,3 +196,17 @@ header div form input::placeholder {
 .searchedAlbum:hover {
   background-color: #282828;
 }/*# sourceMappingURL=search.css.map */
+
+
+
+.horizontal-shaking{
+  animation-name: 'horizontal-shaking';
+  animation-duration: 0.3s;
+}
+@keyframes horizontal-shaking {
+ 0% { transform: translateX(0) }
+ 25% { transform: translateX(5px) }
+ 50% { transform: translateX(-5px) }
+ 75% { transform: translateX(5px) }
+ 100% { transform: translateX(0) }
+}
