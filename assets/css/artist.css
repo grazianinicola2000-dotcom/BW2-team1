@@ -1,0 +1,103 @@
+/* colori base */
+/* BODY */
+body {
+  background-color: #121212;
+  color: white;
+}
+
+/* ===== SIDEBAR ===== */
+.text-secondary-custom {
+  color: #b3b3b3;
+}
+
+.liked-gradient {
+  background: linear-gradient(135deg, #450af5, #c4efd9);
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.episodes-bg {
+  background-color: #006450;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.icon-square {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.extra-small {
+  font-size: 0.7rem;
+}
+
+.smaller-text {
+  font-size: 0.8rem;
+}
+
+/* ===== MAIN ARTIST HEADER ===== */
+.artist-header {
+  position: relative;
+  overflow: hidden;
+}
+.artist-header img {
+  width: 100%;
+}
+.artist-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.8));
+}
+
+/* pulsante back */
+.back-button {
+  width: 40px;
+  height: 40px;
+  opacity: 0.75;
+}
+
+/* ===== ACTION BAR ===== */
+.play-icon {
+  font-size: 3.5rem;
+  color: #1db954;
+}
+
+.shuffle-icon {
+  color: #1db954;
+}
+
+/* ===== BRANI CHE TI PIACCIONO ===== */
+.artist-liked img {
+  width: 55px;
+  height: 55px;
+}
+.artist-liked .liked-badge {
+  width: 20px;
+  height: 20px;
+  font-size: 0.6rem;
+}
+
+/* ===== POPULAR SONGS ===== */
+.song-cover {
+  width: 45px;
+  height: 45px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* ===== FRIEND ACTIVITY ===== */
+.friend-list {
+  overflow-y: auto;
+}
+
+/* ===== PLAYER BOTTOM ===== */
+.player img {
+  width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=artist.css.map */
