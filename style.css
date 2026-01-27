@@ -12362,27 +12362,28 @@ textarea.form-control-lg {
   will-change: transform; /* performance */
 }
 
-.row.row-cols-2.gx-4.gy-4.mt-2 .col > a:hover {
-  transform: scale(1.03); /* zoom */
-  z-index: 2; /* sopra */
-}
-
+.row.row-cols-2.gx-4.gy-4.mt-2 .col > a:hover,
 .row.row-cols-2.gx-4.gy-4.mt-2 .col > a:focus-visible {
   transform: scale(1.03); /* zoom */
   z-index: 2; /* sopra */
 }
 
+/* FIX OVERFLOW → evita tagli/spazi strani nei layout flex */
+main {
+  min-width: 0; /* permette al contenuto di restringersi senza creare overflow orizzontale */
+}
+
+/* NASCONDI SCROLLBAR */
+main,
+.friend-list,
+.playlist-scroll {
+  -ms-overflow-style: none; /* nasconde barra */
+  scrollbar-width: none; /* nasconde barra */
+}
+
 main::-webkit-scrollbar,
-.friend-list::-webkit-scrollbar {
-  width: 12px;
-}
-
-main::-webkit-scrollbar-thumb,
-.friend-list::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-main::-webkit-scrollbar-track,
-.friend-list::-webkit-scrollbar-track {
-  background: transparent;
+.friend-list::-webkit-scrollbar,
+.playlist-scroll::-webkit-scrollbar {
+  width: 0; /* niente barra */
+  height: 0; /* anche orizzontale */
 }/*# sourceMappingURL=style.css.map */
