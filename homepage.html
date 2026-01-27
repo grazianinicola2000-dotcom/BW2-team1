@@ -77,8 +77,8 @@
           </div>
         </nav>
 
-        <main class="row col-12 col-lg-7 pt-3 pb-4 overflow-y-auto h-100">
-          <!-- SEZIONE 1: TOP BAR -->
+        <!-- ✅ FIX: tolto "row" e reso colonna + scroll -->
+        <main class="col-12 col-lg-7 d-flex flex-column pt-3 pb-4 px-2 h-100 overflow-y-auto">
           <header class="d-flex justify-content-between align-items-center py-2 mb-3">
             <h1 class="m-0 fw-bold fs-2 text-white">Buonasera</h1>
 
@@ -100,15 +100,12 @@
             </div>
           </header>
 
-          <!-- SEZIONE 2: TAB -->
           <nav class="d-flex justify-content-start gap-5 ps-1 mb-3">
             <a class="text-white fw-semibold fs-5 text-decoration-none" href="#">Musica</a>
             <a class="text-white-50 fw-semibold fs-5 text-decoration-none" href="#">Podcast e show</a>
           </nav>
 
-          <!-- SEZIONE 3: TOP GRID (6 box) -->
           <section class="row row-cols-2 gx-4 gy-4 mt-2">
-            <!-- Card 1 -->
             <div class="col">
               <a href="#" class="d-flex align-items-center gap-3 text-white text-decoration-none">
                 <div class="d-flex flex-column rounded-3 overflow-hidden flex-shrink-0">
@@ -124,14 +121,12 @@
 
                 <div class="fw-semibold lh-sm flex-grow-1">early stage<br />emily syndr...</div>
 
-                <!-- ✅ 3 puntini: solo icona (no dropdown) -->
                 <button class="btn btn-link p-0 text-success sp-ellipsis ms-auto" type="button" aria-label="Opzioni brano">
                   <i class="bi bi-three-dots"></i>
                 </button>
               </a>
             </div>
 
-            <!-- Card 2 -->
             <div class="col">
               <a href="#" class="d-flex align-items-center gap-3 text-white text-decoration-none">
                 <div class="d-flex flex-column rounded-3 overflow-hidden flex-shrink-0">
@@ -153,7 +148,6 @@
               </a>
             </div>
 
-            <!-- Card 3 -->
             <div class="col">
               <a href="#" class="d-flex align-items-center gap-3 text-white text-decoration-none">
                 <div class="d-flex flex-column rounded-3 overflow-hidden flex-shrink-0">
@@ -175,7 +169,6 @@
               </a>
             </div>
 
-            <!-- Card 4 -->
             <div class="col">
               <a href="#" class="d-flex align-items-center gap-3 text-white text-decoration-none">
                 <div class="rounded-3 flex-shrink-0 d-flex align-items-center justify-content-center bg-primary bg-gradient" style="width: 64px; height: 64px">
@@ -188,7 +181,6 @@
               </a>
             </div>
 
-            <!-- Card 5 -->
             <div class="col">
               <a href="#" class="d-flex align-items-center gap-3 text-white text-decoration-none">
                 <div class="d-flex flex-column rounded-3 overflow-hidden flex-shrink-0">
@@ -210,7 +202,6 @@
               </a>
             </div>
 
-            <!-- Card 6 -->
             <div class="col">
               <a href="#" class="d-flex align-items-center gap-3 text-white text-decoration-none">
                 <img src="./assets/imgs/main/image-12.jpg" width="64" height="64" class="d-block rounded-3 object-fit-cover flex-shrink-0" alt="" />
@@ -224,9 +215,7 @@
             </div>
           </section>
 
-          <!-- SEZIONE 4: CARD GRANDI (Playlist) -->
           <section class="row row-cols-1 g-3 mt-3 sp-bigcards">
-            <!-- CARD 1 -->
             <div class="col">
               <article class="sp-playlist-card sp-glow-warm rounded-4 p-3 position-relative overflow-hidden">
                 <div class="d-flex gap-3 align-items-start">
@@ -263,7 +252,6 @@
               </article>
             </div>
 
-            <!-- CARD 2 -->
             <div class="col">
               <article class="sp-playlist-card sp-glow-neutral rounded-4 p-3 position-relative overflow-hidden">
                 <div class="d-flex gap-3 align-items-start">
