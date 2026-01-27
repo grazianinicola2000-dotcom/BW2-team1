@@ -62,7 +62,7 @@ songsContainer.innerHTML = '<h3>Songs</h3>'
                 <img class="songCover me-2" src="${data[i].album.cover_medium}" alt="song_cover" />
                 <div class="d-flex justify-content-between flex-grow-1 align-items-center">
                   <div>
-                    <h4 class="m-0">${data[i].title}</h4>
+                    <h4 class="searchedSongTitle m-0">${data[i].title}</h4>
                     <div class="d-flex explicit${i}">
                       
                       
@@ -73,7 +73,7 @@ songsContainer.innerHTML = '<h3>Songs</h3>'
               </div>
               `;
               let explicit = document.querySelector('.explicit'+ i)
-              data[i].explicit_content_lyrics == 1 ? explicit.innerHTML = `<i class="bi bi-explicit-fill"></i><p class="m-0 p-0">${data[i].artist.name}</p>` : `<p class="m-0 p-0">${data[i].artist.name}</p>`
+              data[i].explicit_content_lyrics == 1 ? explicit.innerHTML = `<i class="bi bi-explicit-fill"></i><p class="searchedArtistName m-0 p-0">${data[i].artist.name}</p>` : `<p class="searchedArtistName m-0 p-0">${data[i].artist.name}</p>`
               
   }
   
