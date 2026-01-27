@@ -25,22 +25,29 @@ main::-webkit-scrollbar-track,
   position: relative;
 }
 
-header div button i {
+header div form button i {
   color: #fdfdfd;
 }
 
-header div button {
+header div form button {
   position: absolute;
   left: 15px;
-  top: 9px;
+  top: 11px;
   opacity: 50%;
+  font-size: 35px;
 }
 
-header div button:hover {
+header div form div {
+  position: absolute;
+  right: 0;
+  top: 14px;
+}
+
+header div form button:hover {
   opacity: 100%;
 }
 
-header div input {
+header div form input {
   background-color: #282828;
   color: #fdfdfd;
   font-family: "Circular";
@@ -48,11 +55,11 @@ header div input {
   font-size: 1.4rem;
 }
 
-header div input::-moz-placeholder {
+header div form input::-moz-placeholder {
   font-size: 1.4rem;
 }
 
-header div input::placeholder {
+header div form input::placeholder {
   font-size: 1.4rem;
 }
 
