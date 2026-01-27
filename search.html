@@ -19,7 +19,7 @@
   <body>
     <!-- INIZIO SIDE BAR DI SINISTRA -->
     <div class="overflow-hidden">
-      <div class="row vh-100 g-0">
+      <div class="row vh-100 g-0 justify-content-center">
         <nav class="col-3 d-none d-lg-flex flex-column p-3 bg-black border-end border-dark h-100">
           <div class="mb-4 ps-2">
             <i class="bi bi-three-dots fs-4 text-secondary"></i>
@@ -88,14 +88,14 @@
         <!-- FINE SIDE BAR DI SINISTRA -->
         <!-- INIZIO HEADER CON INPUT RICERCA -->
 
-        <main class="row col-12 col-lg-7 p-4 overflow-y-auto h-100">
-          <header class="row">
+        <main class="row col-12 col-lg-7 p-4 overflow-y-auto h-100 justify-content-center">
+          <header id="header" class="row">
             <h1 class="col-12 m-0 p-0 mb-5">Cerca</h1>
             <div id="inputSearchContainer" class="d-flex col-12 m-0 p-0">
-              <form class="w-100 ms-0">
+              <form class="w-100 ms-0 d-flex justify-content-center">
                 <button class="bg-transparent border-0 m-0 p-0"><i class="bi bi-search m-0 p-0"></i></button>
-                <input type="text" placeholder="Cosa vuoi ascoltare?" class="border-0 w-100 rounded-2 ms-0" required />
-                <div class="spinner-border me-3" style="width: 42px; height: 42px" role="status">
+                <input type="text" placeholder="Cosa vuoi ascoltare?" class="border-0 w-97 rounded-2 ms-0" required />
+                <div class="spinner-border me-3" style="width: 40px; height: 40px" role="status">
                   <span class="visually-hidden">Loading...</span>
                 </div>
               </form>

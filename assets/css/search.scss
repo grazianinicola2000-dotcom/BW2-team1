@@ -29,9 +29,13 @@ header div form button i {
   color: #fdfdfd;
 }
 
+#header {
+  margin-inline: 12px;
+}
+
 header div form button {
   position: absolute;
-  left: 15px;
+  left: 30px;
   top: 11px;
   opacity: 50%;
   font-size: 35px;
@@ -39,7 +43,7 @@ header div form button {
 
 header div form div {
   position: absolute;
-  right: 0;
+  right: 15px;
   top: 14px;
 }
 
