@@ -203,6 +203,19 @@ header div form input::placeholder {
   animation-name: 'horizontal-shaking';
   animation-duration: 0.3s;
 }
+
+
+.bi-three-dots {
+  transition: all .2s ease-in-out;
+ 
+}
+
+.bi-three-dots:hover {
+     transform: scale(1.2);
+  }
+
+
+
 @keyframes horizontal-shaking {
  0% { transform: translateX(0) }
  25% { transform: translateX(5px) }
