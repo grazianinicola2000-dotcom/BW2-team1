@@ -96,7 +96,7 @@ header div input::placeholder {
 
 #searchedArtistContainer {
   background-color: #1e1e1e;
-  height: 264px;
+  height: 275px;
 }
 
 #searchedArtistContainer:hover {
@@ -127,4 +127,3 @@ header div input::placeholder {
   -webkit-line-clamp: 1;
   overflow: hidden;
 }/*# sourceMappingURL=search.css.map */
-
