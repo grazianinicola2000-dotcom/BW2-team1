@@ -208,3 +208,12 @@ header div form input::placeholder {
 .searchedAlbum:hover {
   background-color: #282828;
 }
+
+.searchedAlbum h5 {
+  width: 170px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+
+  overflow: hidden;
+}
