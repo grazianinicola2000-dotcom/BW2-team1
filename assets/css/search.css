@@ -164,4 +164,26 @@ header div form input::placeholder {
 }
 .mobile-nav-item i {
   font-size: 1.2rem;
+}
+
+.searchedAlbum img {
+  width: 180px;
+}
+
+.searchedAlbum p,
+.searchedAlbum p a {
+  color: #aaaaaa;
+  text-decoration: none;
+}
+
+.searchedAlbum p a:hover {
+  text-decoration: underline;
+}
+
+.searchedAlbum {
+  padding: 12px;
+}
+
+.searchedAlbum:hover {
+  background-color: #282828;
 }/*# sourceMappingURL=search.css.map */

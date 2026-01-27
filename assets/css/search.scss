@@ -175,3 +175,27 @@ header div form input::placeholder {
     font-size: 1.2rem;
   }
 }
+
+// album container
+
+.searchedAlbum img {
+  width: 180px;
+}
+
+.searchedAlbum p,
+.searchedAlbum p a {
+  color: #aaaaaa;
+  text-decoration: none;
+}
+
+.searchedAlbum p a:hover {
+  text-decoration: underline;
+}
+
+.searchedAlbum {
+  padding: 12px;
+}
+
+.searchedAlbum:hover {
+  background-color: #282828;
+}
