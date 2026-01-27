@@ -139,6 +139,15 @@ header div form input::placeholder {
   overflow: hidden;
 }
 
+.searchedArtistName a {
+  color: #aaaaaa;
+  text-decoration: none;
+}
+
+.searchedArtistName a:hover {
+  text-decoration: underline;
+}
+
 .mobile-nav {
   position: fixed;
   left: 0;
