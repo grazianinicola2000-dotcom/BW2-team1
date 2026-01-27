@@ -25,22 +25,33 @@ main::-webkit-scrollbar-track,
   position: relative;
 }
 
-header div button i {
+header div form button i {
   color: #fdfdfd;
 }
 
-header div button {
-  position: absolute;
-  left: 15px;
-  top: 9px;
-  opacity: 50%;
+#header {
+  margin-inline: 12px;
 }
 
-header div button:hover {
+header div form button {
+  position: absolute;
+  left: 30px;
+  top: 11px;
+  opacity: 50%;
+  font-size: 35px;
+}
+
+header div form div {
+  position: absolute;
+  right: 15px;
+  top: 14px;
+}
+
+header div form button:hover {
   opacity: 100%;
 }
 
-header div input {
+header div form input {
   background-color: #282828;
   color: #fdfdfd;
   font-family: "Circular";
@@ -48,7 +59,7 @@ header div input {
   font-size: 1.4rem;
 }
 
-header div input::placeholder {
+header div form input::placeholder {
   font-size: 1.4rem;
 }
 
@@ -104,7 +115,7 @@ header div input::placeholder {
 
 #searchedArtistContainer {
   background-color: #1e1e1e;
-  height: 264px;
+  height: 275px;
 }
 
 #searchedArtistContainer:hover {
@@ -126,4 +137,13 @@ header div input::placeholder {
 
 .searcheSongsContainer:hover {
   background-color: #282828;
+}
+
+.searchedSongTitle,
+.searchedArtistName {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+
+  overflow: hidden;
 }

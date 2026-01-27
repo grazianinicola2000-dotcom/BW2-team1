@@ -12195,6 +12195,14 @@ textarea.form-control-lg {
   height: 95%;
 }
 
+.w-97 {
+  width: 97%;
+}
+
+.h-97 {
+  height: 97%;
+}
+
 .ls-1 {
   letter-spacing: 0.05rem;
 }
