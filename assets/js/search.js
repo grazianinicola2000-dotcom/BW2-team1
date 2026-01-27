@@ -53,6 +53,8 @@ async function tokenSearch() {
 
 async function generateSongsCard(data) {
   const songsContainer = document.querySelector("#songsContainer");
+  const searchResults = document.querySelector("#searchResults");
+  searchResults.classList.remove("d-none");
 songsContainer.innerHTML = '<h3>Songs</h3>'
   for (let i = 0; i < 4; i++) {
     
@@ -68,12 +70,12 @@ songsContainer.innerHTML = '<h3>Songs</h3>'
                       
                     </div>
                   </div>
-                  <p class="m-0">${duration}</p>
+                  <p class="m-0 ms-3">${duration}</p>
                 </div>
               </div>
               `;
               let explicit = document.querySelector('.explicit'+ i)
-              data[i].explicit_content_lyrics == 1 ? explicit.innerHTML = `<i class="bi bi-explicit-fill"></i><p class="searchedArtistName m-0 p-0">${data[i].artist.name}</p>` : `<p class="searchedArtistName m-0 p-0">${data[i].artist.name}</p>`
+              data[i].explicit_content_lyrics == 1 ? explicit.innerHTML = `<i class="bi bi-explicit-fill"></i><p class="searchedArtistName m-0 p-0 ms-1">${data[i].artist.name}</p>` : `<p class="searchedArtistName m-0 p-0">${data[i].artist.name}</p>`
               
   }
   
