@@ -55,23 +55,29 @@ async function generateSongsCard(data) {
   const songsContainer = document.querySelector("#songsContainer");
 songsContainer.innerHTML = '<h3>Songs</h3>'
   for (let i = 0; i < 4; i++) {
+    
     let duration = await secondsToMinutes(data[i]);
     songsContainer.innerHTML += `
   <div class="d-flex p-2 rounded-2 searcheSongsContainer">
                 <img class="songCover me-2" src="${data[i].album.cover_medium}" alt="song_cover" />
                 <div class="d-flex justify-content-between flex-grow-1 align-items-center">
                   <div>
-                    <h4 class="m-0">${data[i].title}</h4>
-                    <div class="d-flex">
-                      <i class="bi bi-explicit-fill"></i>
-                      <p class="m-0 p-0">${data[i].artist.name}</p>
+                    <h4 class="searchedSongTitle m-0">${data[i].title}</h4>
+                    <div class="d-flex explicit${i}">
+                      
+                      
                     </div>
                   </div>
                   <p class="m-0">${duration}</p>
                 </div>
               </div>
               `;
+              let explicit = document.querySelector('.explicit'+ i)
+              data[i].explicit_content_lyrics == 1 ? explicit.innerHTML = `<i class="bi bi-explicit-fill"></i><p class="searchedArtistName m-0 p-0">${data[i].artist.name}</p>` : `<p class="searchedArtistName m-0 p-0">${data[i].artist.name}</p>`
+              
   }
+  
+
 }
 
 async function secondsToMinutes(data) {
