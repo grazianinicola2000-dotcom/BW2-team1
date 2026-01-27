@@ -126,8 +126,4 @@ header div input::placeholder {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
-}
-
-.d-flex .justify-content-between .flex-grow-1 .align-items-center p {
-  margin-left: 20px;
 }/*# sourceMappingURL=search.css.map */
