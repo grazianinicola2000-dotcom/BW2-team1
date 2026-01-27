@@ -1,20 +1,7 @@
 let query = "";
 
 function cardColorsGenerator() {
-  const cardColors = [
-    "#e13300",
-    "#1e3264",
-    "#e8125c",
-    "#158a08",
-    "#bc5800",
-    "#7a5a95",
-    "#503750",
-    "#2d46b9",
-    "#777777",
-    "#8c1932",
-    "#a56752",
-    "#7d4b32",
-  ];
+  const cardColors = ["#e13300", "#1e3264", "#e8125c", "#158a08", "#bc5800", "#7a5a95", "#503750", "#2d46b9", "#777777", "#8c1932", "#a56752", "#7d4b32"];
 
   const randomIndex = () => {
     return Math.floor(Math.random() * cardColors.length);
@@ -91,9 +78,9 @@ async function generateSongsCard(data) {
     let explicit = document.querySelector(".explicit" + i);
     explicit;
     if (data[i].explicit_content_lyrics > 0) {
-      explicit.innerHTML += `<i class="bi bi-explicit-fill"></i><p class="searchedArtistName m-0 p-0 ms-1">${data[i].artist.name}</p>`;
+      explicit.innerHTML += `<i class="bi bi-explicit-fill"></i><p class="searchedArtistName m-0 p-0 ms-1"><a href="#">${data[i].artist.name}</a href="#"></p>`;
     } else {
-      explicit.innerHTML = `<p class="searchedArtistName m-0 p-0">${data[i].artist.name}</p>`;
+      explicit.innerHTML = `<p class="searchedArtistName m-0 p-0"><a href="#">${data[i].artist.name}</a></p>`;
     }
   }
 }
@@ -104,15 +91,15 @@ async function generateAlbumCard(data) {
   const showOthers = document.querySelector(".mb-3.col-12");
   const generatedOtherIcon = document.createElement("i");
   showOthers.classList.add("d-flex", "justify-content-between");
-  generatedOtherIcon.classList.add("bi", "bi-three-dots", "float-right", "fs-2",'p-2' );
+  generatedOtherIcon.classList.add("bi", "bi-three-dots", "float-right", "fs-2", "p-2");
   showOthers.appendChild(generatedOtherIcon);
-  let numberAlbumShown = 4
+  let numberAlbumShown = 4;
   albumNumber(data, numberAlbumShown);
   generatedOtherIcon.addEventListener("click", () => {
-    if (numberAlbumShown == 4){
-      numberAlbumShown = data.length
+    if (numberAlbumShown == 4) {
+      numberAlbumShown = data.length;
     } else {
-      numberAlbumShown = 4
+      numberAlbumShown = 4;
     }
     albumNumber(data, numberAlbumShown);
   });
@@ -125,7 +112,7 @@ async function albumNumber(data, lengthNumber) {
     albumContainer.innerHTML += `<div class="searchedAlbum rounded-3">
                 <img class="rounded-3 mb-2 px-0 mx-0" src="${data[i].album.cover_medium}" alt="album_cover">
                 <h5 class="m-0 p-0 pt-1 fs-6">${data[i].album.title}</h5>
-                <p class="m-0 p-0 pt-1 fs-8">20${data[i].isrc.slice(5, 7)} · <a href="#">Artista</a></p>
+                <p class="m-0 p-0 pt-1 fs-8">20${data[i].isrc.slice(5, 7)} · <a href="#">${data[i].artist.name}</a></p>
               </div>`;
   }
 }
