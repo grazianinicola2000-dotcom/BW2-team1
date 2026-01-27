@@ -1,6 +1,5 @@
 let query = "";
 
-
 function cardColorsGenerator() {
   const cardColors = [
     "#e13300",
@@ -31,7 +30,6 @@ function cardColorsGenerator() {
 async function tokenSearch() {
   const searchBar = document.querySelector("input");
   const searchButton = document.querySelector(".bg-transparent.border-0.m-0.p-0");
-  
 
   searchButton.addEventListener("click", async (e) => {
     let urlAPI = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
@@ -39,7 +37,6 @@ async function tokenSearch() {
     if (searchBar.value.toLowerCase() == "") {
       alert("inserisci un'artista o un brano");
     } else {
-
       query = searchBar.value;
       urlAPI = urlAPI + query;
       const dataToken = await getData(urlAPI);
@@ -53,9 +50,10 @@ async function tokenSearch() {
 
 async function generateSongsCard(data) {
   const songsContainer = document.querySelector("#songsContainer");
-songsContainer.innerHTML = '<h3>Songs</h3>'
+  const searchResults = document.querySelector("#searchResults");
+  searchResults.classList.remove("d-none");
+  songsContainer.innerHTML = "<h3>Songs</h3>";
   for (let i = 0; i < 4; i++) {
-    
     let duration = await secondsToMinutes(data[i]);
     songsContainer.innerHTML += `
   <div class="d-flex p-2 rounded-2 searcheSongsContainer">
@@ -68,16 +66,18 @@ songsContainer.innerHTML = '<h3>Songs</h3>'
                       
                     </div>
                   </div>
-                  <p class="m-0">${duration}</p>
+                  <p class="m-0 ms-3">${duration}</p>
                 </div>
               </div>
               `;
-              let explicit = document.querySelector('.explicit'+ i)
-              data[i].explicit_content_lyrics == 1 ? explicit.innerHTML = `<i class="bi bi-explicit-fill"></i><p class="searchedArtistName m-0 p-0">${data[i].artist.name}</p>` : `<p class="searchedArtistName m-0 p-0">${data[i].artist.name}</p>`
-              
+    let explicit = document.querySelector(".explicit" + i);
+    explicit;
+    if (data[i].explicit_content_lyrics > 0) {
+      explicit.innerHTML += `<i class="bi bi-explicit-fill"></i><p class="searchedArtistName m-0 p-0 ms-1">${data[i].artist.name}</p>`;
+    } else {
+      explicit.innerHTML = `<p class="searchedArtistName m-0 p-0">${data[i].artist.name}</p>`;
+    }
   }
-  
-
 }
 
 async function secondsToMinutes(data) {
