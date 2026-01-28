@@ -84,66 +84,79 @@ type
 Object */
 
 const renderArtistPage = async (artistId) => {
+  document.getElementById("artist-name").innerText = "Caricamento..."; //aggiunte per non far vedere html di sotto
+  document.getElementById("artist-listeners").innerText = "";
+  document.getElementById("popular-songs-container").innerHTML = "";
   const artistUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`;
-  const tracksUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=5`;
+  const tracksUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=8`;
 
   const artistData = await getData(artistUrl);
   const tracksData = await getData(tracksUrl);
-
   if (artistData && tracksData) {
-    // HEADER
-    document.getElementById("artist-name").innerText = artistData.name;
+    // --- HEADER ARTISTA ---
+    const artistNameElem = document.getElementById("artist-name");
+    artistNameElem.innerText = artistData.name;
+
+    // Applichiamo le classi Bootstrap
+    artistNameElem.className = "fw-black mb-0 text-white lh-1";
+
+    // Applichiamo lo stile GIGANTE via JS per saltare i problemi del file CSS
+    artistNameElem.style.fontSize = "clamp(3.5rem, 12vw, 10rem)";
+    artistNameElem.style.fontWeight = "900";
+    artistNameElem.style.letterSpacing = "-4px";
+    artistNameElem.style.display = "block";
+
+    // Immagine e ascoltatori
     document.getElementById("artist-img").src = artistData.picture_xl;
     document.getElementById("artist-listeners").innerText = `${artistData.nb_fan.toLocaleString()} ascoltatori mensili`;
 
-    // "BRANI CHE TI PIACCIONO" (entrambi gli schermi) ---
-    // testi con classe comune
+    // --- "BRANI CHE TI PIACCIONO" ---
     document.querySelectorAll(".liked-artist-name").forEach((el) => {
       el.innerText = `8 brani di ${artistData.name}`;
     });
 
-    //  le foto usando  ID
+    // Foto liked
     const imgMob = document.getElementById("artist-liked-img-mobile");
     const imgDesk = document.getElementById("artist-liked-img-desktop");
     if (imgMob) imgMob.src = artistData.picture_small;
     if (imgDesk) imgDesk.src = artistData.picture_small;
 
-    //   CANZONI POPOLARI ---
+    // --- CANZONI POPOLARI ---
     const container = document.getElementById("popular-songs-container");
     container.innerHTML = `<h4 class="mb-4 fw-bold text-white">Popolari</h4>`;
 
-    // for per durata
     for (const [index, track] of tracksData.data.entries()) {
-      // Aspetto che la funzione calcoli il tempo corretto
       const duration = await secondsToMinutes(track);
-
-      container.innerHTML += `
-  <div class="row align-items-center mb-3 g-0 song-row">
-    <div class="col-auto text-secondary small pe-3" style="width: 30px">${index + 1}</div>
-    
-    <div class="col d-flex align-items-center overflow-hidden">
-      <img src="${track.album.cover_small}" class="song-cover me-3 flex-shrink-0" alt="${track.title}" />
-      <div class="text-white overflow-hidden">
-        <div class="fw-bold lh-1 text-truncate">${track.title}</div>
-        <div class="small text-secondary d-lg-none">${track.rank.toLocaleString()}</div>
-      </div>
-    </div>
-
-    <div class="col-xxl-3 text-end text-secondary small d-none d-xxl-block px-3">
-      ${track.rank.toLocaleString()}
-    </div>
-
-    <div class="col-auto col-lg-2 text-end text-secondary small d-none d-lg-block pe-3 ms-auto" style="min-width: 70px;">
-      ${duration}
-    </div>
-
-    <div class="col-auto flex-shrink-0">
-      <i class="bi bi-three-dots-vertical text-secondary"></i>
-    </div>
-  </div>
-`;
+      container.innerHTML += `   
+        <div class="row align-items-center mb-3 g-0 song-row position-relative">
+          <div class="col-auto text-secondary small pe-3" style="width: 30px">
+            ${index + 1}
+          </div>
+          <div class="col d-flex align-items-center overflow-hidden">
+            <img src="${track.album.cover_small}" class="song-cover me-3 flex-shrink-0" alt="${track.title}" />
+            <div class="text-white overflow-hidden">
+              <div class="fw-bold lh-1 text-truncate">
+                <a href="#" class="text-white text-decoration-none stretched-link"> 
+                  ${track.title}
+                </a>
+              </div>
+              <div class="small text-secondary d-lg-none mt-1">
+                ${track.rank.toLocaleString()}
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-3 text-end text-secondary small d-none d-xxl-block px-3">
+            ${track.rank.toLocaleString()}
+          </div>
+          <div class="col-auto col-lg-2 text-end text-secondary small d-none d-lg-block pe-3 ms-auto" style="min-width: 70px;">
+            ${duration}
+          </div>
+          <div class="col-auto flex-shrink-0 position-relative" style="z-index: 2;">
+            <i class="bi bi-three-dots-vertical text-secondary"></i>
+          </div>
+        </div>
+      `;
     }
-
     // visualizza altro
     container.innerHTML += `
       <div class="mt-3 ps-2">
