@@ -88,7 +88,7 @@
         <main class="col-12 col-lg-7 bg-dark p-0 pb-5 min-vh-100 main-content">
           <!-- ARTIST HEADER -->
           <div class="container-fluid p-0 artist-header">
-            <img src="./assets/imgs/main/image-10.jpg" class="artist-hero-img" alt="Artist" />
+            <img src="./assets/imgs/main/image-10.jpg" class="artist-hero-img" alt="Artist" id="artist-img" />
 
             <div
               class="position-absolute top-0 start-0 w-100 p-3 d-none d-lg-flex justify-content-between align-items-center header-nav-container"
@@ -126,9 +126,9 @@
                 <span class="text-white fw-semibold small" style="font-size: 0.85rem">Artista verificato</span>
               </div>
 
-              <h1 class="display-3 display-lg-1 fw-bold mb-3 text-white">Pinguini Tattici Nucleari</h1>
+              <h1 class="display-3 display-lg-1 fw-bold mb-3 text-white" id="artist-name">Pinguini Tattici Nucleari</h1>
 
-              <p class="text-white fw-semibold mb-0 mb-lg-2" style="font-size: 0.9rem">3.961.093 ascoltatori mensili</p>
+              <p class="text-white fw-semibold mb-0 mb-lg-2" style="font-size: 0.9rem" id="artist-listeners">3.961.093 ascoltatori mensili</p>
             </div>
           </div>
 
@@ -154,10 +154,10 @@
           </div>
 
           <!-- BRANI CHE TI PIACCIONO -->
-          <div class="container-fluid px-4 mb-4 artist-liked">
+          <div class="container-fluid px-4 mb-4 artist-liked d-lg-none">
             <div class="d-flex align-items-center gap-3 position-relative py-2">
               <div class="position-relative">
-                <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle" alt="Artist" />
+                <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle" alt="Artist " id="artist-liked-img-mobile" />
 
                 <div
                   class="liked-badge position-absolute bottom-0 end-0 bg-success rounded-circle d-flex align-items-center justify-content-center border border-2 border-dark"
@@ -168,7 +168,7 @@
 
               <div>
                 <h6 class="mb-0 fw-bold">Brani che ti piacciono</h6>
-                <small class="text-secondary">8 brani di Pinguini Tattici Nucleari</small>
+                <small class="text-secondary liked-artist-name">8 brani di Pinguini Tattici Nucleari</small>
               </div>
             </div>
           </div>
@@ -176,7 +176,7 @@
           <!-- POPOLARI -->
           <div class="container-fluid px-4 mb-3">
             <div class="row g-4">
-              <div class="col-12 col-lg-8">
+              <div class="col-12 col-lg-8" id="popular-songs-container">
                 <h4 class="mb-4 fw-bold text-white">Popolari</h4>
 
                 <div class="row align-items-center mb-3 g-0 song-row">
@@ -235,11 +235,12 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-lg-4">
+              <!-- BRANI CHE TI PIACCIONO 2 PER RESPONSIVE -->
+              <div class="col-12 col-lg-4 d-none d-lg-block">
                 <h4 class="mb-4 fw-bold text-white d-none d-lg-block">Brani che ti piacciono</h4>
                 <div class="d-flex align-items-center gap-3 py-2">
                   <div class="position-relative">
-                    <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle" width="70" height="70" alt="Artist" />
+                    <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle" width="70" height="70" alt="Artist" id="artist-liked-img-desktop" />
                     <div
                       class="liked-badge position-absolute bottom-0 end-0 bg-success rounded-circle d-flex align-items-center justify-content-center border border-2 border-dark"
                       style="width: 24px; height: 24px"
@@ -249,7 +250,7 @@
                   </div>
                   <div class="text-white">
                     <h6 class="mb-0 fw-bold">Brani che ti piacciono</h6>
-                    <small class="text-secondary">8 brani di Pinguini Tattici Nucleari</small>
+                    <small class="text-secondary liked-artist-name">8 brani di Pinguini Tattici Nucleari</small>
                   </div>
                 </div>
               </div>
@@ -394,5 +395,6 @@
         <span>La tua libreria</span>
       </a>
     </nav>
+    <script src="./assets/js/artist.js"></script>
   </body>
 </html>
