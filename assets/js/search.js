@@ -76,6 +76,7 @@ function saveID() {
 
 async function playSong(songs) {
   const songContainerChildren = document.querySelectorAll(".searcheSongsContainer");
+  const play = document.querySelector(".bi-play-circle-fill");
   songContainerChildren.forEach((element, index) => {
     element.addEventListener("click", () => {
       if (currentAudio) {
@@ -88,7 +89,20 @@ async function playSong(songs) {
       currentAudio.play();
       currentAudio.loop = true;
       currentAudio.volume = 0.2;
+      populatePlayer(songs[index]);
     });
+  });
+
+  play.addEventListener("click", () => {
+    if (currentAudio.paused) {
+      currentAudio.play();
+      play.classList.remove("bi-pause-circle-fill");
+      play.classList.add("bi-play-circle-fill");
+    } else {
+      currentAudio.pause();
+      play.classList.remove("bi-play-circle-fill");
+      play.classList.add("bi-pause-circle-fill");
+    }
   });
 }
 
@@ -102,12 +116,12 @@ function addAnimationSearchBar(searchBar) {
   }, 600);
 }
 
-function populatePlayer(song) {
+function populatePlayer(songs) {
   const songDetails = document.querySelector(".player-info-section");
-  songDetails.innerHTML = `<img src="${song}" class="player-desk-cover" alt="cover" />
+  songDetails.innerHTML = `<img src="${songs.album.cover_medium}" class="player-desk-cover" alt="cover" />
             <div class="text-truncate min-w-0">
-              <div class="small fw-bold mb-0 text-truncate">Supernatural Parody</div>
-              <div class="text-white-50" style="font-size: 0.75rem">The Hillwood...</div>
+              <div class="small fw-bold mb-0 text-truncate">${songs.title}</div>
+              <div class="text-white-50" style="font-size: 0.75rem">${songs.artist.name}</div>
             </div>
             <i class="bi bi-heart text-white-50 ms-2"></i`;
 }
