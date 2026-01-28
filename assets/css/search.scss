@@ -244,39 +244,55 @@ header div form input::placeholder {
 
 // FIX PER PLAYER DESKTOP
 
-#containerFirstSection {
-  height: 100vh;
-}
-
-@media screen and (min-width: 1200px) {
+@mixin fix-player-desktop {
   #containerFirstSection {
-    height: calc(100vh - 98px);
+    height: 100vh;
   }
+
+  @media screen and (min-width: 1200px) {
+    #containerFirstSection {
+      height: calc(100vh - 98px);
+    }
+  }
+}
+// la classe funziona se data a questo div <div id="containerFirstSection" class="d-flex gap-2 vh-100 p-2">
+// bisogna anche rimuovere vh-100
+.player-spacer {
+  @include fix-player-desktop;
 }
 
 // PLAYER MOBILE
 
-.player {
+#player {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 60px; /* altezza della nav */
-  padding: 0 10px;
+  bottom: 60px;
   z-index: 1050;
+  left: 8px;
+  right: 8px;
+  height: var(--sp-mobile-player-h);
+  bottom: calc(var(--sp-mobile-nav-h) + var(--sp-mobile-gap) + env(safe-area-inset-bottom));
 }
 
 .player-bar {
-  background: #181818;
-  border-radius: 10px;
-  padding: 10px 12px;
-  margin: 0 10px 10px;
+  height: 100%;
+  padding: 0 12px;
+}
+
+.player-bar img {
+  width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .player img {
   width: 40px;
-  height: 40px;
   object-fit: cover;
 }
+
+// ANIMAZIONE BARRA INPUT
 
 .horizontal-shaking {
   animation-name: "horizontal-shaking";
