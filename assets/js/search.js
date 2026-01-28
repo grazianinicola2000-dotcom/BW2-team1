@@ -1,11 +1,23 @@
 let query = "";
 let id = "";
 let urlAPI = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
-let urlAPIsong = `https://striveschool-api.herokuapp.com/api/deezer/id?q=`;
 let currentAudio = null;
 
 function cardColorsGenerator() {
-  const cardColors = ["#e13300", "#1e3264", "#e8125c", "#158a08", "#bc5800", "#7a5a95", "#503750", "#2d46b9", "#777777", "#8c1932", "#a56752", "#7d4b32"];
+  const cardColors = [
+    "#e13300",
+    "#1e3264",
+    "#e8125c",
+    "#158a08",
+    "#bc5800",
+    "#7a5a95",
+    "#503750",
+    "#2d46b9",
+    "#777777",
+    "#8c1932",
+    "#a56752",
+    "#7d4b32",
+  ];
 
   const randomIndex = () => {
     return Math.floor(Math.random() * cardColors.length);
@@ -44,38 +56,40 @@ async function tokenSearch() {
       populateCard(dataToken.data);
       await generateSongsCard(dataToken.data);
       generateAlbumCard(dataToken.data);
-      saveIDPlaySong();
+      await saveID();
+      playSong(dataToken.data);
       ///
     }
   });
 }
 
-function saveIDPlaySong() {
+function saveID() {
   const songContainerChildren = document.querySelectorAll(".searcheSongsContainer");
   console.log(songContainerChildren);
   songContainerChildren.forEach((element) => {
     element.addEventListener("click", (e) => {
       let idSong = e.currentTarget.lastElementChild.innerText;
       console.log(idSong);
-      AudioPlayer(idSong);
     });
   });
 }
 
-async function AudioPlayer(id) {
-  let urlAPIsong = `https://striveschool-api.herokuapp.com/api/deezer/track/${id}`;
-  const dataToken = await getData(urlAPIsong);
-  console.log(dataToken)
-  if (currentAudio) {
-    currentAudio.pause();
-    currentAudio.currentTime = 0;
-  }
+async function playSong(songs) {
+  const songContainerChildren = document.querySelectorAll(".searcheSongsContainer");
+  songContainerChildren.forEach((element, index) => {
+    element.addEventListener("click", () => {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
 
-  currentAudio = new Audio();
-  currentAudio.src = dataToken.preview;
-  currentAudio.play();
-  currentAudio.loop = true;
-  currentAudio.volume = 0.2;
+      currentAudio = new Audio();
+      currentAudio.src = songs[index].preview;
+      currentAudio.play();
+      currentAudio.loop = true;
+      currentAudio.volume = 0.2;
+    });
+  });
 }
 
 function addAnimationSearchBar(searchBar) {
@@ -88,16 +102,14 @@ function addAnimationSearchBar(searchBar) {
   }, 600);
 }
 
-function populatePlayer(song, data){
-  const songDetails = document.querySelector('.player-info-section')
+function populatePlayer(song) {
+  const songDetails = document.querySelector(".player-info-section");
   songDetails.innerHTML = `<img src="${song}" class="player-desk-cover" alt="cover" />
             <div class="text-truncate min-w-0">
               <div class="small fw-bold mb-0 text-truncate">Supernatural Parody</div>
               <div class="text-white-50" style="font-size: 0.75rem">The Hillwood...</div>
             </div>
-            <i class="bi bi-heart text-white-50 ms-2"></i`
-
-
+            <i class="bi bi-heart text-white-50 ms-2"></i`;
 }
 
 async function generateSongsCard(data) {
@@ -122,10 +134,6 @@ async function generateSongsCard(data) {
               </div>
               `;
 
-
-
-
-              
     let explicit = document.querySelector(".explicit" + i);
     explicit;
     if (data[i].explicit_content_lyrics > 0) {
@@ -146,28 +154,29 @@ async function generateAlbumCard(data) {
   console.log(showOthers.children.length == 3);
   if (showOthers.children.length >= 2) {
     showOthers.removeChild(showOthers.lastChild);
-  console.log(showOthers.children.length);
-  console.log(showOthers.children.length == 3);
-  if (showOthers.children.length >= 2) {
-    showOthers.removeChild(showOthers.lastChild);
-  }
-  const generatedOtherIcon = document.createElement("i");
-  showOthers.classList.add("d-flex", "justify-content-between");
-  generatedOtherIcon.classList.add("bi", "bi-three-dots", "float-right", "fs-2", "p-2");
-
-  showOthers.appendChild(generatedOtherIcon);
-  let numberAlbumShown = 5;
-  albumNumber(data, numberAlbumShown);
-  generatedOtherIcon.addEventListener("click", () => {
-    if (numberAlbumShown == 5) {
-      numberAlbumShown = data.length;
-    } else {
-      numberAlbumShown = 5;
+    console.log(showOthers.children.length);
+    console.log(showOthers.children.length == 3);
+    if (showOthers.children.length >= 2) {
+      showOthers.removeChild(showOthers.lastChild);
     }
+    const generatedOtherIcon = document.createElement("i");
+    showOthers.classList.add("d-flex", "justify-content-between");
+    generatedOtherIcon.classList.add("bi", "bi-three-dots", "float-right", "fs-2", "p-2");
 
+    showOthers.appendChild(generatedOtherIcon);
+    let numberAlbumShown = 5;
     albumNumber(data, numberAlbumShown);
-  });
-}}
+    generatedOtherIcon.addEventListener("click", () => {
+      if (numberAlbumShown == 5) {
+        numberAlbumShown = data.length;
+      } else {
+        numberAlbumShown = 5;
+      }
+
+      albumNumber(data, numberAlbumShown);
+    });
+  }
+}
 
 async function albumNumber(data, lengthNumber) {
   const albumContainer = document.querySelector("#albumsContainer");
