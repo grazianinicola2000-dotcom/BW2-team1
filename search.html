@@ -17,40 +17,33 @@
     <title>Search</title>
   </head>
   <body>
-    <!-- INIZIO SIDE BAR DI SINISTRA -->
-    <div class="overflow-hidden">
-      <div class="row vh-100 justify-content-center">
-        <nav class="col-3 d-none d-lg-flex flex-column p-3 bg-black border-end border-dark h-100">
-          <div class="mb-4 ps-2">
-            <i class="bi bi-three-dots fs-4 text-secondary"></i>
-          </div>
-
-          <ul class="nav flex-column mb-4">
+    <div class="d-flex gap-2 vh-100 p-2">
+      <nav class="d-none d-xl-flex flex-column sp-left h-100">
+        <div class="sp-panel rounded-3 p-3 d-flex flex-column h-100 overflow-hidden">
+          <!-- nav principale -->
+          <ul class="nav nav-pills flex-column gap-1 mb-3">
             <li class="nav-item">
-              <a href="#" class="nav-link text-white ps-0"> <i class="bi bi-house-door-fill me-3 fs-5"></i> Home </a>
+              <a class="nav-link sp-navlink" href="#" aria-current="page"> <i class="bi bi-house-door-fill me-3 fs-5"></i> Home </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link text-secondary-custom ps-0"> <i class="bi bi-search me-3 fs-5"></i> Cerca </a>
+              <a class="nav-link active sp-navlink" href="#"> <i class="bi bi-search me-3 fs-5"></i> Cerca </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link text-secondary-custom ps-0">
-                <i class="bi bi-collection-play-fill me-3 fs-5"></i> La tua Libreria
-              </a>
+              <a class="nav-link sp-navlink" href="#"> <i class="bi bi-collection-play-fill me-3 fs-5"></i> La tua libreria </a>
             </li>
           </ul>
 
+          <!-- azioni -->
           <ul class="nav flex-column mb-2">
             <li class="nav-item">
-              <a href="#" class="nav-link text-secondary-custom ps-0">
-                <i class="bi bi-plus-square-fill me-3 fs-5"></i> Crea Playlist
-              </a>
+              <a href="#" class="nav-link text-secondary-custom ps-0"> <i class="bi bi-plus-square-fill me-3 fs-5"></i> Crea Playlist </a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link text-secondary-custom ps-0 d-flex align-items-center">
                 <span class="icon-square liked-gradient me-3">
                   <i class="bi bi-heart-fill"></i>
                 </span>
-                Mi Piace
+                Brani che ti paicciono
               </a>
             </li>
             <li class="nav-item">
@@ -58,83 +51,43 @@
                 <span class="icon-square episodes-bg me-3">
                   <i class="bi bi-bookmark-fill"></i>
                 </span>
-                Episodi
+                I tuoi episodi
               </a>
             </li>
           </ul>
 
-          <hr class="text-secondary opacity-25" />
+          <hr class="border-white border-opacity-10 my-2" />
 
-          <div class="playlist-scroll overflow-y-auto overflow-x-hidden flex-grow-1">
+          <!-- playlist scroll -->
+          <div class="flex-grow-1 overflow-auto pe-1 sp-scroll">
             <ul class="nav flex-column gap-2">
-              <li>
-                <a href="#" class="nav-link text-secondary-custom p-0 small text-truncate"
-                  >early stage emily syndrome (sept-oct 2022)</a
-                >
-              </li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Be The Young</a></li>
-              <li>
-                <a href="#" class="nav-link text-secondary-custom p-0 small text-truncate"
-                  >"..." cit. Kimiko (aug-ago 2022)</a
-                >
-              </li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">saggio vibes 💃🌹</a></li>
-              <li>
-                <a href="#" class="nav-link text-secondary-custom p-0 small text-truncate"
-                  >main character energy (may-jun 2022)</a
-                >
-              </li>
-              <li>
-                <a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">that fucking mood 🔪☠️</a>
-              </li>
-              <li>
-                <a href="#" class="nav-link text-secondary-custom p-0 small text-truncate"
-                  >VEE, CARLOTTA E GIACOMO VANNO A BOSIO</a
-                >
-              </li>
-              <li>
-                <a href="#" class="nav-link text-secondary-custom p-0 small text-truncate"
-                  >An Emily Winchester kind of mood 🥂✨</a
-                >
-              </li>
-              <li>
-                <a href="#" class="nav-link text-secondary-custom p-0 small text-truncate"
-                  >landing page (mar-apr 2022)</a
-                >
-              </li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">2021 lol</a></li>
-              <li>
-                <a href="#" class="nav-link text-secondary-custom p-0 small text-truncate"
-                  >honey and glass (nov-dec 2021)</a
-                >
-              </li>
-              <li>
-                <a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">(Revenge) Training Arc 🦍</a>
-              </li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Lidia 🤝 Emily</a></li>
-              <li>
-                <a href="#" class="nav-link text-secondary-custom p-0 small text-truncate"
-                  >minecraft e nintendo switch (sep-oct 2021)</a
-                >
-              </li>
-              <li>
-                <a href="#" class="nav-link text-secondary-custom p-0 small text-truncate"
-                  >silvano d'orba? I hardly know her (jul-aug 2021)</a
-                >
-              </li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Estate 2021 💃</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Frah Quintale Mix</a></li>
-              <li>
-                <a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Francesco Guccini Mix</a>
-              </li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">early stage emily syndrome (sett-ott 2022)</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Be The Young</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">"..." cit. Kimiko (aug-ago 2022)</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">saggio vibes 💃🌹</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">main character energy (mag-giu 2022)</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">that fucking mood 🔪☠️</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">VEE, CARLOTTA E GIACOMO VANNO A BOSIO</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">An Emily Winchester kind of mood 🥂✨</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">landing page (mar-apr 2022)</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">2021 lol</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">honey and glass (nov-dic 2021)</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">(Revenge) Training Arc 🦍</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Lidia 🤝 Emily</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">minecraft e nintendo switch (set-ott 2021)</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">silvano d'orba? I hardly know her (lug-ago 2021)</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Estate 2021 💃</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Frah Quintale Mix</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Francesco Guccini Mix</a></li>
             </ul>
           </div>
-        </nav>
+        </div>
+      </nav>
 
-        <!-- FINE SIDE BAR DI SINISTRA -->
-        <!-- INIZIO HEADER CON INPUT RICERCA -->
-
-        <main class="row col-12 col-lg-7 p-4 overflow-y-auto h-100 justify-content-center">
+      <!-- FINE SIDE BAR DI SINISTRA -->
+      <!-- INIZIO HEADER CON INPUT RICERCA -->
+      <main class="flex-grow-1 overflow-hidden rounded-3">
+        <div id="scrollBarDivStyle" class="sp-scroll h-100 row col-12 col-lg-7 p-4 overflow-y-auto w-100 justify-content-center">
           <header id="header" class="row">
             <h1 class="col-12 m-0 p-0 mb-5">Cerca</h1>
             <div id="inputSearchContainer" class="d-flex col-12 m-0 p-0">
@@ -156,12 +109,7 @@
             <div class="mb-5">
               <h3>Top result</h3>
               <div id="searchedArtistContainer" class="container-fluid d-flex flex-column rounded-3 ps-4">
-                <img
-                  id="artistProfileImg"
-                  src="https://picsum.photos/200/200"
-                  class="rounded-circle my-4"
-                  alt="artist_profile"
-                />
+                <img id="artistProfileImg" src="https://picsum.photos/200/200" class="rounded-circle my-4" alt="artist_profile" />
                 <h2 id="artistName" class="mt-2">Salmo</h2>
                 <p class="mt-0">Artist</p>
               </div>
@@ -175,7 +123,7 @@
 
           <section class="row mt-5">
             <div class="mb-3 col-12 p-2 d-flex align-items-baseline">
-              <h3>Albums</h3>
+              <h3 class="d-none albumsText">Albums</h3>
             </div>
             <div id="albumsContainer" class="d-flex flex-wrap"></div>
           </section>
@@ -186,193 +134,193 @@
           <section class="d-flex flex-column align-items-center">
             <h3 class="mt-5">Sfoglia tutto</h3>
             <nav id="genresNav" class="row w-100 g">
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Dissect</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-2.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Create per te</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-1.jpeg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Nuove uscite</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-3.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Pop</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-4.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Latina</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-5.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">R&B</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-6.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Rock</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-7.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Allenamento</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-8.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Autori</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-9.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Lo-fi</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-10.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">In auto</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-11.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">10s</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-12.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Estate</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-13.jpeg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Classifiche</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-14.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Podcast</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-15.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Soul</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-16.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Chill</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-17.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Sleep</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-18.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Island Pop</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-19.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Jazz</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-20.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Vibes</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-22.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Focus</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-23.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Peaceful</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-24.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Nuove uscite</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-25.jpeg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Out now</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-26.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Party</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-27.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Afro</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-28.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Classica</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-29.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Gaming</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-30.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Metal</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-31.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Funk</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-32.jpg" alt="" />
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 mb-3">
+              <div class="col-6 col-md-6 col-lg-3 col-xl-4 col-xxl-3 mb-3">
                 <div class="cardGenresNav">
                   <p class="card-inner-text">Punk</p>
                   <img class="imgGenresNav" src="./assets/imgs/search/image-33.jpg" alt="" />
@@ -380,81 +328,67 @@
               </div>
             </nav>
           </section>
-        </main>
+        </div>
+      </main>
 
-        <!-- FINE SEZIONE SFOGLIA -->
-        <!-- INIZIO SIDE BAR DI DESTRA "FRIEND ACTIVITY" -->
+      <!-- FINE SEZIONE SFOGLIA -->
+      <!-- INIZIO SIDE BAR DI DESTRA "FRIEND ACTIVITY" -->
 
-        <aside class="col-2 d-none d-lg-flex flex-column p-3 bg-black border-start border-dark h-100">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <span class="fw-bold small">Friend Activity</span>
-            <div class="d-flex gap-3 text-secondary">
+      <aside class="d-none d-xl-flex flex-column sp-right h-100">
+        <div class="sp-panel rounded-3 p-3 d-flex flex-column h-100 overflow-hidden">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="fw-bold small">Attività amici</span>
+            <div class="d-flex gap-3 text-white-50">
               <i class="bi bi-person-plus fs-5"></i>
               <i class="bi bi-x-lg"></i>
             </div>
           </div>
 
-          <div class="friend-list flex-grow-1 overflow-y-auto overflow-x-hidden">
-            <div class="d-flex align-items-start mb-4">
-              <img
-                src="https://ui-avatars.com/api/?name=CH&background=random"
-                class="rounded-circle me-3"
-                width="40"
-                height="40"
-              />
-              <div class="flex-grow-1 overflow-hidden">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="fw-bold smaller-text text-truncate">Charlie Hookham</span>
-                  <span class="text-secondary-custom extra-small ms-2">4 hr</span>
+          <div class="flex-grow-1 overflow-auto pe-1 sp-scroll">
+            <div class="sp-friend d-flex mb-3">
+              <img src="https://ui-avatars.com/api/?name=CH&background=random" class="rounded-circle me-2" width="40" height="40" alt="CH" />
+              <div class="min-w-0 flex-grow-1">
+                <div class="d-flex justify-content-between gap-2">
+                  <span class="fw-bold small text-truncate">Charlie Hookham</span>
+                  <span class="text-white-50 small">4 ore</span>
                 </div>
-                <div class="text-secondary-custom extra-small text-truncate">In Camera • Yumi Zouma</div>
-                <div class="text-secondary-custom extra-small"><i class="bi bi-disc me-1"></i> EP III</div>
+                <div class="text-white-50 small text-truncate">In Camera • Yumi Zouma</div>
+                <div class="text-white-50 small"><i class="bi bi-disc me-1"></i> EP III</div>
               </div>
             </div>
 
-            <div class="d-flex align-items-start mb-4">
-              <img
-                src="https://ui-avatars.com/api/?name=LD&background=random"
-                class="rounded-circle me-3"
-                width="40"
-                height="40"
-              />
-              <div class="flex-grow-1 overflow-hidden">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="fw-bold smaller-text text-truncate">lightdark02</span>
-                  <span class="text-secondary-custom extra-small ms-2">8 hr</span>
+            <div class="sp-friend d-flex mb-3">
+              <img src="https://ui-avatars.com/api/?name=LD&background=random" class="rounded-circle me-2" width="40" height="40" alt="LD" />
+              <div class="min-w-0 flex-grow-1">
+                <div class="d-flex justify-content-between gap-2">
+                  <span class="fw-bold small text-truncate">lightdark02</span>
+                  <span class="text-white-50 small">8 ore</span>
                 </div>
-                <div class="text-secondary-custom extra-small text-truncate">Aimed to Kill • Jade LeMac</div>
-                <div class="text-secondary-custom extra-small"><i class="bi bi-disc me-1"></i> Aimed to Kill</div>
+                <div class="text-white-50 small text-truncate">Aimed to Kill • Jade LeMac</div>
+                <div class="text-white-50 small"><i class="bi bi-disc me-1"></i> Aimed to Kill</div>
               </div>
             </div>
 
-            <div class="d-flex align-items-start mb-4">
-              <img
-                src="https://ui-avatars.com/api/?name=VT&background=random"
-                class="rounded-circle me-3"
-                width="40"
-                height="40"
-              />
-              <div class="flex-grow-1 overflow-hidden">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="fw-bold smaller-text text-truncate">Valeria Traverso</span>
-                  <span class="text-secondary-custom extra-small ms-2">3 d</span>
+            <div class="sp-friend d-flex mb-3">
+              <img src="https://ui-avatars.com/api/?name=VT&background=random" class="rounded-circle me-2" width="40" height="40" alt="VT" />
+              <div class="min-w-0 flex-grow-1">
+                <div class="d-flex justify-content-between gap-2">
+                  <span class="fw-bold small text-truncate">Valeria Traverso</span>
+                  <span class="text-white-50 small">3 g</span>
                 </div>
-                <div class="text-secondary-custom extra-small text-truncate">New Kings • Sleeping Wolf</div>
-                <div class="text-secondary-custom extra-small">
-                  <i class="bi bi-music-note-beamed me-1"></i> Twist Badass mood
-                </div>
+                <div class="text-white-50 small text-truncate">New Kings • Sleeping Wolf</div>
+                <div class="text-white-50 small"><i class="bi bi-music-note-beamed me-1"></i> Twist Badass mood</div>
               </div>
             </div>
           </div>
-        </aside>
-      </div>
+        </div>
+      </aside>
     </div>
 
     <!-- FINE SIDE BAR "FRIEND ACTIVITY" -->
+
     <!-- FOOTER NAVBAR MOBILE -->
-    <nav class="mobile-nav d-lg-none">
+    <nav class="mobile-nav d-xl-none">
       <a href="#" class="mobile-nav-item active">
         <i class="bi bi-house-door-fill"></i>
         <span>Home</span>

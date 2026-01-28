@@ -5,90 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./assets/css/artist.css" />
+    <link rel="stylesheet" href="./style.css" />
 
     <title>Artist</title>
   </head>
 
-  <body>
+  <body class="bg-black overflow-x-hidden">
     <div class="container-fluid p-0">
-      <div class="row flex-lg-nowrap g-0">
+      <div class="row g-0">
         <!-- SIDEBAR -->
-        <nav class="col-lg-2 d-none d-lg-flex flex-column p-3 bg-black border-end border-dark min-vh-100 sidebar">
-          <div class="mb-4 ps-2">
-            <i class="bi bi-three-dots fs-4 text-secondary"></i>
-          </div>
+        <nav class="col-xxl-2 d-none d-xxl-flex flex-column sp-left vh-100">
+          <div class="sp-panel rounded-3 p-3 d-flex flex-column h-100 overflow-hidden">
+            <div class="mb-3 ps-1">
+              <i class="bi bi-three-dots fs-4 text-white-50"></i>
+            </div>
 
-          <ul class="nav flex-column mb-4">
-            <li class="nav-item">
-              <a href="#" class="nav-link text-white ps-0"> <i class="bi bi-house-door-fill me-3 fs-5"></i> Home </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link text-secondary-custom ps-0"> <i class="bi bi-search me-3 fs-5"></i> Cerca </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link text-secondary-custom ps-0"> <i class="bi bi-collection-play-fill me-3 fs-5"></i> La tua Libreria </a>
-            </li>
-          </ul>
-
-          <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-              <a href="#" class="nav-link text-secondary-custom ps-0"> <i class="bi bi-plus-square-fill me-3 fs-5"></i> Crea Playlist </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link text-secondary-custom ps-0 d-flex align-items-center">
-                <span class="icon-square liked-gradient me-3">
-                  <i class="bi bi-heart-fill"></i>
-                </span>
-                Mi Piace
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link text-secondary-custom ps-0 d-flex align-items-center">
-                <span class="icon-square episodes-bg me-3">
-                  <i class="bi bi-bookmark-fill"></i>
-                </span>
-                Episodi
-              </a>
-            </li>
-          </ul>
-
-          <hr class="text-secondary opacity-25" />
-
-          <div class="playlist-scroll overflow-y-auto overflow-x-hidden flex-grow-1">
-            <ul class="nav flex-column gap-2">
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">early stage emily syndrome (sept-oct 2022)</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Be The Young</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">"..." cit. Kimiko (aug-ago 2022)</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">saggio vibes 💃🌹</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">main character energy (may-jun 2022)</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">that fucking mood 🔪☠️</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">VEE, CARLOTTA E GIACOMO VANNO A BOSIO</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">An Emily Winchester kind of mood 🥂✨</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">landing page (mar-apr 2022)</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">2021 lol</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">honey and glass (nov-dec 2021)</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">(Revenge) Training Arc 🦍</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Lidia 🤝 Emily</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">minecraft e nintendo switch (sep-oct 2021)</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">silvano d'orba? I hardly know her (jul-aug 2021)</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Estate 2021 💃</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Frah Quintale Mix</a></li>
-              <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Francesco Guccini Mix</a></li>
+            <!-- nav principale -->
+            <ul class="nav nav-pills flex-column gap-1 mb-3">
+              <li class="nav-item">
+                <a class="nav-link active sp-navlink" href="#" aria-current="page"> <i class="bi bi-house-door-fill me-3 fs-5"></i> Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link sp-navlink" href="#"> <i class="bi bi-search me-3 fs-5"></i> Cerca </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link sp-navlink" href="#"> <i class="bi bi-collection-play-fill me-3 fs-5"></i> La tua libreria </a>
+              </li>
             </ul>
+
+            <!-- azioni -->
+            <ul class="nav flex-column gap-1 mb-2">
+              <li class="nav-item">
+                <a class="nav-link sp-navlink" href="#"> <i class="bi bi-plus-square-fill me-3 fs-5"></i> Crea playlist </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link sp-navlink d-flex align-items-center" href="#">
+                  <span class="sp-icon-square sp-liked me-3">
+                    <i class="bi bi-heart-fill"></i>
+                  </span>
+                  Brani che ti piacciono
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link sp-navlink d-flex align-items-center" href="#">
+                  <span class="sp-icon-square sp-episodes me-3">
+                    <i class="bi bi-bookmark-fill"></i>
+                  </span>
+                  Episodi
+                </a>
+              </li>
+            </ul>
+
+            <hr class="border-white border-opacity-10 my-2" />
+
+            <!-- playlist scroll -->
+            <div class="flex-grow-1 overflow-auto pe-1 sp-scroll">
+              <ul class="nav flex-column gap-2">
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">early stage emily syndrome (sett-ott 2022)</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Be The Young</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">"..." cit. Kimiko (aug-ago 2022)</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">saggio vibes 💃🌹</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">main character energy (mag-giu 2022)</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">that fucking mood 🔪☠️</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">VEE, CARLOTTA E GIACOMO VANNO A BOSIO</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">An Emily Winchester kind of mood 🥂✨</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">landing page (mar-apr 2022)</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">2021 lol</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">honey and glass (nov-dic 2021)</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">(Revenge) Training Arc 🦍</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Lidia 🤝 Emily</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">minecraft e nintendo switch (set-ott 2021)</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">silvano d'orba? I hardly know her (lug-ago 2021)</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Estate 2021 💃</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Frah Quintale Mix</a></li>
+                <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Francesco Guccini Mix</a></li>
+              </ul>
+            </div>
           </div>
         </nav>
 
         <!-- MAIN -->
-        <main class="col-12 col-lg-7 bg-dark p-0 pb-5 min-vh-100 main-content">
+        <main class="col-12 col-xxl-8 bg-dark p-0 pb-5 min-vh-100 main-content rounded-3 mt-0 overflow-hidden">
           <!-- ARTIST HEADER -->
           <div class="container-fluid p-0 artist-header">
-            <img src="./assets/imgs/main/image-10.jpg" class="artist-hero-img" alt="Artist" />
+            <img src="" class="artist-hero-img" alt="Artist" id="artist-img" />
 
             <div
               class="position-absolute top-0 start-0 w-100 p-3 d-none d-lg-flex justify-content-between align-items-center header-nav-container"
@@ -105,7 +110,7 @@
 
               <div class="dropdown me-2 mt-2">
                 <button class="btn btn-black rounded-pill d-flex align-items-center gap-2 p-1 pe-3 btn-user" type="button">
-                  <img src="https://ui-avatars.com/api/?name=Lidia+Nautilus&background=random" class="rounded-circle" width="28" height="28" alt="Lidia" />
+                  <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle" width="28" height="28" alt="Lidia" />
                   <span>Lidia Nautilus...</span>
                   <i class="bi bi-caret-down-fill extra-small"></i>
                 </button>
@@ -126,9 +131,9 @@
                 <span class="text-white fw-semibold small" style="font-size: 0.85rem">Artista verificato</span>
               </div>
 
-              <h1 class="display-3 display-lg-1 fw-bold mb-3 text-white">Pinguini Tattici Nucleari</h1>
+              <h1 class="display-3 display-lg-1 fw-bold mb-3 text-white" id="artist-name">Pinguini Tattici Nucleari</h1>
 
-              <p class="text-white fw-semibold mb-0 mb-lg-2" style="font-size: 0.9rem">3.961.093 ascoltatori mensili</p>
+              <p class="text-white fw-semibold mb-0 mb-lg-2" style="font-size: 0.9rem" id="artist-listeners">3.961.093 ascoltatori mensili</p>
             </div>
           </div>
 
@@ -154,10 +159,10 @@
           </div>
 
           <!-- BRANI CHE TI PIACCIONO -->
-          <div class="container-fluid px-4 mb-4 artist-liked">
+          <div class="container-fluid px-4 mb-4 artist-liked d-xxl-none">
             <div class="d-flex align-items-center gap-3 position-relative py-2">
               <div class="position-relative">
-                <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle" alt="Artist" />
+                <img src="" class="rounded-circle" alt="Artist " id="artist-liked-img-mobile" />
 
                 <div
                   class="liked-badge position-absolute bottom-0 end-0 bg-success rounded-circle d-flex align-items-center justify-content-center border border-2 border-dark"
@@ -168,7 +173,7 @@
 
               <div>
                 <h6 class="mb-0 fw-bold">Brani che ti piacciono</h6>
-                <small class="text-secondary">8 brani di Pinguini Tattici Nucleari</small>
+                <small class="text-secondary liked-artist-name">8 brani di Pinguini Tattici Nucleari</small>
               </div>
             </div>
           </div>
@@ -176,13 +181,13 @@
           <!-- POPOLARI -->
           <div class="container-fluid px-4 mb-3">
             <div class="row g-4">
-              <div class="col-12 col-lg-8">
+              <div class="col-12 col-xxl-8" id="popular-songs-container">
                 <h4 class="mb-4 fw-bold text-white">Popolari</h4>
 
                 <div class="row align-items-center mb-3 g-0 song-row">
                   <div class="col-auto text-secondary small pe-3" style="width: 30px">1</div>
                   <div class="col d-flex align-items-center">
-                    <img src="./assets/imgs/main/image-10.jpg" class="song-cover me-3" alt="Ricordi" />
+                    <img src="" class="song-cover me-3" alt="Ricordi" />
                     <div class="text-white text-truncate">
                       <div class="fw-bold lh-1 text-truncate">Ricordi</div>
                       <div class="small text-secondary d-lg-none">10.333.333</div>
@@ -198,7 +203,7 @@
                 <div class="row align-items-center mb-3 g-0 song-row">
                   <div class="col-auto text-secondary small pe-3" style="width: 30px">2</div>
                   <div class="col d-flex align-items-center">
-                    <img src="./assets/imgs/main/image-10.jpg" class="song-cover me-3" alt="Giovani Wannabe" />
+                    <img src="" class="song-cover me-3" alt="Giovani Wannabe" />
                     <div class="text-white text-truncate">
                       <div class="fw-bold lh-1 text-truncate">Giovani Wannabe</div>
                       <div class="small text-secondary d-lg-none">47.456.224</div>
@@ -214,7 +219,7 @@
                 <div class="row align-items-center mb-3 g-0 song-row">
                   <div class="col-auto text-secondary small pe-3" style="width: 30px">3</div>
                   <div class="col d-flex align-items-center text-truncate">
-                    <img src="./assets/imgs/main/image-10.jpg" class="song-cover me-3" alt="Pastello Bianco" />
+                    <img src="" class="song-cover me-3" alt="Pastello Bianco" />
                     <div class="text-white text-truncate">
                       <div class="fw-bold lh-1 text-truncate">Pastello Bianco</div>
                       <div class="small text-secondary d-lg-none">34.343.231</div>
@@ -235,11 +240,12 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-lg-4">
+              <!-- BRANI CHE TI PIACCIONO 2 PER RESPONSIVE -->
+              <div class="col-12 col-xxl-4 d-none d-xxl-block">
                 <h4 class="mb-4 fw-bold text-white d-none d-lg-block">Brani che ti piacciono</h4>
                 <div class="d-flex align-items-center gap-3 py-2">
                   <div class="position-relative">
-                    <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle" width="70" height="70" alt="Artist" />
+                    <img src="" class="rounded-circle" width="70" height="70" alt="Artist" id="artist-liked-img-desktop" />
                     <div
                       class="liked-badge position-absolute bottom-0 end-0 bg-success rounded-circle d-flex align-items-center justify-content-center border border-2 border-dark"
                       style="width: 24px; height: 24px"
@@ -249,7 +255,7 @@
                   </div>
                   <div class="text-white">
                     <h6 class="mb-0 fw-bold">Brani che ti piacciono</h6>
-                    <small class="text-secondary">8 brani di Pinguini Tattici Nucleari</small>
+                    <small class="text-secondary liked-artist-name">8 brani di Pinguini Tattici Nucleari</small>
                   </div>
                 </div>
               </div>
@@ -259,56 +265,51 @@
 
         <!-- FRIEND ACTIVITY SIDE -->
 
-        <aside class="col-lg-3 d-none d-lg-flex flex-column p-3 bg-black border-start border-dark min-vh-100 friend-activity">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <span class="fw-bold small">Friend Activity</span>
-
-            <div class="d-flex gap-3 text-secondary">
-              <i class="bi bi-person-plus fs-5"></i>
-              <i class="bi bi-x-lg"></i>
-            </div>
-          </div>
-
-          <div class="friend-list flex-grow-1 overflow-y-auto overflow-x-hidden">
-            <div class="d-flex align-items-start mb-4">
-              <img src="https://ui-avatars.com/api/?name=CH&background=random" class="rounded-circle me-3" width="40" height="40" alt="Charlie Hookham" />
-
-              <div class="flex-grow-1 overflow-hidden">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="fw-bold smaller-text text-truncate">Charlie Hookham</span>
-                  <span class="text-secondary-custom extra-small ms-2">4 hr</span>
-                </div>
-
-                <div class="text-secondary-custom extra-small text-truncate">In Camera • Yumi Zouma</div>
-                <div class="text-secondary-custom extra-small"><i class="bi bi-disc me-1"></i> EP III</div>
+        <aside class="d-none d-xxl-flex flex-column sp-right vh-100">
+          <div class="sp-panel rounded-3 p-3 d-flex flex-column h-100 overflow-hidden">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="fw-bold small">Attività amici</span>
+              <div class="d-flex gap-3 text-white-50">
+                <i class="bi bi-person-plus fs-5"></i>
+                <i class="bi bi-x-lg"></i>
               </div>
             </div>
 
-            <div class="d-flex align-items-start mb-4">
-              <img src="https://ui-avatars.com/api/?name=LD&background=random" class="rounded-circle me-3" width="40" height="40" alt="lightdark02" />
-
-              <div class="flex-grow-1 overflow-hidden">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="fw-bold smaller-text text-truncate">lightdark02</span>
-                  <span class="text-secondary-custom extra-small ms-2">8 hr</span>
+            <div class="flex-grow-1 overflow-auto pe-1 sp-scroll">
+              <div class="d-flex gap-3 align-items-start mb-3">
+                <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle" width="40" height="40" alt="CH" />
+                <div class="min-w-0 flex-grow-1">
+                  <div class="d-flex justify-content-between gap-2">
+                    <span class="fw-bold small text-truncate">Charlie Hookham</span>
+                    <span class="text-white-50 small">4 ore</span>
+                  </div>
+                  <div class="text-white-50 small text-truncate">In Camera • Yumi Zouma</div>
+                  <div class="text-white-50 small"><i class="bi bi-disc me-1"></i> EP III</div>
                 </div>
-
-                <div class="text-secondary-custom extra-small text-truncate">Aimed to Kill • Jade LeMac</div>
-                <div class="text-secondary-custom extra-small"><i class="bi bi-disc me-1"></i> Aimed to Kill</div>
               </div>
-            </div>
 
-            <div class="d-flex align-items-start mb-4">
-              <img src="https://ui-avatars.com/api/?name=VT&background=random" class="rounded-circle me-3" width="40" height="40" alt="Valeria Traverso" />
-
-              <div class="flex-grow-1 overflow-hidden">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="fw-bold smaller-text text-truncate">Valeria Traverso</span>
-                  <span class="text-secondary-custom extra-small ms-2">3 d</span>
+              <div class="d-flex gap-3 align-items-start mb-3">
+                <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle" width="40" height="40" alt="LD" />
+                <div class="min-w-0 flex-grow-1">
+                  <div class="d-flex justify-content-between gap-2">
+                    <span class="fw-bold small text-truncate">lightdark02</span>
+                    <span class="text-white-50 small">8 ore</span>
+                  </div>
+                  <div class="text-white-50 small text-truncate">Aimed to Kill • Jade LeMac</div>
+                  <div class="text-white-50 small"><i class="bi bi-disc me-1"></i> Aimed to Kill</div>
                 </div>
+              </div>
 
-                <div class="text-secondary-custom extra-small text-truncate">New Kings • Sleeping Wolf</div>
-                <div class="text-secondary-custom extra-small"><i class="bi bi-music-note-beamed me-1"></i> Twist Badass mood</div>
+              <div class="d-flex gap-3 align-items-start mb-3">
+                <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle" width="40" height="40" alt="VT" />
+                <div class="min-w-0 flex-grow-1">
+                  <div class="d-flex justify-content-between gap-2">
+                    <span class="fw-bold small text-truncate">Valeria Traverso</span>
+                    <span class="text-white-50 small">3 g</span>
+                  </div>
+                  <div class="text-white-50 small text-truncate">New Kings • Sleeping Wolf</div>
+                  <div class="text-white-50 small"><i class="bi bi-music-note-beamed me-1"></i> Twist Badass mood</div>
+                </div>
               </div>
             </div>
           </div>
@@ -394,5 +395,7 @@
         <span>La tua libreria</span>
       </a>
     </nav>
+    <script src="./assets/js/artist.js"></script>
   </body>
+  <script src="./assets/js/artist.js"></script>
 </html>
