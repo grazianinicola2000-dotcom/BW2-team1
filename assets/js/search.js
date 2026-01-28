@@ -96,12 +96,12 @@ async function playSong(songs) {
   play.addEventListener("click", () => {
     if (currentAudio.paused) {
       currentAudio.play();
-      play.classList.remove("bi-pause-circle-fill");
-      play.classList.add("bi-play-circle-fill");
-    } else {
-      currentAudio.pause();
       play.classList.remove("bi-play-circle-fill");
       play.classList.add("bi-pause-circle-fill");
+    } else {
+      currentAudio.pause();
+      play.classList.remove("bi-pause-circle-fill");
+      play.classList.add("bi-play-circle-fill");
     }
   });
 }
