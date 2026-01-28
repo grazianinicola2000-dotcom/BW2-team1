@@ -40,30 +40,30 @@ async function tokenSearch() {
       addAnimationSearchBar(searchBar);
     } else {
       spinner.classList.remove("d-none");
-      searchBar.classList.add("border-0")
+      searchBar.classList.add("border-0");
       query = searchBar.value;
       urlAPI = urlAPI + query;
       const dataToken = await getData(urlAPI);
       if (dataToken) {
         spinner.classList.add("d-none");
-        searchBar.classList.remove("border","border-danger")
+        searchBar.classList.remove("border", "border-danger");
       }
       populateCard(dataToken.data);
       generateSongsCard(dataToken.data);
+      generateAlbumCard(dataToken.data);
       ///
     }
   });
 }
 
 function addAnimationSearchBar(searchBar) {
-  searchBar.classList.remove("border-0")
+  searchBar.classList.remove("border-0");
   searchBar.classList.add("horizontal-shaking");
-  searchBar.classList.add("border","border-danger");
+  searchBar.classList.add("border", "border-danger");
 
-  setTimeout(() =>{
-    searchBar.classList.remove("horizontal-shaking")
-  }
-  , 600);
+  setTimeout(() => {
+    searchBar.classList.remove("horizontal-shaking");
+  }, 600);
 }
 
 async function generateSongsCard(data) {
@@ -74,9 +74,9 @@ async function generateSongsCard(data) {
   for (let i = 0; i < 4; i++) {
     let duration = await secondsToMinutes(data[i]);
     songsContainer.innerHTML += `
-  <div class="d-flex p-2 rounded-2 searcheSongsContainer">
+  <div class="d-flex rounded-2 searcheSongsContainer p-2">
                 <img class="songCover me-2" src="${data[i].album.cover_medium}" alt="song_cover" />
-                <div class="d-flex justify-content-between flex-grow-1 align-items-center">
+                <div class="d-flex justify-content-between flex-grow-1 align-items-center ">
                   <div>
                     <h4 class="searchedSongTitle m-0">${data[i].title}</h4>
                     <div class="d-flex explicit${i}">
@@ -95,6 +95,38 @@ async function generateSongsCard(data) {
     } else {
       explicit.innerHTML = `<p class="searchedArtistName m-0 p-0">${data[i].artist.name}</p>`;
     }
+  }
+}
+
+async function generateAlbumCard(data) {
+  console.log(data[0].isrc);
+  const albumContainer = document.querySelector("#albumsContainer");
+  const showOthers = document.querySelector(".mb-3.col-12");
+  const generatedOtherIcon = document.createElement("i");
+  showOthers.classList.add("d-flex", "justify-content-between");
+  generatedOtherIcon.classList.add("bi", "bi-three-dots", "float-right", "fs-2",'p-2' );
+  showOthers.appendChild(generatedOtherIcon);
+  let numberAlbumShown = 4
+  albumNumber(data, numberAlbumShown);
+  generatedOtherIcon.addEventListener("click", () => {
+    if (numberAlbumShown == 4){
+      numberAlbumShown = data.length
+    } else {
+      numberAlbumShown = 4
+    }
+    albumNumber(data, numberAlbumShown);
+  });
+}
+
+async function albumNumber(data, lengthNumber) {
+  const albumContainer = document.querySelector("#albumsContainer");
+  albumContainer.innerHTML = "";
+  for (i = 0; i < lengthNumber; i++) {
+    albumContainer.innerHTML += `<div class="searchedAlbum rounded-3">
+                <img class="rounded-3 mb-2 px-0 mx-0" src="${data[i].album.cover_medium}" alt="album_cover">
+                <h5 class="m-0 p-0 pt-1 fs-6">${data[i].album.title}</h5>
+                <p class="m-0 p-0 pt-1 fs-8">20${data[i].isrc.slice(5, 7)} · <a href="#">Artista</a></p>
+              </div>`;
   }
 }
 
