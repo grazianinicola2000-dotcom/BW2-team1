@@ -64,9 +64,8 @@ function saveIDPlaySong() {
 
 async function AudioPlayer(id) {
   let urlAPIsong = `https://striveschool-api.herokuapp.com/api/deezer/track/${id}`;
-
   const dataToken = await getData(urlAPIsong);
-
+  console.log(dataToken)
   if (currentAudio) {
     currentAudio.pause();
     currentAudio.currentTime = 0;
@@ -79,8 +78,6 @@ async function AudioPlayer(id) {
   currentAudio.volume = 0.2;
 }
 
-function stopAudio() {}
-
 function addAnimationSearchBar(searchBar) {
   searchBar.classList.remove("border-0");
   searchBar.classList.add("horizontal-shaking");
@@ -91,7 +88,15 @@ function addAnimationSearchBar(searchBar) {
   }, 600);
 }
 
-function populatePlayer(){
+function populatePlayer(song, data){
+  const songDetails = document.querySelector('.player-info-section')
+  songDetails.innerHTML = `<img src="${song}" class="player-desk-cover" alt="cover" />
+            <div class="text-truncate min-w-0">
+              <div class="small fw-bold mb-0 text-truncate">Supernatural Parody</div>
+              <div class="text-white-50" style="font-size: 0.75rem">The Hillwood...</div>
+            </div>
+            <i class="bi bi-heart text-white-50 ms-2"></i`
+
 
 }
 
@@ -116,6 +121,11 @@ async function generateSongsCard(data) {
                 <div class="d-none song" >${data[i].id}</div>
               </div>
               `;
+
+
+
+
+              
     let explicit = document.querySelector(".explicit" + i);
     explicit;
     if (data[i].explicit_content_lyrics > 0) {
