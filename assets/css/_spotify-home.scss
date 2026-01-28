@@ -1,381 +1,366 @@
+// TOKENS | HTML: 15
 :root {
-  // root
   --sp-panel: #121212; // pannello
   --sp-panel-2: #181818; // pannello2
   --sp-muted: rgba(255, 255, 255, 0.65); // muted
   --sp-muted-2: rgba(255, 255, 255, 0.45); // muted2
+  --sp-player-h: 92px; // player
 }
 
-// Anti overflow orizzontale | HTML: 14,16 | blocco
-html, // base
+// BASE | HTML: 1-17
+html,
 body {
-  // base
   overflow-x: hidden; // blocco
+  font-family: circular; // font
 }
 
+// UTILITY | HTML: 369,430,432
+.min-w-0 {
+  min-width: 0; // shrink
+}
+
+// WRAPPER | HTML: 17
 body > .d-flex {
-  // wrapper
   overflow-x: hidden; // blocco
   min-width: 0; // shrink
 }
 
-.sp-main, // main
-.sp-panel, // panel
+// BLOCCO-X | HTML: 93,20,146
+.sp-main,
+.sp-panel,
 .sp-main-content {
-  // content
   overflow-x: hidden; // blocco
   min-width: 0; // shrink
 }
 
+// ROWFIX | HTML: 213,294
 .row {
-  // bootstrap
   margin-left: 0 !important; // fix
   margin-right: 0 !important; // fix
 }
 
-// Sidebar sinistra dimensioni | HTML: 18 | larghezza
+// SIDEBAR-L | HTML: 19
 .sp-left {
   flex: 0 0 310px; // base
-  width: 310px; // larghezza
-  min-width: 310px; // minimo
+  width: 310px; // width
+  min-width: 310px; // min
   min-height: 0; // overflow
-  min-width: 0; // shrink
 }
 
-// Sidebar destra dimensioni | HTML: 319 | larghezza
+// SIDEBAR-R | HTML: 356
 .sp-right {
-  // aside
   flex: 0 0 320px; // base
-  width: 320px; // larghezza
-  min-width: 320px; // minimo
+  width: 320px; // width
+  min-width: 320px; // min
   min-height: 0; // overflow
-  min-width: 0; // shrink
 }
 
-// Pannelli laterali | HTML: 19,320 | sfondo
+// PANEL | HTML: 20,357
 .sp-panel {
-  background: var(--sp-panel); // colore
+  background: var(--sp-panel); // bg
   min-height: 0; // overflow
   min-width: 0; // shrink
 }
 
-// Main background | HTML: 92 | gradiente
+// MAINBG | HTML: 93
 .sp-main {
-  background: linear-gradient(180deg, #2b2b2b 0px, var(--sp-panel) 340px); // gradiente
+  background: linear-gradient(180deg, #2b2b2b 0px, var(--sp-panel) 340px); // gradient
   min-height: 0; // overflow
   min-width: 0; // shrink
 }
 
-// Main contenuto scroll | HTML: 144 | scroll
+// CONTENT | HTML: 146
 .sp-main-content {
   min-height: 0; // overflow
   min-width: 0; // shrink
 }
 
-// Header main | HTML: 94 | trasparente
+// HEADER | HTML: 95
 .sp-header {
-  background: transparent !important; // trasparenza
-  backdrop-filter: none !important; // blur
-  z-index: 10; // livello
+  background: transparent !important; // clear
+  backdrop-filter: none !important; // none
+  z-index: 10; // layer
 }
 
-// Bottoni frecce | HTML: 97-102 | icona
+// ICONBTN | HTML: 98-103
 .sp-iconbtn {
-  width: 36px; // dimensione
-  height: 36px; // dimensione
+  width: 36px; // size
+  height: 36px; // size
   border-radius: 999px; // pill
-  border: 0; // bordo
-  background: rgba(0, 0, 0, 0.55); // sfondo
-  color: #fff; // testo
-  display: grid; // layout
-  place-items: center; // centro
+  border: 0; // none
+  background: rgba(0, 0, 0, 0.55); // bg
+  color: #fff; // text
+  display: grid; // grid
+  place-items: center; // center
 
-  &:focus, // focus
+  &:focus,
   &:focus-visible {
-    box-shadow: none; // ombra
-    outline: none; // outline
+    box-shadow: none; // none
+    outline: none; // none
   }
 }
 
-// Profilo pill | HTML: 125 | profilo
+// PROFILE | HTML: 127
 .sp-profile {
-  max-width: 230px; // limite
-  display: inline-flex; // layout
-  align-items: center; // allinea
-  gap: 8px; // spazio
-  background: rgba(0, 0, 0, 0.55); // sfondo
-  border: 0; // bordo
+  max-width: 230px; // max
+  display: inline-flex; // flex
+  align-items: center; // align
+  gap: 8px; // gap
+  background: rgba(0, 0, 0, 0.55); // bg
+  border: 0; // none
   border-radius: 999px; // pill
-  color: #fff; // testo
-  padding: 4px 10px 4px 4px; // padding
+  color: #fff; // text
+  padding: 4px 10px 4px 4px; // pad
 
-  &:focus, // focus
+  &:focus,
   &:focus-visible {
-    box-shadow: none; // ombra
-    outline: none; // outline
+    box-shadow: none; // none
+    outline: none; // none
   }
 }
 
-// Avatar | HTML: 126 | cerchio
+// AVATAR | HTML: 128
 .sp-avatar {
-  width: 28px; // dimensione
-  height: 28px; // dimensione
-  border-radius: 999px; // cerchio
-  background: rgba(255, 255, 255, 0.16); // sfondo
-  display: grid; // layout
-  place-items: center; // centro
-  font-weight: 800; // peso
-  font-size: 0.85rem; // testo
+  width: 28px; // size
+  height: 28px; // size
+  border-radius: 999px; // circle
+  background: rgba(255, 255, 255, 0.16); // bg
+  display: grid; // grid
+  place-items: center; // center
+  font-weight: 800; // bold
+  font-size: 0.85rem; // text
 }
 
-// Dropdown menu | HTML: 130 | menu
+// DROPDOWN | HTML: 132
 .sp-dd {
-  background: #1a1a1a; // sfondo
-  border: 1px solid rgba(255, 255, 255, 0.08); // bordo
+  background: #1a1a1a; // bg
+  border: 1px solid rgba(255, 255, 255, 0.08); // border
   border-radius: 10px; // radius
-  overflow: hidden; // taglio
-  padding: 6px; // padding
+  overflow: hidden; // clip
+  padding: 6px; // pad
 
   .dropdown-item {
-    // item
     border-radius: 8px; // radius
-    color: rgba(255, 255, 255, 0.9); // testo
-    padding: 10px 10px; // padding
+    color: rgba(255, 255, 255, 0.9); // text
+    padding: 10px 10px; // pad
 
     &:hover {
-      // hover
-      background: rgba(255, 255, 255, 0.08); // sfondo
-      color: #fff; // testo
+      background: rgba(255, 255, 255, 0.08); // hover
+      color: #fff; // text
     }
   }
 }
 
-// Nav pills attivo | HTML: 25 | active
+// PILLS | HTML: 26
 .sp-left .nav-pills {
-  --bs-nav-pills-link-active-bg: rgba(255, 255, 255, 0.12); // sfondo
-  --bs-nav-pills-link-active-color: #fff; // testo
+  --bs-nav-pills-link-active-bg: rgba(255, 255, 255, 0.12); // activebg
+  --bs-nav-pills-link-active-color: #fff; // activetxt
 }
 
-// Link nav sidebar | HTML: 27,30,33,40,44,53 | link
+// NAVLINK | HTML: 28,31,34,41,45,54
 .sp-navlink {
-  color: var(--sp-muted) !important; // colore
+  color: var(--sp-muted) !important; // color
   border-radius: 10px; // radius
 
   &:hover {
-    // hover
-    background: rgba(255, 255, 255, 0.08); // sfondo
-    color: #fff !important; // testo
+    background: rgba(255, 255, 255, 0.08); // hover
+    color: #fff !important; // text
   }
 
-  &:focus, // focus
+  &:focus,
   &:focus-visible {
-    box-shadow: none; // ombra
-    outline: none; // outline
+    box-shadow: none; // none
+    outline: none; // none
   }
 }
 
-// Playlist hover | HTML: 67+ | hover
+// PLINK | HTML: 68-85
 .sp-plink:hover {
-  color: #fff !important; // testo
+  color: #fff !important; // hover
 }
 
-// Icone quadrate | HTML: 45,54 | box
+// ICONSQUARE | HTML: 46,55
 .sp-icon-square {
-  width: 28px; // dimensione
-  height: 28px; // dimensione
+  width: 28px; // size
+  height: 28px; // size
   border-radius: 6px; // radius
-  display: inline-flex; // layout
-  align-items: center; // allinea
-  justify-content: center; // centro
-  font-size: 0.95rem; // testo
+  display: inline-flex; // flex
+  align-items: center; // align
+  justify-content: center; // center
+  font-size: 0.95rem; // text
 }
 
-// Liked gradient | HTML: 45 | gradient
+// LIKED | HTML: 46
 .sp-liked {
-  background: linear-gradient(135deg, #4b2cff, #1e8fff); // gradiente
+  background: linear-gradient(135deg, #4b2cff, #1e8fff); // gradient
 }
 
-// Episodes bg | HTML: 54 | colore
+// EPISODES | HTML: 55
 .sp-episodes {
-  background: #0a6; // sfondo
+  background: #0a6; // bg
 }
 
-// HERO | HTML: 147 | card
+// HERO | HTML: 153,181
 .sp-hero {
   position: relative; // pos
-  overflow: hidden; // taglio
+  overflow: hidden; // clip
   border-radius: 12px; // radius
-  padding: 22px; // padding
-  border: 1px solid rgba(255, 255, 255, 0.06); // bordo
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03); // bordo
+  padding: 22px; // pad
+  border: 1px solid rgba(255, 255, 255, 0.06); // border
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03); // inset
 
-  background: // sfondo
+  background:
     radial-gradient(circle at 36% 22%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 28%, transparent 62%),
-    // glow
     linear-gradient(90deg, rgba(28, 28, 28, 0.95) 0%, rgba(24, 24, 24, 0.92) 45%, rgba(10, 10, 10, 0.92) 100%); // base
 }
 
-// HERO haze | HTML: 147 | overlay
 .sp-hero::before {
-  // before
-  content: ""; // crea
+  content: ""; // create
   position: absolute; // pos
   inset: 0; // stretch
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 22%, transparent 55%); // haze
   pointer-events: none; // click
 }
 
-// HERO vignette | HTML: 147 | overlay
 .sp-hero::after {
-  // after
-  content: ""; // crea
+  content: ""; // create
   position: absolute; // pos
   inset: 0; // stretch
-  background: // sfondo
+  background:
     linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.18) 55%, rgba(0, 0, 0, 0.55) 100%),
-    // destra
-    linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 62%, rgba(0, 0, 0, 0.35) 100%); // basso
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 62%, rgba(0, 0, 0, 0.35) 100%); // vignette
   pointer-events: none; // click
 }
 
-// HERO stacking | HTML: 147 | livello
 .sp-hero > * {
-  // children
-  position: relative; // pos
-  z-index: 1; // sopra
+  position: relative; // stack
+  z-index: 1; // top
 }
 
-// HERO cover | HTML: 153 | cover
+// HEROCOVER | HTML: 159,187
 .sp-hero-cover {
-  // cover
-  width: 180px; // larghezza
-  height: 180px; // altezza
+  width: 180px; // width
+  height: 180px; // height
   border-radius: 6px; // radius
   object-fit: cover; // crop
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55); // ombra
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55); // shadow
 }
 
-// HERO kicker | HTML: 156 | label
+// KICKER | HTML: 162,190
 .sp-hero-kicker {
-  // kicker
-  font-size: 0.72rem; // testo
-  font-weight: 700; // peso
-  letter-spacing: 0.08em; // tracking
-  color: rgba(255, 255, 255, 0.45); // colore
-  margin-bottom: 6px; // spazio
+  font-size: 0.72rem; // text
+  font-weight: 700; // bold
+  letter-spacing: 0.08em; // space
+  color: rgba(255, 255, 255, 0.45); // muted
+  margin-bottom: 6px; // gap
 }
 
-// HERO titolo | HTML: 157 | titolo
+// TITLE | HTML: 163,191
 .sp-hero-title {
-  font-size: clamp(2.6rem, 4.2vw, 3.9rem); // scala
-  line-height: 1; // linea
-  letter-spacing: -0.03em; // tracking
+  font-size: clamp(2.6rem, 4.2vw, 3.9rem); // scale
+  line-height: 1; // line
+  letter-spacing: -0.03em; // tight
 }
 
-// HERO meta/desc | HTML: 158-159 | testo
-.sp-hero-meta, // meta
+// META | HTML: 164-165,192-193
+.sp-hero-meta,
 .sp-hero-desc {
-  font-size: 0.9rem; // testo
-  color: rgba(255, 255, 255, 0.55); // colore
+  font-size: 0.9rem; // text
+  color: rgba(255, 255, 255, 0.55); // muted
 }
 
-// Bottone nascondi | HTML: 149 | pill
+// HIDE | HTML: 155,183
 .sp-hero-hide-btn {
-  cursor: pointer; // mano
-  padding: 6px 12px; // padding
+  cursor: pointer; // pointer
+  padding: 6px 12px; // pad
   border-radius: 999px; // pill
-  background: rgba(0, 0, 0, 0.25); // sfondo
-  border: 1px solid rgba(255, 255, 255, 0.12); // bordo
-  color: rgba(255, 255, 255, 0.45); // testo
-  font-size: 0.72rem; // testo
-  font-weight: 800; // peso
-  letter-spacing: 0.08em; // tracking
+  background: rgba(0, 0, 0, 0.25); // bg
+  border: 1px solid rgba(255, 255, 255, 0.12); // border
+  color: rgba(255, 255, 255, 0.45); // text
+  font-size: 0.72rem; // text
+  font-weight: 800; // bold
+  letter-spacing: 0.08em; // space
   text-transform: uppercase; // caps
 
   &:hover {
-    // hover
-    background: rgba(0, 0, 0, 0.35); // sfondo
-    border-color: rgba(255, 255, 255, 0.22); // bordo
-    color: rgba(255, 255, 255, 0.7); // testo
+    background: rgba(0, 0, 0, 0.35); // hover
+    border-color: rgba(255, 255, 255, 0.22); // hover
+    color: rgba(255, 255, 255, 0.7); // hover
   }
 
-  &:focus, // focus
+  &:focus,
   &:focus-visible {
-    box-shadow: none; // ombra
-    outline: none; // outline
+    box-shadow: none; // none
+    outline: none; // none
   }
 }
 
-// Bottone play hero | HTML: 162 | play
+// PLAYBTN | HTML: 168,196
 .sp-btn-play {
-  background: #1db954; // colore
-  border: 0; // bordo
-  color: #000; // testo
+  background: #1db954; // green
+  border: 0; // none
+  color: #000; // text
 
   &:hover {
-    // hover
-    background: #1ed760; // colore
-    color: #000; // testo
+    background: #1ed760; // hover
+    color: #000; // text
   }
 }
 
-// Bottone salva hero | HTML: 163 | save
+// SAVEBTN | HTML: 169,197
 .sp-btn-save {
-  background: rgba(0, 0, 0, 0.28); // sfondo
-  border: 1px solid rgba(255, 255, 255, 0.22); // bordo
-  color: #fff; // testo
+  background: rgba(0, 0, 0, 0.28); // bg
+  border: 1px solid rgba(255, 255, 255, 0.22); // border
+  color: #fff; // text
 
   &:hover {
-    // hover
-    background: rgba(0, 0, 0, 0.38); // sfondo
-    border-color: rgba(255, 255, 255, 0.35); // bordo
-    color: #fff; // testo
+    background: rgba(0, 0, 0, 0.38); // hover
+    border-color: rgba(255, 255, 255, 0.35); // hover
+    color: #fff; // text
   }
 }
 
-// Titolo Buonasera | HTML: 174 | titolo
+// SECTIONTITLE | HTML: 211
 .sp-section-title {
-  font-size: 2rem; // testo
-  font-weight: 900; // peso
-  letter-spacing: -0.02em; // tracking
-  margin-top: 6px; // spazio
+  font-size: 2rem; // text
+  font-weight: 900; // bold
+  letter-spacing: -0.02em; // tight
+  margin-top: 6px; // gap
 }
 
-// Tile Buonasera | HTML: 178 | tile
+// TILE | HTML: 215-283
 .sp-tile {
   position: relative; // pos
   width: 100%; // width
   height: 72px; // height
   border-radius: 6px; // radius
-  background: rgba(255, 255, 255, 0.08); // sfondo
-  display: flex; // layout
-  align-items: center; // allinea
+  background: rgba(255, 255, 255, 0.08); // bg
+  display: flex; // flex
+  align-items: center; // align
   gap: 12px; // gap
-  overflow: hidden; // taglio
-  transition: background 0.15s ease; // transizione
+  overflow: hidden; // clip
+  transition: background 0.15s ease; // anim
 
   &:hover {
-    // hover
-    background: rgba(255, 255, 255, 0.14); // sfondo
+    background: rgba(255, 255, 255, 0.14); // hover
   }
 }
 
-// Cover tile | HTML: 179 | cover
+// TILECOVER | HTML: 216,255,278
 .sp-tile-cover {
   width: 72px; // width
   height: 72px; // height
-  flex: 0 0 72px; // base
-  overflow: hidden; // taglio
+  flex: 0 0 72px; // fixed
+  overflow: hidden; // clip
 }
 
-// Collage tile | HTML: 179-184 ecc. | collage
+// COLLAGE | HTML: 216
 .sp-collage {
-  display: grid; // layout
-  grid-template-columns: 1fr 1fr; // colonne
-  grid-template-rows: 1fr 1fr; // righe
+  display: grid; // grid
+  grid-template-columns: 1fr 1fr; // cols
+  grid-template-rows: 1fr 1fr; // rows
 
   img {
-    // img
     width: 100%; // width
     height: 100%; // height
     object-fit: cover; // crop
@@ -383,7 +368,7 @@ body > .d-flex {
   }
 }
 
-// Single tile img | HTML: 241-243 | single
+// SINGLE | HTML: 278-280
 .sp-single img {
   width: 100%; // width
   height: 100%; // height
@@ -391,74 +376,70 @@ body > .d-flex {
   display: block; // block
 }
 
-// Liked cover tile | HTML: 218-220 | liked
+// LIKEDCOVER | HTML: 255-257
 .sp-likedcover {
-  background: linear-gradient(135deg, #4b2cff, #1e8fff); // gradiente
-  display: grid; // layout
-  place-items: center; // centro
+  background: linear-gradient(135deg, #4b2cff, #1e8fff); // gradient
+  display: grid; // grid
+  place-items: center; // center
 
   i {
-    // icon
-    font-size: 1.5rem; // size
+    font-size: 1.5rem; // icon
   }
 }
 
-// Titolo tile | HTML: 185 ecc. | clamp
+// TILETITLE | HTML: 222-282
 .sp-tile-title {
-  font-weight: 800; // peso
-  font-size: 0.92rem; // testo
-  line-height: 1.15; // linea
-  padding-right: 56px; // spazio
-  display: -webkit-box; // box
+  font-weight: 800; // bold
+  font-size: 0.92rem; // text
+  line-height: 1.15; // line
+  padding-right: 56px; // space
+  display: -webkit-box; // clamp
   -webkit-line-clamp: 2; // clamp
-  -webkit-box-orient: vertical; // orient
-  overflow: hidden; // taglio
+  -webkit-box-orient: vertical; // clamp
+  overflow: hidden; // clip
 }
 
-// Play tile | HTML: 186 ecc. | play
+// TILEPLAY | HTML: 223-283
 .sp-tile-play {
-  position: absolute; // pos
-  right: 10px; // destra
-  width: 40px; // width
-  height: 40px; // height
-  border: 0; // bordo
+  position: absolute; // abs
+  right: 10px; // right
+  width: 40px; // size
+  height: 40px; // size
+  border: 0; // none
   border-radius: 999px; // pill
-  background: #1db954; // colore
-  display: grid; // layout
-  place-items: center; // centro
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35); // ombra
-  opacity: 0; // invisibile
-  transform: translateY(8px); // offset
+  background: #1db954; // green
+  display: grid; // grid
+  place-items: center; // center
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35); // shadow
+  opacity: 0; // hide
+  transform: translateY(8px); // move
   transition:
     opacity 0.15s ease,
-    transform 0.15s ease; // transizione
+    transform 0.15s ease; // anim
 
   i {
-    // icon
-    color: #000; // colore
-    font-size: 1.55rem; // size
+    color: #000; // text
+    font-size: 1.55rem; // icon
     margin-left: 2px; // tweak
   }
 }
 
 .sp-tile:hover .sp-tile-play {
-  // hover
-  opacity: 1; // visibile
+  opacity: 1; // show
   transform: translateY(0); // reset
 }
 
-// Card sezione “Altro” | HTML: 259 ecc. | card
+// CARD | HTML: 296-347
 .sp-card {
-  background: var(--sp-panel-2); // sfondo
-  transition: background 0.15s ease; // transizione
+  background: var(--sp-panel-2); // bg
+  transition: background 0.15s ease; // anim
 
   &:hover {
-    // hover
-    background: rgba(255, 255, 255, 0.09); // sfondo
+    background: rgba(255, 255, 255, 0.09); // hover
   }
 }
 
-// Immagine card | HTML: 261 ecc. | image
+// CARDIMG | HTML: 298-343
 .sp-card-img {
   aspect-ratio: 1 / 1; // ratio
   border-radius: 10px; // radius
@@ -466,68 +447,172 @@ body > .d-flex {
   display: block; // block
 }
 
-// Play card | HTML: 262 ecc. | play
+// CARDPLAY | HTML: 299-344
 .sp-card-play {
-  position: absolute; // pos
-  right: 12px; // destra
-  bottom: 12px; // basso
-  width: 42px; // width
-  height: 42px; // height
-  border: 0; // bordo
+  position: absolute; // abs
+  right: 12px; // right
+  bottom: 12px; // bottom
+  width: 42px; // size
+  height: 42px; // size
+  border: 0; // none
   border-radius: 999px; // pill
-  background: #1db954; // colore
-  display: grid; // layout
-  place-items: center; // centro
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35); // ombra
-  opacity: 0; // invisibile
-  transform: translateY(8px); // offset
+  background: #1db954; // green
+  display: grid; // grid
+  place-items: center; // center
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35); // shadow
+  opacity: 0; // hide
+  transform: translateY(8px); // move
   transition:
     opacity 0.15s ease,
-    transform 0.15s ease; // transizione
+    transform 0.15s ease; // anim
 
   i {
-    // icon
-    color: #000; // colore
-    font-size: 1.6rem; // size
+    color: #000; // text
+    font-size: 1.6rem; // icon
     margin-left: 2px; // tweak
   }
 }
 
 .sp-card:hover .sp-card-play {
-  // hover
-  opacity: 1; // visibile
+  opacity: 1; // show
   transform: translateY(0); // reset
 }
 
-// Friend row | HTML: 330,342,354 | row
-.sp-friend {
-  display: flex; // layout
-  gap: 12px; // gap
-  align-items: flex-start; // allinea
-  margin-bottom: 16px; // spazio
-}
-
-// Scrollbar custom | HTML: 65,144,329 | scrollbar
+// SCROLLBAR | HTML: 66,146,366
 .sp-scroll::-webkit-scrollbar {
   width: 12px; // size
 }
 
 .sp-scroll::-webkit-scrollbar-thumb {
-  // thumb
-  background: rgba(255, 255, 255, 0.25); // colore
+  background: rgba(255, 255, 255, 0.25); // thumb
   border-radius: 999px; // pill
 }
 
 .sp-scroll::-webkit-scrollbar-track {
-  // track
   background: transparent; // track
 }
 
-// Nascondi frecce sotto 992 | HTML: 96 | responsive
+// MOBILENAV | HTML: 408
+.mobile-nav {
+  position: fixed; // fixed
+  left: 0; // left
+  right: 0; // right
+  bottom: 0; // bottom
+  height: 64px; // height
+  background: #000; // bg
+  border-top: 1px solid rgba(255, 255, 255, 0.12); // border
+  display: flex; // flex
+  justify-content: space-around; // space
+  align-items: center; // center
+  padding: 8px 6px; // pad
+  padding-bottom: calc(8px + env(safe-area-inset-bottom)); // safe
+  z-index: 999; // top
+}
+
+// MOBILEITEM | HTML: 409-422
+.mobile-nav-item {
+  color: rgba(255, 255, 255, 0.65); // muted
+  text-decoration: none; // none
+  display: flex; // flex
+  flex-direction: column; // col
+  align-items: center; // center
+  gap: 2px; // gap
+  font-size: 0.7rem; // text
+  min-width: 72px; // min
+
+  i {
+    font-size: 1.35rem; // icon
+    line-height: 1; // line
+  }
+
+  &.active {
+    color: #fff; // active
+  }
+}
+
+// PLAYER | HTML: 426
+.player-desktop {
+  position: fixed; // fixed
+  left: 8px; // left
+  right: 8px; // right
+  bottom: 8px; // bottom
+  height: var(--sp-player-h); // height
+  background: #181818; // bg
+  border: 1px solid rgba(255, 255, 255, 0.08); // border
+  border-radius: 12px; // radius
+  z-index: 9999; // top
+}
+
+// PLAYERCOVER | HTML: 431
+.player-desk-cover {
+  width: 56px; // size
+  height: 56px; // size
+  border-radius: 8px; // radius
+  object-fit: cover; // crop
+  display: block; // block
+}
+
+// CONTROLS | HTML: 441-447
+.player-controls i {
+  cursor: pointer; // pointer
+}
+
+// BARS | HTML: 451,462
+.player-progress,
+.player-volume {
+  height: 4px; // height
+  border-radius: 999px; // pill
+  background: rgba(255, 255, 255, 0.18); // bg
+  position: relative; // rel
+  overflow: hidden; // clip
+}
+
+.player-progress::after {
+  content: ""; // fill
+  position: absolute; // abs
+  left: 0; // left
+  top: 0; // top
+  bottom: 0; // bottom
+  width: 35%; // fill
+  background: rgba(255, 255, 255, 0.65); // fg
+}
+
+.player-volume {
+  width: 90px; // width
+}
+
+.player-volume::after {
+  content: ""; // fill
+  position: absolute; // abs
+  left: 0; // left
+  top: 0; // top
+  bottom: 0; // bottom
+  width: 60%; // fill
+  background: rgba(255, 255, 255, 0.65); // fg
+}
+
+// RESPONSIVE | HTML: 97,146,408
 @media (max-width: 991.98px) {
-  // media
   .sp-nav-arrows {
-    // arrows
-    display: none !important; // nasconde
+    display: none !important; // hide
+  }
+
+  .sp-main-content {
+    padding-bottom: 80px; // space
+  }
+}
+
+// PLAYERSPACE | HTML: 426
+@media (min-width: 992px) {
+  .sp-scroll {
+    padding-bottom: calc(var(--sp-player-h) + 18px); // space
+  }
+}
+
+/* DESKTOP: il player non copre le sidebar */
+@media (min-width: 992px) {
+  .player-desktop {
+    left: calc(8px + 310px + 8px); // padding pagina + sidebar sx + gap
+    right: calc(8px + 320px + 8px); // padding pagina + sidebar dx + gap
   }
 }
