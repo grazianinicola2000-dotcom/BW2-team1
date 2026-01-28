@@ -104,10 +104,15 @@ async function generateAlbumCard(data) {
   const showOthers = document.querySelector(".mb-3.col-12");
   const generatedOtherIcon = document.createElement("i");
   showOthers.classList.add("d-flex", "justify-content-between");
+  generatedOtherIcon.classList.add("bi", "bi-three-dots", "float-right", "fs-2", "p-2");
   showOthers.appendChild(generatedOtherIcon);
+  let numberAlbumShown = 5;
   albumNumber(data, numberAlbumShown);
   generatedOtherIcon.addEventListener("click", () => {
+    if (numberAlbumShown == 4) {
+      numberAlbumShown = data.length;
     } else {
+      numberAlbumShown = 4;
     }
     albumNumber(data, numberAlbumShown);
   });
