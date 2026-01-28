@@ -91,6 +91,10 @@ function addAnimationSearchBar(searchBar) {
   }, 600);
 }
 
+function populatePlayer(){
+  
+}
+
 async function generateSongsCard(data) {
   const songsContainer = document.querySelector("#songsContainer");
   const searchResults = document.querySelector("#searchResults");
