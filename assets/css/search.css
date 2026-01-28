@@ -186,15 +186,16 @@ header div form input::placeholder {
   font-size: 1.2rem;
 }
 
-.sp-scroll {
+.d-flex.vh-100 {
   min-height: 0;
 }
 
 @media (max-width: 1200px) {
   .sp-scroll {
-    height: calc(100dvh - 60px);
+    height: calc(100dvh - 65px);
     overflow-y: auto;
     overflow-x: hidden;
+    min-height: 0;
   }
 }
 .searchedAlbum img {
