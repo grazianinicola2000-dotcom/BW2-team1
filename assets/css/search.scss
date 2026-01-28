@@ -325,11 +325,24 @@ header div form input::placeholder {
   }
 }
 
-#playerDesktopTitle {
-  width: 100px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+@keyframes scrollingTitle {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
 
-  overflow: hidden;
+#playerDesktopTitleWrapper {
+  width: 100px;
+  animation: scrollingTitle 10s linear infinite;
+}
+
+#playerDesktopTitle {
+  white-space: nowrap;
+  display: inline-block;
 }
