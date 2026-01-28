@@ -12216,182 +12216,438 @@ textarea.form-control-lg {
 }
 
 :root {
-  --sp-card-bg: rgba(255, 255, 255, 0.08); /* sfondo | HTML: globale (body riga 12 / main riga 13) */
-  --sp-card-border: rgba(255, 255, 255, 0.1); /* bordo | HTML: globale (body riga 12 / main riga 13) */
-  --sp-card-shadow: rgba(0, 0, 0, 0.45); /* ombra | HTML: globale (body riga 12 / main riga 13) */
-  --sp-tile-border: rgba(255, 255, 255, 0.1); /* tile | HTML: globale (body riga 12 / main riga 13) */
+  --sp-panel: #121212;
+  --sp-panel-2: #181818;
+  --sp-muted: rgba(255, 255, 255, 0.65);
+  --sp-muted-2: rgba(255, 255, 255, 0.45);
 }
 
-/* CARD PLAYLIST GRANDI → HTML righe: 164, 201 */
-.sp-playlist-card {
-  /* card */
-  background: var(--sp-card-bg); /* colore */
-  box-shadow: 0 18px 40px var(--sp-card-shadow); /* profondità */
-  overflow: hidden; /* taglio */
-  --sp-glow: rgba(0, 0, 0, 0); /* base */
-}
-.sp-playlist-card::before {
-  /* glow */
-  content: ""; /* crea */
-  position: absolute; /* overlay */
-  inset: -60px; /* esteso */
-  background: radial-gradient(circle at 10% 15%, var(--sp-glow) 0%, rgba(0, 0, 0, 0) 55%); /* luce */
-  filter: blur(14px); /* sfocatura */
-  opacity: 0.95; /* intensità */
-  pointer-events: none; /* ignora */
-}
-.sp-playlist-card::after {
-  /* bordo */
-  content: ""; /* crea */
-  position: absolute; /* overlay */
-  inset: 0; /* pieno */
-  border-radius: inherit; /* curva */
-  box-shadow: 0 0 0 1px var(--sp-card-border) inset; /* contorno */
-  pointer-events: none; /* ignora */
+html,
+body {
+  overflow-x: hidden;
 }
 
-/* GLOW VARIANTI → HTML:
-   - .sp-glow-warm: riga 164
-   - .sp-glow-neutral: riga 201 */
-.sp-glow-warm {
-  /* caldo */
-  --sp-glow: rgba(255, 90, 70, 0.4); /* rosso */
+body > .d-flex {
+  overflow-x: hidden;
+  min-width: 0;
 }
 
-.sp-glow-neutral {
-  /* neutro */
-  --sp-glow: rgba(255, 255, 255, 0.1); /* bianco */
+.sp-main,
+.sp-panel,
+.sp-main-content {
+  overflow-x: hidden;
+  min-width: 0;
 }
 
-/* TESTI CARD → HTML:
-   - .sp-subtitle: righe 174, 211
-   - .sp-title: righe 175, 212 */
-.sp-subtitle {
-  /* etichetta */
-  font-size: 0.85rem; /* piccolo */
-  line-height: 1.2; /* aria */
-  margin-top: 0.1rem; /* spazio */
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
-.sp-title {
-  /* titolo */
-  font-size: 1.55rem; /* grande */
-  line-height: 1.12; /* stretto */
+.sp-left {
+  flex: 0 0 310px;
+  width: 310px;
+  min-width: 310px;
+  min-height: 0;
+  min-width: 0;
 }
 
-/* ICONE → HTML righe: 184, 185, 218, 219 */
-.sp-icon {
-  /* icona */
-  font-size: 1.45rem; /* misura */
-  line-height: 1; /* blocco */
+.sp-right {
+  flex: 0 0 320px;
+  width: 320px;
+  min-width: 320px;
+  min-height: 0;
+  min-width: 0;
 }
 
-/* NUMERO BRANI → HTML righe: 189, 223 */
-.sp-meta {
-  /* numero */
-  font-size: 0.95rem; /* medio */
+.sp-panel {
+  background: var(--sp-panel);
+  min-height: 0;
+  min-width: 0;
 }
 
-/* BOTTONE PLAY → HTML righe: 191, 225 */
-.sp-play-btn {
-  /* play */
-  width: 42px; /* larghezza */
-  height: 42px; /* altezza */
-  border: 0; /* niente */
-  border-radius: 999px; /* tondo */
-  background: rgba(0, 0, 0, 0.35); /* scuro */
-  display: inline-flex; /* flex */
-  align-items: center; /* centro */
-  justify-content: center; /* centro */
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; /* bordo */
-}
-.sp-play-btn i {
-  /* icona */
-  color: #fff; /* bianco */
-  font-size: 1.6rem; /* grande */
-  line-height: 1; /* pulito */
-  margin-left: 2px; /* shift */
+.sp-main {
+  background: linear-gradient(180deg, #2b2b2b 0px, var(--sp-panel) 340px);
+  min-height: 0;
+  min-width: 0;
 }
 
-/* COLLAGE 2x2 → HTML:
-   - .sp-collage: righe 166, 203
-   - .sp-collage__tile: righe 167–170, 204–207 */
-.sp-collage {
-  /* griglia */
-  width: 132px; /* misura */
-  aspect-ratio: 1/1; /* quadrato */
-  display: grid; /* grid */
-  grid-template-columns: 1fr 1fr; /* colonne */
-  grid-template-rows: 1fr 1fr; /* righe */
-  gap: 0; /* unito */
-  overflow: hidden; /* taglio */
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; /* cornice */
+.sp-main-content {
+  min-height: 0;
+  min-width: 0;
 }
 
-.sp-collage__tile {
-  /* tile */
-  position: relative; /* contesto */
-  overflow: hidden; /* taglio */
+.sp-header {
+  background: transparent !important;
+  -webkit-backdrop-filter: none !important;
+          backdrop-filter: none !important;
+  z-index: 10;
 }
-.sp-collage__tile img {
-  /* immagine */
-  width: 100%; /* pieno */
-  height: 100%; /* pieno */
-  display: block; /* blocco */
+
+.sp-iconbtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  display: grid;
+  place-items: center;
+}
+.sp-iconbtn:focus, .sp-iconbtn:focus-visible {
+  box-shadow: none;
+  outline: none;
+}
+
+.sp-profile {
+  max-width: 230px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  padding: 4px 10px 4px 4px;
+}
+.sp-profile:focus, .sp-profile:focus-visible {
+  box-shadow: none;
+  outline: none;
+}
+
+.sp-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.sp-dd {
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 6px;
+}
+.sp-dd .dropdown-item {
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 10px 10px;
+}
+.sp-dd .dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.sp-left .nav-pills {
+  --bs-nav-pills-link-active-bg: rgba(255, 255, 255, 0.12);
+  --bs-nav-pills-link-active-color: #fff;
+}
+
+.sp-navlink {
+  color: var(--sp-muted) !important;
+  border-radius: 10px;
+}
+.sp-navlink:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff !important;
+}
+.sp-navlink:focus, .sp-navlink:focus-visible {
+  box-shadow: none;
+  outline: none;
+}
+
+.sp-plink:hover {
+  color: #fff !important;
+}
+
+.sp-icon-square {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+}
+
+.sp-liked {
+  background: linear-gradient(135deg, #4b2cff, #1e8fff);
+}
+
+.sp-episodes {
+  background: #0a6;
+}
+
+.sp-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  background: radial-gradient(circle at 36% 22%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 28%, transparent 62%), linear-gradient(90deg, rgba(28, 28, 28, 0.95) 0%, rgba(24, 24, 24, 0.92) 45%, rgba(10, 10, 10, 0.92) 100%);
+}
+
+.sp-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 22%, transparent 55%);
+  pointer-events: none;
+}
+
+.sp-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.18) 55%, rgba(0, 0, 0, 0.55) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 62%, rgba(0, 0, 0, 0.35) 100%);
+  pointer-events: none;
+}
+
+.sp-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.sp-hero-cover {
+  width: 180px;
+  height: 180px;
+  border-radius: 6px;
   -o-object-fit: cover;
-     object-fit: cover; /* crop */
-}
-.sp-collage__tile::after {
-  /* bordo */
-  content: ""; /* crea */
-  position: absolute; /* overlay */
-  inset: 0; /* pieno */
-  pointer-events: none; /* ignora */
-  box-shadow: 0 0 0 1px var(--sp-tile-border) inset; /* linea */
+     object-fit: cover;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
 }
 
-/* TRE PUNTINI → HTML righe: 61, 83, 105, 140, 153 */
-.sp-ellipsis {
-  /* menu */
-  text-decoration: none; /* niente */
-}
-.sp-ellipsis:focus-visible {
-  /* focus */
-  outline: 2px solid rgba(255, 255, 255, 0.35); /* bordo */
-  outline-offset: 3px; /* distanza */
-  border-radius: 999px; /* tondo */
+.sp-hero-kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 6px;
 }
 
-/* HOVER: INGRANDIMENTO CARD */
-/* Card piccole → HTML: righe 45, 68, 90, 112, 125, 147 */
-.row.row-cols-2.gx-4.gy-4.mt-2 .col > a {
-  position: relative; /* livello */
-  transition: transform 0.18s ease; /* animazione */
-  will-change: transform; /* performance */
+.sp-hero-title {
+  font-size: clamp(2.6rem, 4.2vw, 3.9rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
 }
 
-.row.row-cols-2.gx-4.gy-4.mt-2 .col > a:hover,
-.row.row-cols-2.gx-4.gy-4.mt-2 .col > a:focus-visible {
-  transform: scale(1.03); /* zoom */
-  z-index: 2; /* sopra */
+.sp-hero-meta,
+.sp-hero-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
 }
 
-/* FIX OVERFLOW → evita tagli/spazi strani nei layout flex */
-main {
-  min-width: 0; /* permette al contenuto di restringersi senza creare overflow orizzontale */
+.sp-hero-hide-btn {
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.sp-hero-hide-btn:hover {
+  background: rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.7);
+}
+.sp-hero-hide-btn:focus, .sp-hero-hide-btn:focus-visible {
+  box-shadow: none;
+  outline: none;
 }
 
-/* NASCONDI SCROLLBAR */
-main,
-.friend-list,
-.playlist-scroll {
-  -ms-overflow-style: none; /* nasconde barra */
-  scrollbar-width: none; /* nasconde barra */
+.sp-btn-play {
+  background: #1db954;
+  border: 0;
+  color: #000;
+}
+.sp-btn-play:hover {
+  background: #1ed760;
+  color: #000;
 }
 
-main::-webkit-scrollbar,
-.friend-list::-webkit-scrollbar,
-.playlist-scroll::-webkit-scrollbar {
-  width: 0; /* niente barra */
-  height: 0; /* anche orizzontale */
+.sp-btn-save {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+.sp-btn-save:hover {
+  background: rgba(0, 0, 0, 0.38);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #fff;
+}
+
+.sp-section-title {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-top: 6px;
+}
+
+.sp-tile {
+  position: relative;
+  width: 100%;
+  height: 72px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+  transition: background 0.15s ease;
+}
+.sp-tile:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.sp-tile-cover {
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  overflow: hidden;
+}
+
+.sp-collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.sp-collage img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.sp-single img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.sp-likedcover {
+  background: linear-gradient(135deg, #4b2cff, #1e8fff);
+  display: grid;
+  place-items: center;
+}
+.sp-likedcover i {
+  font-size: 1.5rem;
+}
+
+.sp-tile-title {
+  font-weight: 800;
+  font-size: 0.92rem;
+  line-height: 1.15;
+  padding-right: 56px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sp-tile-play {
+  position: absolute;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: #1db954;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.sp-tile-play i {
+  color: #000;
+  font-size: 1.55rem;
+  margin-left: 2px;
+}
+
+.sp-tile:hover .sp-tile-play {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sp-card {
+  background: var(--sp-panel-2);
+  transition: background 0.15s ease;
+}
+.sp-card:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.sp-card-img {
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.sp-card-play {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: #1db954;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.sp-card-play i {
+  color: #000;
+  font-size: 1.6rem;
+  margin-left: 2px;
+}
+
+.sp-card:hover .sp-card-play {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sp-friend {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.sp-scroll::-webkit-scrollbar {
+  width: 12px;
+}
+
+.sp-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+}
+
+.sp-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (max-width: 991.98px) {
+  .sp-nav-arrows {
+    display: none !important;
+  }
 }/*# sourceMappingURL=style.css.map */
