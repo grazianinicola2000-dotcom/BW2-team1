@@ -324,3 +324,12 @@ header div form input::placeholder {
     transform: translateX(0);
   }
 }
+
+#playerDesktopTitle {
+  width: 100px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+
+  overflow: hidden;
+}
