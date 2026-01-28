@@ -221,8 +221,4 @@ header div form input::placeholder {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
-}
-
-.bi-three-dots:hover {
-  transform: scale(1.15);
 }/*# sourceMappingURL=search.css.map */
