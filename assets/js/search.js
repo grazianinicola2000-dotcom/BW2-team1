@@ -1,7 +1,23 @@
 let query = "";
+let id = "";
+let urlAPI = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
+let currentAudio = null;
 
 function cardColorsGenerator() {
-  const cardColors = ["#e13300", "#1e3264", "#e8125c", "#158a08", "#bc5800", "#7a5a95", "#503750", "#2d46b9", "#777777", "#8c1932", "#a56752", "#7d4b32"];
+  const cardColors = [
+    "#e13300",
+    "#1e3264",
+    "#e8125c",
+    "#158a08",
+    "#bc5800",
+    "#7a5a95",
+    "#503750",
+    "#2d46b9",
+    "#777777",
+    "#8c1932",
+    "#a56752",
+    "#7d4b32",
+  ];
 
   const randomIndex = () => {
     return Math.floor(Math.random() * cardColors.length);
@@ -31,14 +47,61 @@ async function tokenSearch() {
       query = searchBar.value;
       urlAPI = urlAPI + query;
       const dataToken = await getData(urlAPI);
+
       if (dataToken) {
         spinner.classList.add("d-none");
         searchBar.classList.remove("border", "border-danger");
+        const songContainerChildren = document.querySelectorAll(".searcheSongsContainer");
       }
       populateCard(dataToken.data);
-      generateSongsCard(dataToken.data);
+      await generateSongsCard(dataToken.data);
       generateAlbumCard(dataToken.data);
+      await saveID();
+      playSong(dataToken.data);
       ///
+    }
+  });
+}
+
+function saveID() {
+  const songContainerChildren = document.querySelectorAll(".searcheSongsContainer");
+  console.log(songContainerChildren);
+  songContainerChildren.forEach((element) => {
+    element.addEventListener("click", (e) => {
+      let idSong = e.currentTarget.lastElementChild.innerText;
+      console.log(idSong);
+    });
+  });
+}
+
+async function playSong(songs) {
+  const songContainerChildren = document.querySelectorAll(".searcheSongsContainer");
+  const play = document.querySelector(".bi-play-circle-fill");
+  songContainerChildren.forEach((element, index) => {
+    element.addEventListener("click", () => {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+
+      currentAudio = new Audio();
+      currentAudio.src = songs[index].preview;
+      currentAudio.play();
+      currentAudio.loop = true;
+      currentAudio.volume = 0.2;
+      populatePlayer(songs[index]);
+    });
+  });
+
+  play.addEventListener("click", () => {
+    if (currentAudio.paused) {
+      currentAudio.play();
+      play.classList.remove("bi-play-circle-fill");
+      play.classList.add("bi-pause-circle-fill");
+    } else {
+      currentAudio.pause();
+      play.classList.remove("bi-pause-circle-fill");
+      play.classList.add("bi-play-circle-fill");
     }
   });
 }
@@ -51,6 +114,16 @@ function addAnimationSearchBar(searchBar) {
   setTimeout(() => {
     searchBar.classList.remove("horizontal-shaking");
   }, 600);
+}
+
+function populatePlayer(songs) {
+  const songDetails = document.querySelector(".player-info-section");
+  songDetails.innerHTML = `<img src="${songs.album.cover_medium}" class="player-desk-cover" alt="cover" />
+            <div class="text-truncate min-w-0">
+              <div class="small fw-bold mb-0 text-truncate">${songs.title}</div>
+              <div class="text-white-50" style="font-size: 0.75rem">${songs.artist.name}</div>
+            </div>
+            <i class="bi bi-heart text-white-50 ms-2"></i`;
 }
 
 async function generateSongsCard(data) {
@@ -67,14 +140,14 @@ async function generateSongsCard(data) {
                   <div>
                     <h4 class="searchedSongTitle m-0">${data[i].title}</h4>
                     <div class="d-flex explicit${i}">
-                      
-                      
                     </div>
                   </div>
                   <p class="m-0 ms-3">${duration}</p>
                 </div>
+                <div class="d-none song" >${data[i].id}</div>
               </div>
               `;
+
     let explicit = document.querySelector(".explicit" + i);
     explicit;
     if (data[i].explicit_content_lyrics > 0) {
@@ -95,24 +168,28 @@ async function generateAlbumCard(data) {
   console.log(showOthers.children.length == 3);
   if (showOthers.children.length >= 2) {
     showOthers.removeChild(showOthers.lastChild);
-  }
-  const generatedOtherIcon = document.createElement("i");
-  showOthers.classList.add("d-flex", "justify-content-between");
-
-  generatedOtherIcon.classList.add("bi", "bi-three-dots", "float-right", "fs-2", "p-2");
-
-  showOthers.appendChild(generatedOtherIcon);
-  let numberAlbumShown = 5;
-  albumNumber(data, numberAlbumShown);
-  generatedOtherIcon.addEventListener("click", () => {
-    if (numberAlbumShown == 5) {
-      numberAlbumShown = data.length;
-    } else {
-      numberAlbumShown = 5;
+    console.log(showOthers.children.length);
+    console.log(showOthers.children.length == 3);
+    if (showOthers.children.length >= 2) {
+      showOthers.removeChild(showOthers.lastChild);
     }
+    const generatedOtherIcon = document.createElement("i");
+    showOthers.classList.add("d-flex", "justify-content-between");
+    generatedOtherIcon.classList.add("bi", "bi-three-dots", "float-right", "fs-2", "p-2");
 
+    showOthers.appendChild(generatedOtherIcon);
+    let numberAlbumShown = 5;
     albumNumber(data, numberAlbumShown);
-  });
+    generatedOtherIcon.addEventListener("click", () => {
+      if (numberAlbumShown == 5) {
+        numberAlbumShown = data.length;
+      } else {
+        numberAlbumShown = 5;
+      }
+
+      albumNumber(data, numberAlbumShown);
+    });
+  }
 }
 
 async function albumNumber(data, lengthNumber) {
