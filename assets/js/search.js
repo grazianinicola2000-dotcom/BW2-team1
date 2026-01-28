@@ -92,7 +92,7 @@ function addAnimationSearchBar(searchBar) {
 }
 
 function populatePlayer(){
-  
+
 }
 
 async function generateSongsCard(data) {
@@ -109,8 +109,6 @@ async function generateSongsCard(data) {
                   <div>
                     <h4 class="searchedSongTitle m-0">${data[i].title}</h4>
                     <div class="d-flex explicit${i}">
-                      
-                      
                     </div>
                   </div>
                   <p class="m-0 ms-3">${duration}</p>
