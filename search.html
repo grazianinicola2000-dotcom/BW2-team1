@@ -17,7 +17,7 @@
     <title>Search</title>
   </head>
   <body>
-    <div class="d-flex gap-2 vh-100 p-2">
+    <div id="containerFirstSection" class="d-flex gap-2 p-2">
       <nav class="d-none d-xl-flex flex-column sp-left h-100">
         <div class="sp-panel rounded-3 p-3 d-flex flex-column h-100 overflow-hidden">
           <!-- nav principale -->
@@ -387,6 +387,69 @@
 
     <!-- FINE SIDE BAR "FRIEND ACTIVITY" -->
 
+    <div class="player d-xl-none">
+      <div class="player-bar d-flex align-items-center justify-content-between">
+        <!-- SX: cover + titolo -->
+        <div class="d-flex align-items-center gap-3 overflow-hidden">
+          <img src="./assets/imgs/main/image-10.jpg" class="rounded" alt="cover" />
+          <div class="text-truncate">
+            <div class="small fw-bold">Supernatural Parody</div>
+            <div class="text-secondary extra-small">The Hillwood...</div>
+          </div>
+        </div>
+
+        <!-- DX: icone -->
+        <div class="d-flex gap-3 align-items-center ps-2">
+          <i class="bi bi-pc-display text-secondary"></i>
+          <i class="bi bi-heart text-white"></i>
+          <i class="bi bi-play-fill text-white fs-3"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLAYER DESKTOP -->
+    <div class="player-desktop d-none d-xl-flex align-items-center">
+      <div class="container-fluid px-3">
+        <div class="d-flex align-items-center justify-content-between gap-3">
+          <!-- SX: info brano -->
+          <div class="player-info-section d-flex align-items-center gap-3 min-w-0">
+            <img src="./assets/imgs/main/image-12.jpg" class="player-desk-cover" alt="cover" />
+            <div class="text-truncate min-w-0">
+              <div class="small fw-bold mb-0 text-truncate">Supernatural Parody</div>
+              <div class="text-white-50" style="font-size: 0.75rem">The Hillwood...</div>
+            </div>
+            <i class="bi bi-heart text-white-50 ms-2"></i>
+          </div>
+
+          <!-- CENTRO: controlli + barra -->
+          <div class="player-center-section flex-grow-1 px-4 d-none d-md-block">
+            <div class="d-flex align-items-center justify-content-center gap-3 mb-2 player-controls">
+              <i class="bi bi-shuffle text-white-50"></i>
+              <i class="bi bi-skip-start-fill text-white-50 fs-5"></i>
+              <i class="bi bi-play-circle-fill text-white fs-2"></i>
+              <i class="bi bi-skip-end-fill text-white-50 fs-5"></i>
+              <i class="bi bi-repeat text-white-50"></i>
+            </div>
+
+            <div class="player-songbar w-100 mx-auto d-flex align-items-center gap-2">
+              <span class="text-white-50" style="font-size: 0.7rem">0:58</span>
+              <div class="player-progress flex-grow-1"></div>
+              <span class="text-white-50" style="font-size: 0.7rem">3:20</span>
+            </div>
+          </div>
+
+          <!-- DX: utility -->
+          <div class="player-utility-section d-flex align-items-center justify-content-end gap-2">
+            <i class="bi bi-mic text-white-50"></i>
+            <i class="bi bi-list-ul text-white-50"></i>
+            <i class="bi bi-pc-display text-white-50"></i>
+            <i class="bi bi-volume-up text-white-50"></i>
+            <div class="player-volume d-none d-sm-block"></div>
+            <i class="bi bi-arrows-angle-expand text-white-50 player-expand ms-2"></i>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- FOOTER NAVBAR MOBILE -->
     <nav class="mobile-nav d-xl-none">
       <a href="#" class="mobile-nav-item active">

@@ -226,4 +226,36 @@ header div form input::placeholder {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
+}
+
+#containerFirstSection {
+  height: 100vh;
+}
+
+@media screen and (min-width: 1200px) {
+  #containerFirstSection {
+    height: calc(100vh - 98px);
+  }
+}
+.player {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 60px; /* altezza della nav */
+  padding: 0 10px;
+  z-index: 1050;
+}
+
+.player-bar {
+  background: #181818;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 0 10px 10px;
+}
+
+.player img {
+  width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=search.css.map */
