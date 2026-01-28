@@ -129,8 +129,6 @@ async function generateAlbumCard(data) {
   const albumContainer = document.querySelector("#albumsContainer");
   const albums = document.querySelector(".albumsText");
   albums.classList.remove("d-none");
-  const albums = document.querySelector(".albumsText");
-  albums.classList.remove("d-none");
   const showOthers = document.querySelector(".mb-3.col-12");
   console.log(showOthers.children.length);
   console.log(showOthers.children.length == 3);
@@ -157,7 +155,7 @@ async function generateAlbumCard(data) {
 
     albumNumber(data, numberAlbumShown);
   });
-}
+}}
 
 async function albumNumber(data, lengthNumber) {
   const albumContainer = document.querySelector("#albumsContainer");
