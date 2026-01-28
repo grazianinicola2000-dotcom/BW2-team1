@@ -1,189 +1,533 @@
 :root {
-  --sp-card-bg: rgba(255, 255, 255, 0.08); /* sfondo | HTML: globale (body riga 12 / main riga 13) */
-  --sp-card-border: rgba(255, 255, 255, 0.1); /* bordo | HTML: globale (body riga 12 / main riga 13) */
-  --sp-card-shadow: rgba(0, 0, 0, 0.45); /* ombra | HTML: globale (body riga 12 / main riga 13) */
-  --sp-tile-border: rgba(255, 255, 255, 0.1); /* tile | HTML: globale (body riga 12 / main riga 13) */
+  // root
+  --sp-panel: #121212; // pannello
+  --sp-panel-2: #181818; // pannello2
+  --sp-muted: rgba(255, 255, 255, 0.65); // muted
+  --sp-muted-2: rgba(255, 255, 255, 0.45); // muted2
 }
 
-/* CARD PLAYLIST GRANDI → HTML righe: 164, 201 */
-.sp-playlist-card {
-  /* card */
-  background: var(--sp-card-bg); /* colore */
-  box-shadow: 0 18px 40px var(--sp-card-shadow); /* profondità */
-  overflow: hidden; /* taglio */
-
-  --sp-glow: rgba(0, 0, 0, 0); /* base */
-
-  &::before {
-    /* glow */
-    content: ""; /* crea */
-    position: absolute; /* overlay */
-    inset: -60px; /* esteso */
-    background: radial-gradient(circle at 10% 15%, var(--sp-glow) 0%, rgba(0, 0, 0, 0) 55%); /* luce */
-    filter: blur(14px); /* sfocatura */
-    opacity: 0.95; /* intensità */
-    pointer-events: none; /* ignora */
-  }
-
-  &::after {
-    /* bordo */
-    content: ""; /* crea */
-    position: absolute; /* overlay */
-    inset: 0; /* pieno */
-    border-radius: inherit; /* curva */
-    box-shadow: 0 0 0 1px var(--sp-card-border) inset; /* contorno */
-    pointer-events: none; /* ignora */
-  }
+// Anti overflow orizzontale | HTML: 14,16 | blocco
+html, // base
+body {
+  // base
+  overflow-x: hidden; // blocco
 }
 
-/* GLOW VARIANTI → HTML:
-   - .sp-glow-warm: riga 164
-   - .sp-glow-neutral: riga 201 */
-.sp-glow-warm {
-  /* caldo */
-  --sp-glow: rgba(255, 90, 70, 0.4); /* rosso */
+body > .d-flex {
+  // wrapper
+  overflow-x: hidden; // blocco
+  min-width: 0; // shrink
 }
 
-.sp-glow-neutral {
-  /* neutro */
-  --sp-glow: rgba(255, 255, 255, 0.1); /* bianco */
+.sp-main, // main
+.sp-panel, // panel
+.sp-main-content {
+  // content
+  overflow-x: hidden; // blocco
+  min-width: 0; // shrink
 }
 
-/* TESTI CARD → HTML:
-   - .sp-subtitle: righe 174, 211
-   - .sp-title: righe 175, 212 */
-.sp-subtitle {
-  /* etichetta */
-  font-size: 0.85rem; /* piccolo */
-  line-height: 1.2; /* aria */
-  margin-top: 0.1rem; /* spazio */
+.row {
+  // bootstrap
+  margin-left: 0 !important; // fix
+  margin-right: 0 !important; // fix
 }
 
-.sp-title {
-  /* titolo */
-  font-size: 1.55rem; /* grande */
-  line-height: 1.12; /* stretto */
+// Sidebar sinistra dimensioni | HTML: 18 | larghezza
+.sp-left {
+  flex: 0 0 310px; // base
+  width: 310px; // larghezza
+  min-width: 310px; // minimo
+  min-height: 0; // overflow
+  min-width: 0; // shrink
 }
 
-/* ICONE → HTML righe: 184, 185, 218, 219 */
-.sp-icon {
-  /* icona */
-  font-size: 1.45rem; /* misura */
-  line-height: 1; /* blocco */
+// Sidebar destra dimensioni | HTML: 319 | larghezza
+.sp-right {
+  // aside
+  flex: 0 0 320px; // base
+  width: 320px; // larghezza
+  min-width: 320px; // minimo
+  min-height: 0; // overflow
+  min-width: 0; // shrink
 }
 
-/* NUMERO BRANI → HTML righe: 189, 223 */
-.sp-meta {
-  /* numero */
-  font-size: 0.95rem; /* medio */
+// Pannelli laterali | HTML: 19,320 | sfondo
+.sp-panel {
+  background: var(--sp-panel); // colore
+  min-height: 0; // overflow
+  min-width: 0; // shrink
 }
 
-/* BOTTONE PLAY → HTML righe: 191, 225 */
-.sp-play-btn {
-  /* play */
-  width: 42px; /* larghezza */
-  height: 42px; /* altezza */
-  border: 0; /* niente */
-  border-radius: 999px; /* tondo */
-  background: rgba(0, 0, 0, 0.35); /* scuro */
-  display: inline-flex; /* flex */
-  align-items: center; /* centro */
-  justify-content: center; /* centro */
+// Main background | HTML: 92 | gradiente
+.sp-main {
+  background: linear-gradient(180deg, #2b2b2b 0px, var(--sp-panel) 340px); // gradiente
+  min-height: 0; // overflow
+  min-width: 0; // shrink
+}
 
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; /* bordo */
+// Main contenuto scroll | HTML: 144 | scroll
+.sp-main-content {
+  min-height: 0; // overflow
+  min-width: 0; // shrink
+}
 
-  i {
-    /* icona */
-    color: #fff; /* bianco */
-    font-size: 1.6rem; /* grande */
-    line-height: 1; /* pulito */
-    margin-left: 2px; /* shift */
+// Header main | HTML: 94 | trasparente
+.sp-header {
+  background: transparent !important; // trasparenza
+  backdrop-filter: none !important; // blur
+  z-index: 10; // livello
+}
+
+// Bottoni frecce | HTML: 97-102 | icona
+.sp-iconbtn {
+  width: 36px; // dimensione
+  height: 36px; // dimensione
+  border-radius: 999px; // pill
+  border: 0; // bordo
+  background: rgba(0, 0, 0, 0.55); // sfondo
+  color: #fff; // testo
+  display: grid; // layout
+  place-items: center; // centro
+
+  &:focus, // focus
+  &:focus-visible {
+    box-shadow: none; // ombra
+    outline: none; // outline
   }
 }
 
-/* COLLAGE 2x2 → HTML:
-   - .sp-collage: righe 166, 203
-   - .sp-collage__tile: righe 167–170, 204–207 */
+// Profilo pill | HTML: 125 | profilo
+.sp-profile {
+  max-width: 230px; // limite
+  display: inline-flex; // layout
+  align-items: center; // allinea
+  gap: 8px; // spazio
+  background: rgba(0, 0, 0, 0.55); // sfondo
+  border: 0; // bordo
+  border-radius: 999px; // pill
+  color: #fff; // testo
+  padding: 4px 10px 4px 4px; // padding
+
+  &:focus, // focus
+  &:focus-visible {
+    box-shadow: none; // ombra
+    outline: none; // outline
+  }
+}
+
+// Avatar | HTML: 126 | cerchio
+.sp-avatar {
+  width: 28px; // dimensione
+  height: 28px; // dimensione
+  border-radius: 999px; // cerchio
+  background: rgba(255, 255, 255, 0.16); // sfondo
+  display: grid; // layout
+  place-items: center; // centro
+  font-weight: 800; // peso
+  font-size: 0.85rem; // testo
+}
+
+// Dropdown menu | HTML: 130 | menu
+.sp-dd {
+  background: #1a1a1a; // sfondo
+  border: 1px solid rgba(255, 255, 255, 0.08); // bordo
+  border-radius: 10px; // radius
+  overflow: hidden; // taglio
+  padding: 6px; // padding
+
+  .dropdown-item {
+    // item
+    border-radius: 8px; // radius
+    color: rgba(255, 255, 255, 0.9); // testo
+    padding: 10px 10px; // padding
+
+    &:hover {
+      // hover
+      background: rgba(255, 255, 255, 0.08); // sfondo
+      color: #fff; // testo
+    }
+  }
+}
+
+// Nav pills attivo | HTML: 25 | active
+.sp-left .nav-pills {
+  --bs-nav-pills-link-active-bg: rgba(255, 255, 255, 0.12); // sfondo
+  --bs-nav-pills-link-active-color: #fff; // testo
+}
+
+// Link nav sidebar | HTML: 27,30,33,40,44,53 | link
+.sp-navlink {
+  color: var(--sp-muted) !important; // colore
+  border-radius: 10px; // radius
+
+  &:hover {
+    // hover
+    background: rgba(255, 255, 255, 0.08); // sfondo
+    color: #fff !important; // testo
+  }
+
+  &:focus, // focus
+  &:focus-visible {
+    box-shadow: none; // ombra
+    outline: none; // outline
+  }
+}
+
+// Playlist hover | HTML: 67+ | hover
+.sp-plink:hover {
+  color: #fff !important; // testo
+}
+
+// Icone quadrate | HTML: 45,54 | box
+.sp-icon-square {
+  width: 28px; // dimensione
+  height: 28px; // dimensione
+  border-radius: 6px; // radius
+  display: inline-flex; // layout
+  align-items: center; // allinea
+  justify-content: center; // centro
+  font-size: 0.95rem; // testo
+}
+
+// Liked gradient | HTML: 45 | gradient
+.sp-liked {
+  background: linear-gradient(135deg, #4b2cff, #1e8fff); // gradiente
+}
+
+// Episodes bg | HTML: 54 | colore
+.sp-episodes {
+  background: #0a6; // sfondo
+}
+
+// HERO | HTML: 147 | card
+.sp-hero {
+  position: relative; // pos
+  overflow: hidden; // taglio
+  border-radius: 12px; // radius
+  padding: 22px; // padding
+  border: 1px solid rgba(255, 255, 255, 0.06); // bordo
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03); // bordo
+
+  background: // sfondo
+    radial-gradient(circle at 36% 22%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 28%, transparent 62%),
+    // glow
+    linear-gradient(90deg, rgba(28, 28, 28, 0.95) 0%, rgba(24, 24, 24, 0.92) 45%, rgba(10, 10, 10, 0.92) 100%); // base
+}
+
+// HERO haze | HTML: 147 | overlay
+.sp-hero::before {
+  // before
+  content: ""; // crea
+  position: absolute; // pos
+  inset: 0; // stretch
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 22%, transparent 55%); // haze
+  pointer-events: none; // click
+}
+
+// HERO vignette | HTML: 147 | overlay
+.sp-hero::after {
+  // after
+  content: ""; // crea
+  position: absolute; // pos
+  inset: 0; // stretch
+  background: // sfondo
+    linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.18) 55%, rgba(0, 0, 0, 0.55) 100%),
+    // destra
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 62%, rgba(0, 0, 0, 0.35) 100%); // basso
+  pointer-events: none; // click
+}
+
+// HERO stacking | HTML: 147 | livello
+.sp-hero > * {
+  // children
+  position: relative; // pos
+  z-index: 1; // sopra
+}
+
+// HERO cover | HTML: 153 | cover
+.sp-hero-cover {
+  // cover
+  width: 180px; // larghezza
+  height: 180px; // altezza
+  border-radius: 6px; // radius
+  object-fit: cover; // crop
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55); // ombra
+}
+
+// HERO kicker | HTML: 156 | label
+.sp-hero-kicker {
+  // kicker
+  font-size: 0.72rem; // testo
+  font-weight: 700; // peso
+  letter-spacing: 0.08em; // tracking
+  color: rgba(255, 255, 255, 0.45); // colore
+  margin-bottom: 6px; // spazio
+}
+
+// HERO titolo | HTML: 157 | titolo
+.sp-hero-title {
+  font-size: clamp(2.6rem, 4.2vw, 3.9rem); // scala
+  line-height: 1; // linea
+  letter-spacing: -0.03em; // tracking
+}
+
+// HERO meta/desc | HTML: 158-159 | testo
+.sp-hero-meta, // meta
+.sp-hero-desc {
+  font-size: 0.9rem; // testo
+  color: rgba(255, 255, 255, 0.55); // colore
+}
+
+// Bottone nascondi | HTML: 149 | pill
+.sp-hero-hide-btn {
+  cursor: pointer; // mano
+  padding: 6px 12px; // padding
+  border-radius: 999px; // pill
+  background: rgba(0, 0, 0, 0.25); // sfondo
+  border: 1px solid rgba(255, 255, 255, 0.12); // bordo
+  color: rgba(255, 255, 255, 0.45); // testo
+  font-size: 0.72rem; // testo
+  font-weight: 800; // peso
+  letter-spacing: 0.08em; // tracking
+  text-transform: uppercase; // caps
+
+  &:hover {
+    // hover
+    background: rgba(0, 0, 0, 0.35); // sfondo
+    border-color: rgba(255, 255, 255, 0.22); // bordo
+    color: rgba(255, 255, 255, 0.7); // testo
+  }
+
+  &:focus, // focus
+  &:focus-visible {
+    box-shadow: none; // ombra
+    outline: none; // outline
+  }
+}
+
+// Bottone play hero | HTML: 162 | play
+.sp-btn-play {
+  background: #1db954; // colore
+  border: 0; // bordo
+  color: #000; // testo
+
+  &:hover {
+    // hover
+    background: #1ed760; // colore
+    color: #000; // testo
+  }
+}
+
+// Bottone salva hero | HTML: 163 | save
+.sp-btn-save {
+  background: rgba(0, 0, 0, 0.28); // sfondo
+  border: 1px solid rgba(255, 255, 255, 0.22); // bordo
+  color: #fff; // testo
+
+  &:hover {
+    // hover
+    background: rgba(0, 0, 0, 0.38); // sfondo
+    border-color: rgba(255, 255, 255, 0.35); // bordo
+    color: #fff; // testo
+  }
+}
+
+// Titolo Buonasera | HTML: 174 | titolo
+.sp-section-title {
+  font-size: 2rem; // testo
+  font-weight: 900; // peso
+  letter-spacing: -0.02em; // tracking
+  margin-top: 6px; // spazio
+}
+
+// Tile Buonasera | HTML: 178 | tile
+.sp-tile {
+  position: relative; // pos
+  width: 100%; // width
+  height: 72px; // height
+  border-radius: 6px; // radius
+  background: rgba(255, 255, 255, 0.08); // sfondo
+  display: flex; // layout
+  align-items: center; // allinea
+  gap: 12px; // gap
+  overflow: hidden; // taglio
+  transition: background 0.15s ease; // transizione
+
+  &:hover {
+    // hover
+    background: rgba(255, 255, 255, 0.14); // sfondo
+  }
+}
+
+// Cover tile | HTML: 179 | cover
+.sp-tile-cover {
+  width: 72px; // width
+  height: 72px; // height
+  flex: 0 0 72px; // base
+  overflow: hidden; // taglio
+}
+
+// Collage tile | HTML: 179-184 ecc. | collage
 .sp-collage {
-  /* griglia */
-  width: 132px; /* misura */
-  aspect-ratio: 1 / 1; /* quadrato */
-  display: grid; /* grid */
-  grid-template-columns: 1fr 1fr; /* colonne */
-  grid-template-rows: 1fr 1fr; /* righe */
-  gap: 0; /* unito */
-
-  overflow: hidden; /* taglio */
-
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; /* cornice */
-}
-
-.sp-collage__tile {
-  /* tile */
-  position: relative; /* contesto */
-  overflow: hidden; /* taglio */
+  display: grid; // layout
+  grid-template-columns: 1fr 1fr; // colonne
+  grid-template-rows: 1fr 1fr; // righe
 
   img {
-    /* immagine */
-    width: 100%; /* pieno */
-    height: 100%; /* pieno */
-    display: block; /* blocco */
-    object-fit: cover; /* crop */
-  }
-
-  &::after {
-    /* bordo */
-    content: ""; /* crea */
-    position: absolute; /* overlay */
-    inset: 0; /* pieno */
-    pointer-events: none; /* ignora */
-    box-shadow: 0 0 0 1px var(--sp-tile-border) inset; /* linea */
+    // img
+    width: 100%; // width
+    height: 100%; // height
+    object-fit: cover; // crop
+    display: block; // block
   }
 }
 
-/* TRE PUNTINI → HTML righe: 61, 83, 105, 140, 153 */
-.sp-ellipsis {
-  /* menu */
-  text-decoration: none; /* niente */
+// Single tile img | HTML: 241-243 | single
+.sp-single img {
+  width: 100%; // width
+  height: 100%; // height
+  object-fit: cover; // crop
+  display: block; // block
+}
 
-  &:focus-visible {
-    /* focus */
-    outline: 2px solid rgba(255, 255, 255, 0.35); /* bordo */
-    outline-offset: 3px; /* distanza */
-    border-radius: 999px; /* tondo */
+// Liked cover tile | HTML: 218-220 | liked
+.sp-likedcover {
+  background: linear-gradient(135deg, #4b2cff, #1e8fff); // gradiente
+  display: grid; // layout
+  place-items: center; // centro
+
+  i {
+    // icon
+    font-size: 1.5rem; // size
   }
 }
 
-/* HOVER: INGRANDIMENTO CARD */
-/* Card piccole → HTML: righe 45, 68, 90, 112, 125, 147 */
-.row.row-cols-2.gx-4.gy-4.mt-2 .col > a {
-  position: relative; /* livello */
-  transition: transform 0.18s ease; /* animazione */
-  will-change: transform; /* performance */
+// Titolo tile | HTML: 185 ecc. | clamp
+.sp-tile-title {
+  font-weight: 800; // peso
+  font-size: 0.92rem; // testo
+  line-height: 1.15; // linea
+  padding-right: 56px; // spazio
+  display: -webkit-box; // box
+  -webkit-line-clamp: 2; // clamp
+  -webkit-box-orient: vertical; // orient
+  overflow: hidden; // taglio
 }
 
-.row.row-cols-2.gx-4.gy-4.mt-2 .col > a:hover,
-.row.row-cols-2.gx-4.gy-4.mt-2 .col > a:focus-visible {
-  transform: scale(1.03); /* zoom */
-  z-index: 2; /* sopra */
+// Play tile | HTML: 186 ecc. | play
+.sp-tile-play {
+  position: absolute; // pos
+  right: 10px; // destra
+  width: 40px; // width
+  height: 40px; // height
+  border: 0; // bordo
+  border-radius: 999px; // pill
+  background: #1db954; // colore
+  display: grid; // layout
+  place-items: center; // centro
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35); // ombra
+  opacity: 0; // invisibile
+  transform: translateY(8px); // offset
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease; // transizione
+
+  i {
+    // icon
+    color: #000; // colore
+    font-size: 1.55rem; // size
+    margin-left: 2px; // tweak
+  }
 }
 
-/* FIX OVERFLOW → evita tagli/spazi strani nei layout flex */
-main {
-  min-width: 0; /* permette al contenuto di restringersi senza creare overflow orizzontale */
+.sp-tile:hover .sp-tile-play {
+  // hover
+  opacity: 1; // visibile
+  transform: translateY(0); // reset
 }
 
-/* NASCONDI SCROLLBAR */
-main,
-.friend-list,
-.playlist-scroll {
-  -ms-overflow-style: none; /* nasconde barra */
-  scrollbar-width: none; /* nasconde barra */
+// Card sezione “Altro” | HTML: 259 ecc. | card
+.sp-card {
+  background: var(--sp-panel-2); // sfondo
+  transition: background 0.15s ease; // transizione
+
+  &:hover {
+    // hover
+    background: rgba(255, 255, 255, 0.09); // sfondo
+  }
 }
 
-main::-webkit-scrollbar,
-.friend-list::-webkit-scrollbar,
-.playlist-scroll::-webkit-scrollbar {
-  width: 0; /* niente barra */
-  height: 0; /* anche orizzontale */
+// Immagine card | HTML: 261 ecc. | image
+.sp-card-img {
+  aspect-ratio: 1 / 1; // ratio
+  border-radius: 10px; // radius
+  object-fit: cover; // crop
+  display: block; // block
+}
+
+// Play card | HTML: 262 ecc. | play
+.sp-card-play {
+  position: absolute; // pos
+  right: 12px; // destra
+  bottom: 12px; // basso
+  width: 42px; // width
+  height: 42px; // height
+  border: 0; // bordo
+  border-radius: 999px; // pill
+  background: #1db954; // colore
+  display: grid; // layout
+  place-items: center; // centro
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35); // ombra
+  opacity: 0; // invisibile
+  transform: translateY(8px); // offset
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease; // transizione
+
+  i {
+    // icon
+    color: #000; // colore
+    font-size: 1.6rem; // size
+    margin-left: 2px; // tweak
+  }
+}
+
+.sp-card:hover .sp-card-play {
+  // hover
+  opacity: 1; // visibile
+  transform: translateY(0); // reset
+}
+
+// Friend row | HTML: 330,342,354 | row
+.sp-friend {
+  display: flex; // layout
+  gap: 12px; // gap
+  align-items: flex-start; // allinea
+  margin-bottom: 16px; // spazio
+}
+
+// Scrollbar custom | HTML: 65,144,329 | scrollbar
+.sp-scroll::-webkit-scrollbar {
+  width: 12px; // size
+}
+
+.sp-scroll::-webkit-scrollbar-thumb {
+  // thumb
+  background: rgba(255, 255, 255, 0.25); // colore
+  border-radius: 999px; // pill
+}
+
+.sp-scroll::-webkit-scrollbar-track {
+  // track
+  background: transparent; // track
+}
+
+// Nascondi frecce sotto 992 | HTML: 96 | responsive
+@media (max-width: 991.98px) {
+  // media
+  .sp-nav-arrows {
+    // arrows
+    display: none !important; // nasconde
+  }
 }
