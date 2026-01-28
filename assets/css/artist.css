@@ -1,0 +1,287 @@
+@charset "UTF-8";
+/* BODY */
+body {
+  background-color: #121212;
+  color: white;
+}
+
+/* ===== SIDEBAR ===== */
+.text-secondary-custom {
+  color: #b3b3b3;
+}
+
+.extra-small {
+  font-size: 0.7rem;
+}
+
+.smaller-text {
+  font-size: 0.8rem;
+}
+
+/*da ggiungere se Ab ha creato altre */
+/* ===== MAIN ARTIST HEADER ===== */
+.artist-header {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+.artist-header .header-nav-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+.artist-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 45%, rgba(0, 0, 0, 0.85));
+  z-index: 1;
+  pointer-events: none;
+}
+.artist-header .btn-nav {
+  width: 32px;
+  height: 32px;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.artist-header .btn-user {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  border: none;
+  padding: 4px 12px 4px 4px !important;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.artist-header .fw-black {
+  font-weight: 900 !important;
+}
+.artist-header .btn-dark.rounded-circle {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* immagine hero */
+.artist-hero-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: top;
+  object-position: top;
+  position: relative;
+  z-index: 0;
+}
+
+/* testo e bottone SOPRA overlay */
+.artist-hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.back-button {
+  width: 40px;
+  height: 40px;
+  opacity: 0.75;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== ACTION BAR ===== */
+.play-icon {
+  font-size: 3.5rem;
+  color: #1db954;
+}
+
+.shuffle-icon {
+  color: #1db954;
+}
+
+/* ===== BRANI CHE TI PIACCIONO ===== */
+.artist-liked img {
+  width: 55px;
+  height: 55px;
+}
+.artist-liked .liked-badge {
+  width: 20px;
+  height: 20px;
+  font-size: 0.6rem;
+}
+
+/* ===== POPULAR SONGS ===== */
+.song-cover {
+  width: 45px;
+  height: 45px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+/* ===== FRIEND ACTIVITY ===== */
+.friend-list {
+  overflow-y: auto;
+}
+
+/* su mobile: player sopra la bottom-nav */
+.player {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 60px; /* altezza della nav */
+  padding: 0 10px;
+  z-index: 1050;
+}
+
+.player-bar {
+  background: #2a2a2a;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 0 10px 10px;
+}
+
+.player img {
+  width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+/* bottom nav */
+.mobile-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex; /* <-- fondamentale !!!! OCCHIO.. commento per me*/
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1040;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobile-nav-item {
+  color: #b3b3b3;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+}
+.mobile-nav-item i {
+  font-size: 1.2rem;
+}
+
+/* spazio “giusto” nel main per non finire sotto player+nav */
+.main-content {
+  padding-bottom: 140px; /* 60 nav + ~70 player + margini */
+}
+
+/* Desktop: niente player mobile, niente padding extra */
+@media (min-width: 992px) {
+  .main-content {
+    padding-bottom: 110px;
+    min-height: 100vh;
+  }
+  .player {
+    display: none;
+  }
+  .artist-header {
+    height: 45vh;
+    max-height: 700px;
+    min-height: 320px;
+  }
+  .artist-hero-img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  .mobile-nav {
+    display: none;
+  }
+  /* ===== PLAYER DESKTOP GRANDE E DINAMICO ===== */
+  .player-desktop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 95px;
+    background: #181818;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 2000;
+  }
+  /* SX: Prende spazio ma si adatta SPERO E CREDO FUNZIONI */
+  .player-info-section {
+    flex: 0 1 30%; /* Può occupare fino al 30% ma si stringe se serve DI COME FUNZIONI BENE LA USO ANCHE A DX FLEX NON CHIARO*/
+    min-width: 180px;
+  }
+  .player-desk-cover {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  /* CENTRO: La parte "grande" che si rimpicciolisce */
+  .player-center-section {
+    flex: 1 1 auto; /* Prende tutto lo spazio centrale disponibile SOLUZIONE TROVATA NON CERTA VEDI SU   */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 30px; /* Spazio dai lati per non "sbattere" contro icone e cover */
+  }
+  /* Rende i controlli proporzionati */
+  .player-controls {
+    margin-bottom: 8px;
+    transform: scale(1.1);
+  }
+  /* barra  larga quanto tutto il centro disponibile */
+  .player-songbar {
+    width: 100%;
+    max-width: 800px; /* LIMITE GRANDEZZA */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .player-progress {
+    flex-grow: 1;
+    height: 5px; /* Più spessa */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    position: relative;
+  }
+  .player-progress::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 40%;
+    background: white;
+    border-radius: 10px;
+  }
+  /* DX: Utility e Volume */
+  .player-utility-section {
+    flex: 0 1 30%; /* Speculare alla sezione SX VEDI SOPRA */
+    min-width: 180px;
+    justify-content: flex-end;
+  }
+  .player-volume {
+    width: 100px; /* Volume leggermente più lungo */
+    height: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .player-volume::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 60%;
+    background: white;
+  }
+} /*# sourceMappingURL=artist.css.map */

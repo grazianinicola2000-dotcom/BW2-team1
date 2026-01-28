@@ -25,22 +25,33 @@ main::-webkit-scrollbar-track,
   position: relative;
 }
 
-header div button i {
+header div form button i {
   color: #fdfdfd;
 }
 
-header div button {
-  position: absolute;
-  left: 15px;
-  top: 9px;
-  opacity: 50%;
+#header {
+  margin-inline: 12px;
 }
 
-header div button:hover {
+header div form button {
+  position: absolute;
+  left: 30px;
+  top: 11px;
+  opacity: 50%;
+  font-size: 35px;
+}
+
+header div form div {
+  position: absolute;
+  right: 15px;
+  top: 14px;
+}
+
+header div form button:hover {
   opacity: 100%;
 }
 
-header div input {
+header div form input {
   background-color: #282828;
   color: #fdfdfd;
   font-family: "Circular";
@@ -48,7 +59,7 @@ header div input {
   font-size: 1.4rem;
 }
 
-header div input::placeholder {
+header div form input::placeholder {
   font-size: 1.4rem;
 }
 
@@ -104,7 +115,7 @@ header div input::placeholder {
 
 #searchedArtistContainer {
   background-color: #1e1e1e;
-  height: 264px;
+  height: 275px;
 }
 
 #searchedArtistContainer:hover {
@@ -125,5 +136,75 @@ header div input::placeholder {
 }
 
 .searcheSongsContainer:hover {
+  background-color: #282828;
+}
+
+.searchedSongTitle,
+.searchedArtistName {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+
+  overflow: hidden;
+}
+
+.searchedArtistName a {
+  color: #aaaaaa;
+  text-decoration: none;
+}
+
+.searchedArtistName a:hover {
+  text-decoration: underline;
+}
+
+.mobile-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex; /* <-- fondamentale !!!! OCCHIO.. commento per me*/
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1040;
+  border-top: 1px solid rgba(255, 255, 255, 0.08); //per pseudo staccarlo dal resto
+}
+
+.mobile-nav-item {
+  color: #b3b3b3;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+
+  i {
+    font-size: 1.2rem;
+  }
+}
+
+// album container
+
+.searchedAlbum img {
+  width: 180px;
+}
+
+.searchedAlbum p,
+.searchedAlbum p a {
+  color: #aaaaaa;
+  text-decoration: none;
+}
+
+.searchedAlbum p a:hover {
+  text-decoration: underline;
+}
+
+.searchedAlbum {
+  padding: 12px;
+}
+
+.searchedAlbum:hover {
   background-color: #282828;
 }

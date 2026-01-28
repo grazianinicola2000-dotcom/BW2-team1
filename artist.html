@@ -1,64 +1,21 @@
 <!doctype html>
-
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./assets/css/artist.css" />
 
     <title>Artist</title>
-
-    <style>
-      .liked-gradient {
-        background: linear-gradient(135deg, #450af5, #c4efd9);
-
-        padding: 5px;
-
-        border-radius: 2px;
-      }
-
-      .episodes-bg {
-        background-color: #006450;
-
-        padding: 5px;
-
-        border-radius: 2px;
-      }
-
-      .text-secondary-custom {
-        color: #b3b3b3;
-      }
-
-      .icon-square {
-        width: 32px;
-
-        height: 32px;
-
-        display: inline-flex;
-
-        align-items: center;
-
-        justify-content: center;
-      }
-
-      .extra-small {
-        font-size: 0.7rem;
-      }
-
-      .smaller-text {
-        font-size: 0.8rem;
-      }
-    </style>
   </head>
 
-  <body class="bg-dark text-white">
-    <div class="container-fluid">
-      <div class="row flex-nowrap">
-        <nav class="col-3 d-flex flex-column p-3 bg-black border-end border-dark h-100">
+  <body>
+    <div class="container-fluid p-0">
+      <div class="row flex-lg-nowrap g-0">
+        <!-- SIDEBAR -->
+        <nav class="col-lg-2 d-none d-lg-flex flex-column p-3 bg-black border-end border-dark min-vh-100 sidebar">
           <div class="mb-4 ps-2">
             <i class="bi bi-three-dots fs-4 text-secondary"></i>
           </div>
@@ -87,7 +44,6 @@
                 <span class="icon-square liked-gradient me-3">
                   <i class="bi bi-heart-fill"></i>
                 </span>
-
                 Mi Piace
               </a>
             </li>
@@ -97,7 +53,6 @@
                 <span class="icon-square episodes-bg me-3">
                   <i class="bi bi-bookmark-fill"></i>
                 </span>
-
                 Episodi
               </a>
             </li>
@@ -108,195 +63,251 @@
           <div class="playlist-scroll overflow-y-auto overflow-x-hidden flex-grow-1">
             <ul class="nav flex-column gap-2">
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">early stage emily syndrome (sept-oct 2022)</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Be The Young</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">"..." cit. Kimiko (aug-ago 2022)</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">saggio vibes 💃🌹</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">main character energy (may-jun 2022)</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">that fucking mood 🔪☠️</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">VEE, CARLOTTA E GIACOMO VANNO A BOSIO</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">An Emily Winchester kind of mood 🥂✨</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">landing page (mar-apr 2022)</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">2021 lol</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">honey and glass (nov-dec 2021)</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">(Revenge) Training Arc 🦍</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Lidia 🤝 Emily</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">minecraft e nintendo switch (sep-oct 2021)</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">silvano d'orba? I hardly know her (jul-aug 2021)</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Estate 2021 💃</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Frah Quintale Mix</a></li>
-
               <li><a href="#" class="nav-link text-secondary-custom p-0 small text-truncate">Francesco Guccini Mix</a></li>
             </ul>
           </div>
         </nav>
 
-        <main class="col-lg-7 col-12 bg-dark p-0 min-vh-100 pb-5">
-          <div class="container-fluid p-0 position-relative" style="overflow: hidden">
-            <img src="./assets/imgs/main/image-10.jpg" class="img-fluid w-100" alt="Artist" />
+        <!-- MAIN -->
+        <main class="col-12 col-lg-7 bg-dark p-0 pb-5 min-vh-100 main-content">
+          <!-- ARTIST HEADER -->
+          <div class="container-fluid p-0 artist-header">
+            <img src="./assets/imgs/main/image-10.jpg" class="artist-hero-img" alt="Artist" />
 
-            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.8))"></div>
+            <div
+              class="position-absolute top-0 start-0 w-100 p-3 d-none d-lg-flex justify-content-between align-items-center header-nav-container"
+              style="z-index: 10"
+            >
+              <div class="d-flex gap-2 ms-2 mt-2">
+                <button class="btn btn-black rounded-circle d-flex align-items-center justify-content-center p-0 btn-nav">
+                  <i class="bi bi-chevron-left text-white small"></i>
+                </button>
+                <button class="btn btn-black rounded-circle d-flex align-items-center justify-content-center p-0 btn-nav">
+                  <i class="bi bi-chevron-right text-white small"></i>
+                </button>
+              </div>
 
-            <div class="position-absolute top-0 start-0 p-3">
-              <button class="btn btn-dark rounded-circle opacity-75 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px">
+              <div class="dropdown me-2 mt-2">
+                <button class="btn btn-black rounded-pill d-flex align-items-center gap-2 p-1 pe-3 btn-user" type="button">
+                  <img src="https://ui-avatars.com/api/?name=Lidia+Nautilus&background=random" class="rounded-circle" width="28" height="28" alt="Lidia" />
+                  <span>Lidia Nautilus...</span>
+                  <i class="bi bi-caret-down-fill extra-small"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="position-absolute top-0 start-0 pt-5 ps-3 d-lg-none" style="z-index: 10">
+              <button
+                class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center"
+                style="width: 40px; height: 40px; background: rgba(0, 0, 0, 0.7)"
+              >
                 <i class="bi bi-arrow-left fs-3 fw-bold"></i>
               </button>
             </div>
+            <div class="position-absolute bottom-0 start-0 w-100 p-4 artist-hero-text pb-lg-5">
+              <div class="d-none d-lg-flex align-items-center gap-2 mb-2">
+                <i class="bi bi-patch-check-fill text-primary fs-5"></i>
+                <span class="text-white fw-semibold small" style="font-size: 0.85rem">Artista verificato</span>
+              </div>
 
-            <div class="position-absolute bottom-0 start-0 w-100 p-4">
-              <h1 class="display-3 fw-bold text-white mb-0">Pinguini Tattici Nucleari</h1>
+              <h1 class="display-3 display-lg-1 fw-bold mb-3 text-white">Pinguini Tattici Nucleari</h1>
 
-              <p class="text-light opacity-75 small">3.961.093 ascoltatori mensili</p>
+              <p class="text-white fw-semibold mb-0 mb-lg-2" style="font-size: 0.9rem">3.961.093 ascoltatori mensili</p>
             </div>
           </div>
 
+          <!-- SEGUITI -->
           <div class="container-fluid px-4 py-3">
             <div class="d-flex align-items-center gap-3">
-              <button class="btn btn-outline-light rounded-pill px-4 btn-sm">Seguiti</button>
-
-              <i class="bi bi-three-dots text-secondary fs-3"></i>
-
-              <div class="ms-auto d-flex align-items-center gap-4">
-                <i class="bi bi-shuffle text-success fs-3 fw-bold"></i>
-
+              <div class="order-3 order-lg-1 ms-auto ms-lg-0">
                 <i class="bi bi-play-circle-fill text-success" style="font-size: 3.5rem"></i>
+              </div>
+
+              <div class="order-1 order-lg-2">
+                <button class="btn btn-outline-light rounded-pill px-4 btn-sm fw-bold">Seguiti</button>
+              </div>
+
+              <div class="order-2 order-lg-3">
+                <i class="bi bi-three-dots text-secondary fs-3"></i>
+              </div>
+
+              <div class="order-3 d-lg-none ms-3">
+                <i class="bi bi-shuffle text-success fs-3"></i>
               </div>
             </div>
           </div>
 
-          <div class="container-fluid px-4 mb-4">
+          <!-- BRANI CHE TI PIACCIONO -->
+          <div class="container-fluid px-4 mb-4 artist-liked">
             <div class="d-flex align-items-center gap-3 position-relative py-2">
               <div class="position-relative">
-                <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle object-fit-cover" style="width: 55px; height: 55px" alt="Artist" />
+                <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle" alt="Artist" />
 
                 <div
-                  class="position-absolute bottom-0 end-0 bg-success rounded-circle d-flex align-items-center justify-content-center border border-2 border-dark"
-                  style="width: 20px; height: 20px"
+                  class="liked-badge position-absolute bottom-0 end-0 bg-success rounded-circle d-flex align-items-center justify-content-center border border-2 border-dark"
                 >
-                  <i class="bi bi-heart-fill text-white" style="font-size: 0.6rem"></i>
+                  <i class="bi bi-heart-fill text-white"></i>
                 </div>
               </div>
 
               <div>
-                <h6 class="mb-0 text-white fw-bold">Brani che ti piacciono</h6>
-
+                <h6 class="mb-0 fw-bold">Brani che ti piacciono</h6>
                 <small class="text-secondary">8 brani di Pinguini Tattici Nucleari</small>
               </div>
             </div>
           </div>
 
-          <div class="container-fluid px-4 mb-5">
-            <h4 class="mb-4 text-white fw-bold">Popolari</h4>
+          <!-- POPOLARI -->
+          <div class="container-fluid px-4 mb-3">
+            <div class="row g-4">
+              <div class="col-12 col-lg-8">
+                <h4 class="mb-4 fw-bold text-white">Popolari</h4>
 
-            <div class="row align-items-center mb-3 g-0">
-              <div class="col-auto text-secondary small pe-3">1</div>
-              <div class="col d-flex align-items-center">
-                <img src="./assets/imgs/main/image-10.jpg" class="object-fit-cover me-3" style="width: 45px; height: 45px" alt="Ricordi" />
-                <div>
-                  <div class="fw-bold lh-1">Ricordi</div>
-                  <div class="small text-secondary">10.333.333</div>
+                <div class="row align-items-center mb-3 g-0 song-row">
+                  <div class="col-auto text-secondary small pe-3" style="width: 30px">1</div>
+                  <div class="col d-flex align-items-center">
+                    <img src="./assets/imgs/main/image-10.jpg" class="song-cover me-3" alt="Ricordi" />
+                    <div class="text-white text-truncate">
+                      <div class="fw-bold lh-1 text-truncate">Ricordi</div>
+                      <div class="small text-secondary d-lg-none">10.333.333</div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 text-end text-secondary small d-none d-lg-block">10.333.333</div>
+                  <div class="col-lg-2 text-end text-secondary small d-none d-lg-block pe-3">3:24</div>
+                  <div class="col-auto">
+                    <i class="bi bi-three-dots-vertical text-secondary"></i>
+                  </div>
+                </div>
+
+                <div class="row align-items-center mb-3 g-0 song-row">
+                  <div class="col-auto text-secondary small pe-3" style="width: 30px">2</div>
+                  <div class="col d-flex align-items-center">
+                    <img src="./assets/imgs/main/image-10.jpg" class="song-cover me-3" alt="Giovani Wannabe" />
+                    <div class="text-white text-truncate">
+                      <div class="fw-bold lh-1 text-truncate">Giovani Wannabe</div>
+                      <div class="small text-secondary d-lg-none">47.456.224</div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 text-end text-secondary small d-none d-lg-block">47.456.224</div>
+                  <div class="col-lg-2 text-end text-secondary small d-none d-lg-block pe-3">3:42</div>
+                  <div class="col-auto">
+                    <i class="bi bi-three-dots-vertical text-secondary"></i>
+                  </div>
+                </div>
+
+                <div class="row align-items-center mb-3 g-0 song-row">
+                  <div class="col-auto text-secondary small pe-3" style="width: 30px">3</div>
+                  <div class="col d-flex align-items-center text-truncate">
+                    <img src="./assets/imgs/main/image-10.jpg" class="song-cover me-3" alt="Pastello Bianco" />
+                    <div class="text-white text-truncate">
+                      <div class="fw-bold lh-1 text-truncate">Pastello Bianco</div>
+                      <div class="small text-secondary d-lg-none">34.343.231</div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 text-end text-secondary small d-none d-lg-block">34.343.231</div>
+                  <div class="col-lg-2 text-end text-secondary small d-none d-lg-block pe-3">3:56</div>
+                  <div class="col-auto">
+                    <i class="bi bi-three-dots-vertical text-secondary"></i>
+                  </div>
+                  <div class="mt-3 ps-2">
+                    <button
+                      class="btn btn-link text-secondary text-decoration-none fw-bold small p-0 text-uppercase"
+                      style="font-size: 0.75rem; letter-spacing: 1px"
+                    >
+                      Visualizza altro
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div class="col-auto"><i class="bi bi-three-dots-vertical text-secondary"></i></div>
-            </div>
-
-            <div class="row align-items-center mb-3 g-0">
-              <div class="col-auto text-secondary small pe-3">2</div>
-              <div class="col d-flex align-items-center">
-                <img src="./assets/imgs/main/image-10.jpg" class="object-fit-cover me-3" style="width: 45px; height: 45px" alt="Giovani Wannabe" />
-                <div>
-                  <div class="fw-bold lh-1">Giovani Wannabe</div>
-                  <div class="small text-secondary">47.456.224</div>
+              <div class="col-12 col-lg-4">
+                <h4 class="mb-4 fw-bold text-white d-none d-lg-block">Brani che ti piacciono</h4>
+                <div class="d-flex align-items-center gap-3 py-2">
+                  <div class="position-relative">
+                    <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle" width="70" height="70" alt="Artist" />
+                    <div
+                      class="liked-badge position-absolute bottom-0 end-0 bg-success rounded-circle d-flex align-items-center justify-content-center border border-2 border-dark"
+                      style="width: 24px; height: 24px"
+                    >
+                      <i class="bi bi-heart-fill text-white" style="font-size: 0.7rem"></i>
+                    </div>
+                  </div>
+                  <div class="text-white">
+                    <h6 class="mb-0 fw-bold">Brani che ti piacciono</h6>
+                    <small class="text-secondary">8 brani di Pinguini Tattici Nucleari</small>
+                  </div>
                 </div>
               </div>
-              <div class="col-auto"><i class="bi bi-three-dots-vertical text-secondary"></i></div>
-            </div>
-
-            <div class="row align-items-center mb-3 g-0">
-              <div class="col-auto text-secondary small pe-3">3</div>
-              <div class="col d-flex align-items-center">
-                <img src="./assets/imgs/main/image-10.jpg" class="object-fit-cover me-3" style="width: 45px; height: 45px" alt="Pastello Bianco" />
-                <div>
-                  <div class="fw-bold lh-1">Pastello Bianco</div>
-                  <div class="small text-secondary">34.343.231</div>
-                </div>
-              </div>
-              <div class="col-auto"><i class="bi bi-three-dots-vertical text-secondary"></i></div>
             </div>
           </div>
         </main>
 
-        <aside class="col-2 d-flex flex-column p-3 bg-black border-start border-dark h-100">
+        <!-- FRIEND ACTIVITY SIDE -->
+
+        <aside class="col-lg-3 d-none d-lg-flex flex-column p-3 bg-black border-start border-dark min-vh-100 friend-activity">
           <div class="d-flex justify-content-between align-items-center mb-4">
             <span class="fw-bold small">Friend Activity</span>
 
             <div class="d-flex gap-3 text-secondary">
               <i class="bi bi-person-plus fs-5"></i>
-
               <i class="bi bi-x-lg"></i>
             </div>
           </div>
 
           <div class="friend-list flex-grow-1 overflow-y-auto overflow-x-hidden">
             <div class="d-flex align-items-start mb-4">
-              <img src="https://ui-avatars.com/api/?name=CH&background=random" class="rounded-circle me-3" width="40" height="40" />
+              <img src="https://ui-avatars.com/api/?name=CH&background=random" class="rounded-circle me-3" width="40" height="40" alt="Charlie Hookham" />
 
               <div class="flex-grow-1 overflow-hidden">
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="fw-bold smaller-text text-truncate">Charlie Hookham</span>
-
                   <span class="text-secondary-custom extra-small ms-2">4 hr</span>
                 </div>
 
                 <div class="text-secondary-custom extra-small text-truncate">In Camera • Yumi Zouma</div>
-
                 <div class="text-secondary-custom extra-small"><i class="bi bi-disc me-1"></i> EP III</div>
               </div>
             </div>
 
             <div class="d-flex align-items-start mb-4">
-              <img src="https://ui-avatars.com/api/?name=LD&background=random" class="rounded-circle me-3" width="40" height="40" />
+              <img src="https://ui-avatars.com/api/?name=LD&background=random" class="rounded-circle me-3" width="40" height="40" alt="lightdark02" />
 
               <div class="flex-grow-1 overflow-hidden">
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="fw-bold smaller-text text-truncate">lightdark02</span>
-
                   <span class="text-secondary-custom extra-small ms-2">8 hr</span>
                 </div>
 
                 <div class="text-secondary-custom extra-small text-truncate">Aimed to Kill • Jade LeMac</div>
-
                 <div class="text-secondary-custom extra-small"><i class="bi bi-disc me-1"></i> Aimed to Kill</div>
               </div>
             </div>
 
             <div class="d-flex align-items-start mb-4">
-              <img src="https://ui-avatars.com/api/?name=VT&background=random" class="rounded-circle me-3" width="40" height="40" />
+              <img src="https://ui-avatars.com/api/?name=VT&background=random" class="rounded-circle me-3" width="40" height="40" alt="Valeria Traverso" />
 
               <div class="flex-grow-1 overflow-hidden">
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="fw-bold smaller-text text-truncate">Valeria Traverso</span>
-
                   <span class="text-secondary-custom extra-small ms-2">3 d</span>
                 </div>
 
                 <div class="text-secondary-custom extra-small text-truncate">New Kings • Sleeping Wolf</div>
-
                 <div class="text-secondary-custom extra-small"><i class="bi bi-music-note-beamed me-1"></i> Twist Badass mood</div>
               </div>
             </div>
@@ -304,27 +315,84 @@
         </aside>
       </div>
     </div>
+    <!-- PLAYER -->
 
-    <div class="fixed-bottom bg-black p-2 mx-2 mb-2">
-      <div class="d-flex align-items-center justify-content-between">
+    <div class="player-desktop d-none d-lg-flex align-items-center">
+      <div class="container-fluid px-3">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="player-info-section d-flex align-items-center gap-3">
+            <img src="./assets/imgs/main/image-10.jpg" class="player-desk-cover" alt="cover" />
+            <div class="text-truncate">
+              <div class="small fw-bold mb-0">Supernatural Parody</div>
+              <div class="text-secondary extra-small">The Hillwood...</div>
+            </div>
+            <i class="bi bi-heart text-secondary ms-2"></i>
+          </div>
+
+          <div class="player-center-section flex-grow-1 px-4">
+            <div class="d-flex align-items-center justify-content-center gap-3 mb-2 player-controls">
+              <i class="bi bi-shuffle text-secondary"></i>
+              <i class="bi bi-skip-start-fill text-secondary fs-5"></i>
+              <i class="bi bi-play-circle-fill text-white fs-2"></i>
+              <i class="bi bi-skip-end-fill text-secondary fs-5"></i>
+              <i class="bi bi-repeat text-secondary"></i>
+            </div>
+
+            <div class="player-songbar w-100 mx-auto">
+              <span class="text-secondary extra-small">0:58</span>
+              <div class="player-progress"></div>
+              <span class="text-secondary extra-small">3:20</span>
+            </div>
+          </div>
+
+          <div class="player-utility-section d-flex align-items-center justify-content-end gap-2">
+            <i class="bi bi-mic text-secondary"></i>
+            <i class="bi bi-list-ul text-secondary"></i>
+            <i class="bi bi-pc-display text-secondary"></i>
+            <i class="bi bi-volume-up text-secondary"></i>
+            <div class="player-volume"></div>
+            <i class="bi bi-arrows-angle-expand text-secondary player-expand ms-2"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PLAYER MOBILE -->
+    <div class="player d-lg-none">
+      <div class="player-bar d-flex align-items-center justify-content-between">
+        <!-- SX: cover + titolo -->
         <div class="d-flex align-items-center gap-3 overflow-hidden">
-          <img src="./assets/imgs/main/image-10.jpg" class="rounded" style="width: 40px; height: 40px; object-fit: cover" />
-
+          <img src="./assets/imgs/main/image-10.jpg" class="rounded" alt="cover" />
           <div class="text-truncate">
-            <div class="small fw-bold text-white">Supernatural Parody</div>
-
+            <div class="small fw-bold">Supernatural Parody</div>
             <div class="text-secondary extra-small">The Hillwood...</div>
           </div>
         </div>
 
+        <!-- DX: icone -->
         <div class="d-flex gap-3 align-items-center ps-2">
           <i class="bi bi-pc-display text-secondary"></i>
-
           <i class="bi bi-heart text-white"></i>
-
           <i class="bi bi-play-fill text-white fs-3"></i>
         </div>
       </div>
     </div>
+
+    <!-- BARRA FINALE -->
+    <nav class="mobile-nav d-lg-none">
+      <a href="#" class="mobile-nav-item active">
+        <i class="bi bi-house-door-fill"></i>
+        <span>Home</span>
+      </a>
+
+      <a href="#" class="mobile-nav-item">
+        <i class="bi bi-search"></i>
+        <span>Cerca</span>
+      </a>
+
+      <a href="#" class="mobile-nav-item">
+        <i class="bi bi-collection-play-fill"></i>
+        <span>La tua libreria</span>
+      </a>
+    </nav>
   </body>
 </html>
