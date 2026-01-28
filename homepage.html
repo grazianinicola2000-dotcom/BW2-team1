@@ -14,14 +14,10 @@
 
   <body class="bg-black text-white overflow-hidden">
     <!-- Layout principale -->
-    <div class="sp-app d-flex gap-2 px-2">
+    <div class="sp-app d-flex gap-2 pb-0 p-2">
       <!-- LEFT SIDEBAR -->
       <nav class="d-none d-lg-flex flex-column sp-left h-100">
         <div class="sp-panel rounded-3 p-3 d-flex flex-column h-100 overflow-hidden">
-          <div class="mb-3 ps-1">
-            <i class="bi bi-three-dots fs-4 text-white-50"></i>
-          </div>
-
           <!-- nav principale -->
           <ul class="nav nav-pills flex-column gap-1 mb-3">
             <li class="nav-item">
@@ -46,7 +42,7 @@
                 <span class="icon-square liked-gradient me-3">
                   <i class="bi bi-heart-fill"></i>
                 </span>
-                Mi Piace
+                Brani che ti paicciono
               </a>
             </li>
 
@@ -55,7 +51,7 @@
                 <span class="icon-square episodes-bg me-3">
                   <i class="bi bi-bookmark-fill"></i>
                 </span>
-                Episodi
+                I tuoi episodi
               </a>
             </li>
           </ul>
@@ -90,10 +86,10 @@
 
       <!-- MAIN -->
       <main class="flex-grow-1 h-100 overflow-hidden">
-        <div class="sp-main rounded-3 h-100 px-3 px-lg-4 pb-4 d-flex flex-column">
+        <div class="sp-main rounded-3 h-100 d-flex flex-column">
           <!-- Header -->
 
-          <div class="sp-main-content flex-grow-1 overflow-auto sp-scroll">
+          <div class="sp-main-content flex-grow-1 p-2 overflow-auto sp-scroll">
             <header class="sp-header d-flex align-items-center py-2">
               <!-- Frecce -->
               <div class="d-flex gap-2 ms-2 mt-2 sp-nav-arrows">
@@ -403,7 +399,6 @@
         </div>
       </aside>
     </div>
-
     <!-- PLAYER DESKTOP -->
     <div class="player-desktop d-none d-lg-flex align-items-center">
       <div class="container-fluid px-3">
