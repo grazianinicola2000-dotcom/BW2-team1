@@ -1,4 +1,8 @@
 let query = "";
+let id = "";
+let urlAPI = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
+let urlAPIsong = `https://striveschool-api.herokuapp.com/api/deezer/id?q=`;
+let currentAudio = null;
 
 function cardColorsGenerator() {
   const cardColors = [
@@ -44,17 +48,51 @@ async function tokenSearch() {
       query = searchBar.value;
       urlAPI = urlAPI + query;
       const dataToken = await getData(urlAPI);
+
       if (dataToken) {
         spinner.classList.add("d-none");
         searchBar.classList.remove("border", "border-danger");
+        const songContainerChildren = document.querySelectorAll(".searcheSongsContainer");
       }
       populateCard(dataToken.data);
-      generateSongsCard(dataToken.data);
+      await generateSongsCard(dataToken.data);
       generateAlbumCard(dataToken.data);
+      saveIDPlaySong();
       ///
     }
   });
 }
+
+function saveIDPlaySong() {
+  const songContainerChildren = document.querySelectorAll(".searcheSongsContainer");
+  console.log(songContainerChildren);
+  songContainerChildren.forEach((element) => {
+    element.addEventListener("click", (e) => {
+      let idSong = e.currentTarget.lastElementChild.innerText;
+      console.log(idSong);
+      AudioPlayer(idSong);
+    });
+  });
+}
+
+async function AudioPlayer(id) {
+  let urlAPIsong = `https://striveschool-api.herokuapp.com/api/deezer/track/${id}`;
+
+  const dataToken = await getData(urlAPIsong);
+
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+
+  currentAudio = new Audio();
+  currentAudio.src = dataToken.preview;
+  currentAudio.play();
+  currentAudio.loop = true;
+  currentAudio.volume = 0.2;
+}
+
+function stopAudio() {}
 
 function addAnimationSearchBar(searchBar) {
   searchBar.classList.remove("border-0");
@@ -86,6 +124,7 @@ async function generateSongsCard(data) {
                   </div>
                   <p class="m-0 ms-3">${duration}</p>
                 </div>
+                <div class="d-none song" >${data[i].id}</div>
               </div>
               `;
     let explicit = document.querySelector(".explicit" + i);
@@ -99,23 +138,19 @@ async function generateSongsCard(data) {
 }
 
 async function generateAlbumCard(data) {
-
   console.log(data[0].isrc);
   const albumContainer = document.querySelector("#albumsContainer");
-  const albums = document.querySelector('.albumsText')
-  albums.classList.remove('d-none')
+  const albums = document.querySelector(".albumsText");
+  albums.classList.remove("d-none");
   const showOthers = document.querySelector(".mb-3.col-12");
-  console.log(showOthers.children.length)
-console.log(showOthers.children.length == 3)
-  if (showOthers.children.length >= 2){
-    showOthers.removeChild (showOthers.lastChild)
+  console.log(showOthers.children.length);
+  console.log(showOthers.children.length == 3);
+  if (showOthers.children.length >= 2) {
+    showOthers.removeChild(showOthers.lastChild);
   }
   const generatedOtherIcon = document.createElement("i");
   showOthers.classList.add("d-flex", "justify-content-between");
-generatedOtherIcon.classList.add("bi", "bi-three-dots", "float-right", "fs-2", "p-2");
-
-
-
+  generatedOtherIcon.classList.add("bi", "bi-three-dots", "float-right", "fs-2", "p-2");
 
   showOthers.appendChild(generatedOtherIcon);
   let numberAlbumShown = 5;
@@ -126,7 +161,6 @@ generatedOtherIcon.classList.add("bi", "bi-three-dots", "float-right", "fs-2", "
     } else {
       numberAlbumShown = 5;
     }
-
 
     albumNumber(data, numberAlbumShown);
   });
