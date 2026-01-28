@@ -7,17 +7,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./assets/css/artist.css" />
+    <link rel="stylesheet" href="./style.css" />
 
     <title>Artist</title>
   </head>
 
-  <body>
+  <body class="bg-black overflow-x-hidden">
     <div class="container-fluid p-0">
-      <div class="row flex-lg-nowrap g-0">
+      <div class="row g-0">
         <!-- SIDEBAR -->
-        <nav class="col-lg-2 d-none d-lg-flex flex-column sp-left h-100">
+        <nav class="col-xxl-2 d-none d-xxl-flex flex-column sp-left vh-100">
           <div class="sp-panel rounded-3 p-3 d-flex flex-column h-100 overflow-hidden">
             <div class="mb-3 ps-1">
               <i class="bi bi-three-dots fs-4 text-white-50"></i>
@@ -90,7 +90,7 @@
         </nav>
 
         <!-- MAIN -->
-        <main class="col-12 col-lg-8 bg-dark p-0 pb-5 min-vh-100 main-content">
+        <main class="col-12 col-xxl-8 bg-dark p-0 pb-5 min-vh-100 main-content rounded-3 mt-0 overflow-hidden">
           <!-- ARTIST HEADER -->
           <div class="container-fluid p-0 artist-header">
             <img src="./assets/imgs/main/image-10.jpg" class="artist-hero-img" alt="Artist" id="artist-img" />
@@ -265,56 +265,51 @@
 
         <!-- FRIEND ACTIVITY SIDE -->
 
-        <aside class="col-lg-3 d-none d-lg-flex flex-column p-3 bg-black border-start border-dark min-vh-100 friend-activity">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <span class="fw-bold small">Friend Activity</span>
-
-            <div class="d-flex gap-3 text-secondary">
-              <i class="bi bi-person-plus fs-5"></i>
-              <i class="bi bi-x-lg"></i>
-            </div>
-          </div>
-
-          <div class="friend-list flex-grow-1 overflow-y-auto overflow-x-hidden">
-            <div class="d-flex align-items-start mb-4">
-              <img src="https://ui-avatars.com/api/?name=CH&background=random" class="rounded-circle me-3" width="40" height="40" alt="Charlie Hookham" />
-
-              <div class="flex-grow-1 overflow-hidden">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="fw-bold smaller-text text-truncate">Charlie Hookham</span>
-                  <span class="text-secondary-custom extra-small ms-2">4 hr</span>
-                </div>
-
-                <div class="text-secondary-custom extra-small text-truncate">In Camera • Yumi Zouma</div>
-                <div class="text-secondary-custom extra-small"><i class="bi bi-disc me-1"></i> EP III</div>
+        <aside class="d-none d-xxl-flex flex-column sp-right vh-100">
+          <div class="sp-panel rounded-3 p-3 d-flex flex-column h-100 overflow-hidden">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="fw-bold small">Attività amici</span>
+              <div class="d-flex gap-3 text-white-50">
+                <i class="bi bi-person-plus fs-5"></i>
+                <i class="bi bi-x-lg"></i>
               </div>
             </div>
 
-            <div class="d-flex align-items-start mb-4">
-              <img src="https://ui-avatars.com/api/?name=LD&background=random" class="rounded-circle me-3" width="40" height="40" alt="lightdark02" />
-
-              <div class="flex-grow-1 overflow-hidden">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="fw-bold smaller-text text-truncate">lightdark02</span>
-                  <span class="text-secondary-custom extra-small ms-2">8 hr</span>
+            <div class="flex-grow-1 overflow-auto pe-1 sp-scroll">
+              <div class="d-flex gap-3 align-items-start mb-3">
+                <img src="https://ui-avatars.com/api/?name=CH&background=random" class="rounded-circle" width="40" height="40" alt="CH" />
+                <div class="min-w-0 flex-grow-1">
+                  <div class="d-flex justify-content-between gap-2">
+                    <span class="fw-bold small text-truncate">Charlie Hookham</span>
+                    <span class="text-white-50 small">4 ore</span>
+                  </div>
+                  <div class="text-white-50 small text-truncate">In Camera • Yumi Zouma</div>
+                  <div class="text-white-50 small"><i class="bi bi-disc me-1"></i> EP III</div>
                 </div>
-
-                <div class="text-secondary-custom extra-small text-truncate">Aimed to Kill • Jade LeMac</div>
-                <div class="text-secondary-custom extra-small"><i class="bi bi-disc me-1"></i> Aimed to Kill</div>
               </div>
-            </div>
 
-            <div class="d-flex align-items-start mb-4">
-              <img src="https://ui-avatars.com/api/?name=VT&background=random" class="rounded-circle me-3" width="40" height="40" alt="Valeria Traverso" />
-
-              <div class="flex-grow-1 overflow-hidden">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="fw-bold smaller-text text-truncate">Valeria Traverso</span>
-                  <span class="text-secondary-custom extra-small ms-2">3 d</span>
+              <div class="d-flex gap-3 align-items-start mb-3">
+                <img src="https://ui-avatars.com/api/?name=LD&background=random" class="rounded-circle" width="40" height="40" alt="LD" />
+                <div class="min-w-0 flex-grow-1">
+                  <div class="d-flex justify-content-between gap-2">
+                    <span class="fw-bold small text-truncate">lightdark02</span>
+                    <span class="text-white-50 small">8 ore</span>
+                  </div>
+                  <div class="text-white-50 small text-truncate">Aimed to Kill • Jade LeMac</div>
+                  <div class="text-white-50 small"><i class="bi bi-disc me-1"></i> Aimed to Kill</div>
                 </div>
+              </div>
 
-                <div class="text-secondary-custom extra-small text-truncate">New Kings • Sleeping Wolf</div>
-                <div class="text-secondary-custom extra-small"><i class="bi bi-music-note-beamed me-1"></i> Twist Badass mood</div>
+              <div class="d-flex gap-3 align-items-start mb-3">
+                <img src="https://ui-avatars.com/api/?name=VT&background=random" class="rounded-circle" width="40" height="40" alt="VT" />
+                <div class="min-w-0 flex-grow-1">
+                  <div class="d-flex justify-content-between gap-2">
+                    <span class="fw-bold small text-truncate">Valeria Traverso</span>
+                    <span class="text-white-50 small">3 g</span>
+                  </div>
+                  <div class="text-white-50 small text-truncate">New Kings • Sleeping Wolf</div>
+                  <div class="text-white-50 small"><i class="bi bi-music-note-beamed me-1"></i> Twist Badass mood</div>
+                </div>
               </div>
             </div>
           </div>
