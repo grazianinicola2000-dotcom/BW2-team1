@@ -12233,7 +12233,7 @@ body {
   min-width: 0;
 }
 
-body > .d-flex {
+.sp-app {
   overflow-x: hidden;
   min-width: 0;
 }
@@ -12643,6 +12643,21 @@ body > .d-flex {
   background: transparent;
 }
 
+/* Togli i "quadratini" */
+.sp-scroll::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.sp-scroll::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.sp-scroll::-webkit-resizer {
+  background: transparent;
+}
+
 .mobile-nav {
   position: fixed;
   left: 0;
@@ -12743,15 +12758,21 @@ body > .d-flex {
     padding-bottom: 80px;
   }
 }
+/* 
+   DESKTOP
+   - Player full width in basso
+   - Layout (sidebar + main) finisce sopra al player
+    */
 @media (min-width: 992px) {
-  .sp-scroll {
-    padding-bottom: calc(var(--sp-player-h) + 18px);
+  /* layout finisce sopra al player */
+  .sp-app {
+    height: calc(100vh - var(--sp-player-h) - 16px);
   }
-}
-/* DESKTOP: il player non copre le sidebar */
-@media (min-width: 992px) {
   .player-desktop {
-    left: 326px;
-    right: 336px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 }/*# sourceMappingURL=style.css.map */

@@ -14,7 +14,7 @@
 
   <body class="bg-black text-white overflow-hidden">
     <!-- Layout principale -->
-    <div class="d-flex gap-2 vh-100 p-2">
+    <div class="sp-app d-flex gap-2 px-2">
       <!-- LEFT SIDEBAR -->
       <nav class="d-none d-lg-flex flex-column sp-left h-100">
         <div class="sp-panel rounded-3 p-3 d-flex flex-column h-100 overflow-hidden">
@@ -36,23 +36,23 @@
           </ul>
 
           <!-- azioni -->
-          <ul class="nav flex-column gap-1 mb-2">
+          <ul class="nav flex-column mb-2">
             <li class="nav-item">
-              <a class="nav-link sp-navlink" href="#"> <i class="bi bi-plus-square-fill me-3 fs-5"></i> Crea playlist </a>
+              <a href="#" class="nav-link text-secondary-custom ps-0"> <i class="bi bi-plus-square-fill me-3 fs-5"></i> Crea Playlist </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link sp-navlink d-flex align-items-center" href="#">
-                <span class="sp-icon-square sp-liked me-3">
+              <a href="#" class="nav-link text-secondary-custom ps-0 d-flex align-items-center">
+                <span class="icon-square liked-gradient me-3">
                   <i class="bi bi-heart-fill"></i>
                 </span>
-                Brani che ti piacciono
+                Mi Piace
               </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link sp-navlink d-flex align-items-center" href="#">
-                <span class="sp-icon-square sp-episodes me-3">
+              <a href="#" class="nav-link text-secondary-custom ps-0 d-flex align-items-center">
+                <span class="icon-square episodes-bg me-3">
                   <i class="bi bi-bookmark-fill"></i>
                 </span>
                 Episodi
@@ -92,58 +92,58 @@
       <main class="flex-grow-1 h-100 overflow-hidden">
         <div class="sp-main rounded-3 h-100 px-3 px-lg-4 pb-4 d-flex flex-column">
           <!-- Header -->
-          <header class="sp-header d-flex align-items-center py-2">
-            <!-- Frecce -->
-            <div class="d-flex gap-2 ms-2 mt-2 sp-nav-arrows">
-              <button class="btn sp-iconbtn p-0" type="button" aria-label="Indietro" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <i class="bi bi-chevron-left text-white small"></i>
-              </button>
-
-              <button class="btn sp-iconbtn p-0" type="button" aria-label="Avanti" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <i class="bi bi-chevron-right text-white small"></i>
-              </button>
-            </div>
-
-            <!-- Icone -->
-            <div class="d-flex d-lg-none align-items-center gap-4 fs-4 ms-auto">
-              <button class="btn btn-link p-0 text-white position-relative" type="button" aria-label="Notifiche">
-                <i class="bi bi-bell"></i>
-                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-primary border border-dark rounded-circle">
-                  <span class="visually-hidden">Nuove notifiche</span>
-                </span>
-              </button>
-
-              <button class="btn btn-link p-0 text-white" type="button" aria-label="Recenti">
-                <i class="bi bi-clock"></i>
-              </button>
-
-              <button class="btn btn-link p-0 text-white" type="button" aria-label="Impostazioni">
-                <i class="bi bi-gear"></i>
-              </button>
-            </div>
-
-            <!-- Profilo -->
-            <div class="dropdown d-none d-lg-block ms-auto">
-              <button class="btn sp-profile dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Profilo">
-                <span class="sp-avatar">L</span>
-                <span class="text-truncate fw-semibold" style="max-width: 150px">Lidia Nautilus</span>
-              </button>
-
-              <ul class="dropdown-menu dropdown-menu-end sp-dd">
-                <li>
-                  <a class="dropdown-item" href="#"><i class="bi bi-bell me-2"></i>Notifiche</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="bi bi-clock me-2"></i>Recenti</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Impostazioni</a>
-                </li>
-              </ul>
-            </div>
-          </header>
 
           <div class="sp-main-content flex-grow-1 overflow-auto sp-scroll">
+            <header class="sp-header d-flex align-items-center py-2">
+              <!-- Frecce -->
+              <div class="d-flex gap-2 ms-2 mt-2 sp-nav-arrows">
+                <button class="btn sp-iconbtn p-0" type="button" aria-label="Indietro" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                  <i class="bi bi-chevron-left text-white small"></i>
+                </button>
+
+                <button class="btn sp-iconbtn p-0" type="button" aria-label="Avanti" data-bs-target="#heroCarousel" data-bs-slide="next">
+                  <i class="bi bi-chevron-right text-white small"></i>
+                </button>
+              </div>
+
+              <!-- Icone -->
+              <div class="d-flex d-lg-none align-items-center gap-4 fs-4 ms-auto">
+                <button class="btn btn-link p-0 text-white position-relative" type="button" aria-label="Notifiche">
+                  <i class="bi bi-bell"></i>
+                  <span class="position-absolute top-0 start-100 translate-middle p-1 bg-primary border border-dark rounded-circle">
+                    <span class="visually-hidden">Nuove notifiche</span>
+                  </span>
+                </button>
+
+                <button class="btn btn-link p-0 text-white" type="button" aria-label="Recenti">
+                  <i class="bi bi-clock"></i>
+                </button>
+
+                <button class="btn btn-link p-0 text-white" type="button" aria-label="Impostazioni">
+                  <i class="bi bi-gear"></i>
+                </button>
+              </div>
+
+              <!-- Profilo -->
+              <div class="dropdown d-none d-lg-block ms-auto">
+                <button class="btn sp-profile dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Profilo">
+                  <span class="sp-avatar">L</span>
+                  <span class="text-truncate fw-semibold" style="max-width: 150px">Lidia Nautilus</span>
+                </button>
+
+                <ul class="dropdown-menu dropdown-menu-end sp-dd">
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="bi bi-bell me-2"></i>Notifiche</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="bi bi-clock me-2"></i>Recenti</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Impostazioni</a>
+                  </li>
+                </ul>
+              </div>
+            </header>
             <!-- HERO (CAROUSEL) -->
             <section class="d-none d-lg-block mt-2 mb-3">
               <div id="heroCarousel" class="carousel slide" data-bs-ride="false" data-bs-touch="true">
