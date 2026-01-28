@@ -88,19 +88,29 @@ async function generateSongsCard(data) {
 async function generateAlbumCard(data) {
   console.log(data[0].isrc);
   const albumContainer = document.querySelector("#albumsContainer");
+  const albums = document.querySelector(".albumsText");
+  albums.classList.remove("d-none");
   const showOthers = document.querySelector(".mb-3.col-12");
+  console.log(showOthers.children.length);
+  console.log(showOthers.children.length == 3);
+  if (showOthers.children.length >= 2) {
+    showOthers.removeChild(showOthers.lastChild);
+  }
   const generatedOtherIcon = document.createElement("i");
   showOthers.classList.add("d-flex", "justify-content-between");
+
   generatedOtherIcon.classList.add("bi", "bi-three-dots", "float-right", "fs-2", "p-2");
+
   showOthers.appendChild(generatedOtherIcon);
-  let numberAlbumShown = 4;
+  let numberAlbumShown = 5;
   albumNumber(data, numberAlbumShown);
   generatedOtherIcon.addEventListener("click", () => {
-    if (numberAlbumShown == 4) {
+    if (numberAlbumShown == 5) {
       numberAlbumShown = data.length;
     } else {
-      numberAlbumShown = 4;
+      numberAlbumShown = 5;
     }
+
     albumNumber(data, numberAlbumShown);
   });
 }
