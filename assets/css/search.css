@@ -186,9 +186,13 @@ header div form input::placeholder {
   font-size: 1.2rem;
 }
 
+.sp-scroll {
+  min-height: 0;
+}
+
 @media (max-width: 1200px) {
   .sp-scroll {
-    height: calc(100vh - 60px);
+    height: calc(100dvh - 60px);
     overflow-y: auto;
     overflow-x: hidden;
   }
@@ -221,37 +225,4 @@ header div form input::placeholder {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
-} /*# sourceMappingURL=search.css.map */
-
-.horizontal-shaking {
-  animation-name: "horizontal-shaking";
-  animation-duration: 0.4s;
-}
-
-.bi-three-dots {
-  font-size: 1.2rem;
-}
-
-.bi-three-dots:hover {
-  transform: scale(1.2);
-}
-
-@keyframes horizontal-shaking {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(10px);
-  }
-  50% {
-    transform: translateX(-10px);
-  }
-  75% {
-    transform: translateX(10px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/*# sourceMappingURL=search.css.map */
+}/*# sourceMappingURL=search.css.map */
