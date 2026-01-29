@@ -124,7 +124,7 @@ async function generateSongsCard(data) {
     let explicit = document.querySelector(".explicit" + i);
     if (explicit) {
       if (data[i].explicit_content_lyrics > 0) {
-        explicit.innerHTML += `<i class="bi bi-explicit-fill"></i><p class="searchedArtistName m-0 p-0 ms-1"><a href="#">${data[i].artist.name}</a href="#"></p>`;
+        explicit.innerHTML += `<i class="bi bi-explicit-fill"></i><p class="searchedArtistName m-0 p-0 ms-1"><a href="#" class="artistElement">${data[i].artist.name}</a href="#"></p>`;
       } else {
         explicit.innerHTML = `<p class="searchedArtistName m-0 p-0 artistElement"><a href="#" class="artistElement">${data[i].artist.name}</a></p>`;
       }
@@ -175,6 +175,9 @@ async function albumNumber(data, lengthNumber) {
                 <img class="rounded-3 mb-2 px-0 mx-0" src="${data[i].album.cover_medium}" alt="album_cover">
                 <h5 class="m-0 p-0 pt-1 fs-6">${data[i].album.title}</h5>
                 <p class="m-0 p-0 pt-1 fs-8">20${data[i].isrc ? data[i].isrc.slice(5, 7) : ""} · <a href="#" class="artistElement">${data[i].artist.name}</a></p>
+              </div>
+              </div>
+                <div class="d-none song" >${data[i].artist.id}</div>
               </div>`;
     localStorage.setItem(`albumId${i}`, data[i].album.id);
     console.log(localStorage);
