@@ -3,20 +3,7 @@ let id = "";
 let urlAPI = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
 
 function cardColorsGenerator() {
-  const cardColors = [
-    "#e13300",
-    "#1e3264",
-    "#e8125c",
-    "#158a08",
-    "#bc5800",
-    "#7a5a95",
-    "#503750",
-    "#2d46b9",
-    "#777777",
-    "#8c1932",
-    "#a56752",
-    "#7d4b32",
-  ];
+  const cardColors = ["#e13300", "#1e3264", "#e8125c", "#158a08", "#bc5800", "#7a5a95", "#503750", "#2d46b9", "#777777", "#8c1932", "#a56752", "#7d4b32"];
 
   const randomIndex = () => {
     return Math.floor(Math.random() * cardColors.length);
@@ -62,23 +49,19 @@ async function tokenSearch() {
 }
 
 function saveID() {
-  let idArtist = ''
+  let idArtist = "";
   const songContainerChildren = document.querySelectorAll(".searcheSongsContainer");
   songContainerChildren.forEach((element) => {
     element.addEventListener("click", (e) => {
-    let idArtist = e.currentTarget.lastElementChild.innerText;
-    
-
+      let idArtist = e.currentTarget.lastElementChild.innerText;
     });
   });
-  return idArtist
+  return idArtist;
 }
 
 async function playSong(songs) {
   const songContainerChildren = document.querySelectorAll(".searcheSongsContainer");
-  const play =
-    document.querySelector(".player-controls .bi-play-circle-fill") ||
-    document.querySelector(".player-controls .bi-pause-circle-fill");
+  const play = document.querySelector(".player-controls .bi-play-circle-fill") || document.querySelector(".player-controls .bi-pause-circle-fill");
 
   songContainerChildren.forEach((element, index) => {
     element.onclick = () => {
@@ -136,24 +119,27 @@ async function generateSongsCard(data) {
                 <div class="d-none song" >${data[i].artist.id}</div>
               </div>
               `;
-console.log(data[i])
+    console.log(data[i]);
 
     let explicit = document.querySelector(".explicit" + i);
     if (explicit) {
       if (data[i].explicit_content_lyrics > 0) {
         explicit.innerHTML += `<i class="bi bi-explicit-fill"></i><p class="searchedArtistName m-0 p-0 ms-1"><a href="#">${data[i].artist.name}</a href="#"></p>`;
       } else {
-        explicit.innerHTML = `<p class="searchedArtistName m-0 p-0 artistElement"><a href="#">${data[i].artist.name}</a></p>`;
+        explicit.innerHTML = `<p class="searchedArtistName m-0 p-0 artistElement"><a href="#" class="artistElement">${data[i].artist.name}</a></p>`;
       }
     }
   }
-  redirectArtist ()
+  redirectArtist();
 }
 
 async function generateAlbumCard(data) {
   const albums = document.querySelector(".albumsText");
   albums.classList.remove("d-none");
   const showOthers = document.querySelector(".showOthers");
+
+  const existingIcons = showOthers.querySelectorAll(".bi-three-dots");
+  existingIcons.forEach((icon) => icon.remove());
 
   let numberAlbumShown = 5;
   albumNumber(data, numberAlbumShown);
@@ -183,12 +169,15 @@ async function albumNumber(data, lengthNumber) {
   albumContainer.innerHTML = "";
   const limit = Math.min(data.length, lengthNumber);
 
+  localStorage.clear();
   for (let i = 0; i < limit; i++) {
     albumContainer.innerHTML += `<div class="searchedAlbum rounded-3">
                 <img class="rounded-3 mb-2 px-0 mx-0" src="${data[i].album.cover_medium}" alt="album_cover">
                 <h5 class="m-0 p-0 pt-1 fs-6">${data[i].album.title}</h5>
-                <p class="m-0 p-0 pt-1 fs-8">20${data[i].isrc ? data[i].isrc.slice(5, 7) : ""} · <a href="#">${data[i].artist.name}</a></p>
+                <p class="m-0 p-0 pt-1 fs-8">20${data[i].isrc ? data[i].isrc.slice(5, 7) : ""} · <a href="#" class="artistElement">${data[i].artist.name}</a></p>
               </div>`;
+    localStorage.setItem(`albumId${i}`, data[i].album.id);
+    console.log(localStorage);
   }
 }
 
@@ -225,14 +214,13 @@ async function getData(searchAPI) {
   }
 }
 
-
 function redirectArtist() {
-  const artistElements = document.querySelectorAll('.artistElement');
-  const idElements = document.querySelectorAll('.song');
+  const artistElements = document.querySelectorAll(".artistElement");
+  const idElements = document.querySelectorAll(".song");
 
   artistElements.forEach((element, index) => {
     element.onclick = (e) => {
-      e.preventDefault(); 
+      e.preventDefault();
 
       const correctId = idElements[index].innerText;
       window.location.href = `./artist.html?id=${correctId}`;
@@ -241,9 +229,6 @@ function redirectArtist() {
 }
 
 window.onload = () => {
-  
   tokenSearch();
   cardColorsGenerator();
-
 };
-
