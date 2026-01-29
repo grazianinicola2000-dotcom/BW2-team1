@@ -14,25 +14,23 @@
     <!-- APP WRAPPER -->
     <div class="sp-app d-flex gap-2 p-2">
       <!-- LEFT SIDEBAR -->
-      <nav class="d-none d-lg-flex flex-column sp-left h-100">
+      <nav class="d-none d-xl-flex flex-column sp-left h-100">
         <div class="sp-panel rounded-3 p-3 d-flex flex-column h-100 overflow-hidden">
-          <div class="mb-4 ps-2">
-            <i class="bi bi-three-dots fs-4 text-secondary"></i>
-          </div>
-
-          <ul class="nav flex-column mb-4 gap-1">
+          <!-- nav principale -->
+          <ul class="nav nav-pills flex-column gap-1 mb-3">
             <li class="nav-item">
-              <a href="#" class="nav-link active text-white ps-0"> <i class="bi bi-house-door-fill me-3 fs-5"></i> Home </a>
+              <a class="nav-link sp-navlink" href="./homepage.html" aria-current="page"> <i class="bi bi-house-door-fill me-3 fs-5"></i> Home </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link text-secondary-custom ps-0"> <i class="bi bi-search me-3 fs-5"></i> Cerca </a>
+              <a class="nav-link active sp-navlink" href="./search.html"> <i class="bi bi-search me-3 fs-5"></i> Cerca </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link text-secondary-custom ps-0"> <i class="bi bi-collection-play-fill me-3 fs-5"></i> La tua Libreria </a>
+              <a class="nav-link sp-navlink" href="#"> <i class="bi bi-collection-play-fill me-3 fs-5"></i> La tua libreria </a>
             </li>
           </ul>
 
-          <ul class="nav flex-column mb-2 gap-1">
+          <!-- azioni -->
+          <ul class="nav flex-column mb-2">
             <li class="nav-item">
               <a href="#" class="nav-link text-secondary-custom ps-0"> <i class="bi bi-plus-square-fill me-3 fs-5"></i> Crea Playlist </a>
             </li>
@@ -41,7 +39,7 @@
                 <span class="icon-square liked-gradient me-3">
                   <i class="bi bi-heart-fill"></i>
                 </span>
-                Mi Piace
+                Brani che ti paicciono
               </a>
             </li>
             <li class="nav-item">
@@ -49,23 +47,34 @@
                 <span class="icon-square episodes-bg me-3">
                   <i class="bi bi-bookmark-fill"></i>
                 </span>
-                Episodi
+                I tuoi episodi
               </a>
             </li>
           </ul>
 
           <hr class="border-white border-opacity-10 my-2" />
 
-          <div class="flex-grow-1 overflow-auto sp-scroll">
+          <!-- playlist scroll -->
+          <div class="flex-grow-1 overflow-auto pe-1 sp-scroll">
             <ul class="nav flex-column gap-2">
-              <li><a href="#" class="nav-link-playlist">early stage emily syndrome (sept-oct 2022)</a></li>
-              <li><a href="#" class="nav-link-playlist">Be The Young</a></li>
-              <li><a href="#" class="nav-link-playlist">"..." cit. Kimiko (aug-ago 2022)</a></li>
-              <li><a href="#" class="nav-link-playlist">saggio vibes 💃🌹</a></li>
-              <li><a href="#" class="nav-link-playlist">main character energy (may-jun 2022)</a></li>
-              <li><a href="#" class="nav-link-playlist">that fucking mood 🔪☠️</a></li>
-              <li><a href="#" class="nav-link-playlist">VEE, CARLOTTA E GIACOMO VANNO A BOSIO</a></li>
-              <li><a href="#" class="nav-link-playlist">An Emily Winchester kind of mood 🥂✨</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">early stage emily syndrome (sett-ott 2022)</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Be The Young</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">"..." cit. Kimiko (aug-ago 2022)</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">saggio vibes 💃🌹</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">main character energy (mag-giu 2022)</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">that fucking mood 🔪☠️</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">VEE, CARLOTTA E GIACOMO VANNO A BOSIO</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">An Emily Winchester kind of mood 🥂✨</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">landing page (mar-apr 2022)</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">2021 lol</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">honey and glass (nov-dic 2021)</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">(Revenge) Training Arc 🦍</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Lidia 🤝 Emily</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">minecraft e nintendo switch (set-ott 2021)</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">silvano d'orba? I hardly know her (lug-ago 2021)</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Estate 2021 💃</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Frah Quintale Mix</a></li>
+              <li><a class="nav-link p-0 small text-white-50 sp-plink text-truncate" href="#">Francesco Guccini Mix</a></li>
             </ul>
           </div>
         </div>
@@ -92,88 +101,82 @@
             <!-- ALBUM HEADER -->
             <section class="album-header d-flex align-items-end p-4">
               <div class="album-cover-container me-4">
-                <img id="albumCover" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4" class="album-cover" alt="Album cover" />
+                <img id="albumCover" class="album-cover" alt="Album cover" crossorigin="anonymous" />
               </div>
 
               <div class="album-info">
                 <span class="album-type fw-bold x-small">ALBUM</span>
-                <h1 class="album-title">Gioventù bruciata</h1>
+                <h1 id="albumTitle" class="album-title"></h1>
                 <div class="album-meta d-flex align-items-center gap-2">
-                  <img src="https://ui-avatars.com/api/?name=PTN&background=random" class="rounded-circle" width="24" />
-                  <span class="fw-bold">Pinguini Tattici Nucleari</span>
-                  <span class="text-white-50">• 2017 • 12 brani, 53 min 20 sec.</span>
+                  <img id="artistImg" class="rounded-circle" width="24" />
+                  <span id="albumArtist" class="fw-bold"></span>
+                  <span id="albumMeta" class="text-white-50"></span>
                 </div>
               </div>
             </section>
 
             <!-- TRACKLIST -->
-            <article id="box">
-              <section class="album-actions d-flex align-items-center gap-4 px-4 py-3">
-                <button class="btn sp-btn-play rounded-pill px-4 fw-semibold">Play</button>
-                <i class="bi bi-heart fs-3 text-secondary"></i>
-                <i class="bi bi-arrow-down-circle fs-3 text-secondary"></i>
-                <i class="bi bi-three-dots fs-3 text-secondary"></i>
-              </section>
-
-              <section class="tracklist-container px-4 mt-2">
-                <div class="row text-secondary small border-bottom border-secondary border-opacity-25 pb-2 mb-3">
-                  <div class="col-auto" style="width: 40px">#</div>
-                  <div class="col-5">TITOLO</div>
-                  <div class="col-4 text-end">RIPRODUZIONI</div>
-                  <div class="col-auto ms-auto text-end" style="width: 80px"><i class="bi bi-clock"></i></div>
+            <section class="tracklist-container px-4 mt-2">
+              <div class="row text-secondary small border-bottom border-secondary border-opacity-25 pb-2 mb-3">
+                <div class="col-auto" style="width: 40px">#</div>
+                <div class="col-5">TITOLO</div>
+                <div class="col-4 text-end">RIPRODUZIONI</div>
+                <div class="col-auto ms-auto text-end" style="width: 80px">
+                  <i class="bi bi-clock"></i>
                 </div>
+              </div>
 
-                <div
-                  class="track-row row align-items-center py-2 rounded"
-                  data-title="Montanelli - Intro"
-                  data-artist="Pinguini Tattici Nucleari"
-                  data-duration="1:28"
-                >
-                  <div class="col-auto text-secondary" style="width: 40px">1</div>
-                  <div class="col-5 d-flex flex-column">
-                    <span class="text-white fw-bold">Montanelli - Intro</span>
-                    <small class="text-secondary">Pinguini Tattici Nucleari</small>
-                  </div>
-                  <div class="col-4 text-end text-secondary">694.578</div>
-                  <div class="col-auto ms-auto text-end text-secondary" style="width: 80px">1:28</div>
-                </div>
-
-                <div class="track-row row align-items-center py-2 rounded" data-title="Sciare" data-artist="Pinguini Tattici Nucleari" data-duration="4:41">
-                  <div class="col-auto text-secondary" style="width: 40px">2</div>
-                  <div class="col-5 d-flex flex-column">
-                    <span class="text-white fw-bold">Sciare</span>
-                    <small class="text-secondary">Pinguini Tattici Nucleari</small>
-                  </div>
-                  <div class="col-4 text-end text-secondary">5.585.178</div>
-                  <div class="col-auto ms-auto text-end text-secondary" style="width: 80px">4:41</div>
-                </div>
-              </section>
-            </article>
+              <div id="tracklist"></div>
+            </section>
           </div>
         </div>
       </main>
 
       <!-- RIGHT SIDEBAR -->
-      <aside class="d-none d-lg-flex flex-column sp-right h-100">
+      <aside class="d-none d-xl-flex flex-column sp-right h-100">
         <div class="sp-panel rounded-3 p-3 d-flex flex-column h-100 overflow-hidden">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <span class="fw-bold small">Friend Activity</span>
-            <div class="d-flex gap-3 text-secondary">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="fw-bold small">Attività amici</span>
+            <div class=".player-bar img width: 40px; height: 40px; -o-object-fit: cover; object-fit: cover;">
               <i class="bi bi-person-plus fs-5"></i>
               <i class="bi bi-x-lg"></i>
             </div>
           </div>
 
-          <div class="flex-grow-1 overflow-auto sp-scroll">
-            <div class="d-flex align-items-start mb-4">
-              <img src="https://ui-avatars.com/api/?name=CH&background=random" class="rounded-circle me-3" width="40" height="40" />
-              <div class="flex-grow-1 overflow-hidden">
-                <div class="d-flex justify-content-between">
-                  <span class="fw-bold x-small text-truncate text-white">Charlie Hookham</span>
-                  <span class="text-secondary x-small ms-2">4 hr</span>
+          <div class="flex-grow-1 overflow-auto pe-1 sp-scroll">
+            <div class="d-flex gap-3 align-items-start mb-3">
+              <img src="https://ui-avatars.com/api/?name=CH&background=random" class="rounded-circle me-2" width="40" height="40" alt="CH" />
+              <div class="min-w-0 flex-grow-1">
+                <div class="d-flex justify-content-between gap-2">
+                  <span class="fw-bold small text-truncate">Charlie Hookham</span>
+                  <span class="text-white-50 small">4 ore</span>
                 </div>
-                <div class="text-secondary x-small text-truncate">In Camera • Yumi Zouma</div>
-                <div class="text-secondary x-small"><i class="bi bi-disc me-1"></i> EP III</div>
+                <div class="text-white-50 small text-truncate">In Camera • Yumi Zouma</div>
+                <div class="text-white-50 small"><i class="bi bi-disc me-1"></i> EP III</div>
+              </div>
+            </div>
+
+            <div class="d-flex gap-3 align-items-start mb-3">
+              <img src="https://ui-avatars.com/api/?name=LD&background=random" class="rounded-circle me-2" width="40" height="40" alt="LD" />
+              <div class="min-w-0 flex-grow-1">
+                <div class="d-flex justify-content-between gap-2">
+                  <span class="fw-bold small text-truncate">lightdark02</span>
+                  <span class="text-white-50 small">8 ore</span>
+                </div>
+                <div class="text-white-50 small text-truncate">Aimed to Kill • Jade LeMac</div>
+                <div class="text-white-50 small"><i class="bi bi-disc me-1"></i> Aimed to Kill</div>
+              </div>
+            </div>
+
+            <div class="d-flex gap-3 align-items-start mb-3">
+              <img src="https://ui-avatars.com/api/?name=VT&background=random" class="rounded-circle me-2" width="40" height="40" alt="VT" />
+              <div class="min-w-0 flex-grow-1">
+                <div class="d-flex justify-content-between gap-2">
+                  <span class="fw-bold small text-truncate">Valeria Traverso</span>
+                  <span class="text-white-50 small">3 g</span>
+                </div>
+                <div class="text-white-50 small text-truncate">New Kings • Sleeping Wolf</div>
+                <div class="text-white-50 small"><i class="bi bi-music-note-beamed me-1"></i> Twist Badass mood</div>
               </div>
             </div>
           </div>
