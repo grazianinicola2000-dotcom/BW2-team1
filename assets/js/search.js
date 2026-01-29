@@ -1,7 +1,6 @@
 let query = "";
 let id = "";
 let urlAPI = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
-let currentAudio = new Audio();
 
 function cardColorsGenerator() {
   const cardColors = [
@@ -73,61 +72,30 @@ function saveID() {
 
 async function playSong(songs) {
   const songContainerChildren = document.querySelectorAll(".searcheSongsContainer");
-  const play = document.querySelector(".playbutton");
+  const play =
+    document.querySelector(".player-controls .bi-play-circle-fill") ||
+    document.querySelector(".player-controls .bi-pause-circle-fill");
+
   songContainerChildren.forEach((element, index) => {
     element.onclick = () => {
-      if (currentAudio) {
+      if (play) {
         play.classList.remove("bi-play-circle-fill");
         play.classList.add("bi-pause-circle-fill");
       }
+
       if (currentAudio) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
       }
 
       currentAudio.src = songs[index].preview;
-      currentAudio.play();
       currentAudio.volume = 0.2;
+      currentAudio.play();
+
       populatePlayer(songs[index]);
       audioTimes(currentAudio);
     };
   });
-
-  play.onclick = () => {
-    if (currentAudio.paused) {
-      currentAudio.play();
-      play.classList.remove("bi-play-circle-fill");
-      play.classList.add("bi-pause-circle-fill");
-    } else {
-      currentAudio.pause();
-      play.classList.remove("bi-pause-circle-fill");
-      play.classList.add("bi-play-circle-fill");
-    }
-  };
-}
-
-function audioTimes(audio) {
-  audio.addEventListener("loadedmetadata", () => {
-    const songDuration = document.querySelector(".duration");
-    const minutesDuration = String(Math.round(audio.duration / 60));
-    songDuration.innerText = `${minutesDuration} : ${String(Math.round(audio.duration))}`;
-  });
-
-  audio.addEventListener("timeupdate", () => {
-    const realTime = document.querySelector(".realTime");
-    const minutes = String(Math.round(audio.currentTime / 60));
-    realTime.innerText = `${minutes} : ${String(Math.round(audio.currentTime)).padStart(2, "0")}`;
-    animateProgress(audio.currentTime, Math.round(audio.duration));
-    console.log(audio.duration);
-  });
-}
-
-function animateProgress(currentTime, duration) {
-  const progressTime = document.querySelector(".progress-bar");
-  const currentBarPosition = (currentTime / duration) * 100;
-
-  progressTime.style.width = currentBarPosition + "%";
-  console.log(currentBarPosition);
 }
 
 function addAnimationSearchBar(searchBar) {
@@ -138,18 +106,6 @@ function addAnimationSearchBar(searchBar) {
   setTimeout(() => {
     searchBar.classList.remove("horizontal-shaking");
   }, 600);
-}
-
-function populatePlayer(songs) {
-  const songDetails = document.querySelector(".player-info-section");
-  songDetails.innerHTML = `<img src="${songs.album.cover_medium}" class="player-desk-cover" alt="cover" />
-            <div class="text-truncate min-w-0">
-              <div id="playerDesktopTitleWrapper" >
-                <div id="playerDesktopTitle" class="small fw-bold mb-0 text-truncate">${songs.title}</div>
-              </div >
-              <div class="text-white-50" style="font-size: 0.75rem">${songs.artist.name}</div>
-            </div>
-            <i class="bi bi-heart text-white-50 ms-2"></i`;
 }
 
 async function generateSongsCard(data) {
