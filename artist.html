@@ -17,7 +17,7 @@
     <div class="sp-app d-flex gap-2 pt-2 px-2 pb-0">
       <!-- SIDEBAR -->
 
-      <nav class="d-none d-lg-flex flex-column sp-left h-100 flex-shrink-0" style="width: 280px">
+      <nav class="d-none d-xl-flex flex-column sp-left min-vh-100 flex-shrink-0" style="width: 280px">
         <div class="sp-panel rounded-3 p-3 d-flex flex-column h-100 overflow-hidden bg-dark pe-1">
           <ul class="nav nav-pills flex-column gap-1 mb-3">
             <li class="nav-item">
@@ -72,7 +72,7 @@
       </nav>
 
       <!-- MAIN -->
-      <main class="flex-grow-1 h-100 overflow-auto rounded-3 sp-main sp-scroll bg-dark-main">
+      <main class="flex-grow-1 min-vh-100 overflow-auto rounded-3 sp-main sp-scroll bg-dark-main">
         <!-- ARTIST HEADER -->
         <div class="container-fluid p-0 artist-header">
           <img src="" class="artist-hero-img" alt="Artist" id="artist-img" />
@@ -82,20 +82,31 @@
             style="z-index: 10"
           >
             <div class="d-flex gap-2 ms-2 mt-2">
-              <button class="btn btn-black rounded-circle d-flex align-items-center justify-content-center p-0 btn-nav">
+              <button id="artist-prev" class="btn btn-black rounded-circle d-flex align-items-center justify-content-center p-0 btn-nav">
                 <i class="bi bi-chevron-left text-white small"></i>
               </button>
-              <button class="btn btn-black rounded-circle d-flex align-items-center justify-content-center p-0 btn-nav">
+              <button id="artist-next" class="btn btn-black rounded-circle d-flex align-items-center justify-content-center p-0 btn-nav">
                 <i class="bi bi-chevron-right text-white small"></i>
               </button>
             </div>
 
             <div class="dropdown me-2 mt-2">
-              <button class="btn btn-black rounded-pill d-flex align-items-center gap-2 p-1 pe-3 btn-user" type="button">
-                <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle" width="28" height="28" alt="Lidia" />
-                <span>Lidia Nautilus...</span>
-                <i class="bi bi-caret-down-fill extra-small"></i>
+              <button
+                class="btn btn-black rounded-pill d-flex align-items-center gap-2 p-1 pe-3 btn-user dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img src="./assets/imgs/main/image-10.jpg" class="rounded-circle" width="28" height="28" alt="Avatar utente" />
+                <span class="text-truncate" style="max-width: 140px">Lidia Nautilus...</span>
               </button>
+
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#">Account</a></li>
+                <li><a class="dropdown-item" href="#">Profilo</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Esci</a></li>
+              </ul>
             </div>
           </div>
 
@@ -113,7 +124,7 @@
               <span class="text-white fw-semibold small" style="font-size: 0.85rem">Artista verificato</span>
             </div>
 
-            <h1 class="display-3 display-lg-1 fw-bold mb-3 text-white" id="artist-name">Pinguini Tattici Nucleari</h1>
+            <h1 id="artist-name" class="artist-title">Nome artista</h1>
 
             <p class="text-white fw-semibold mb-0 mb-lg-2" style="font-size: 0.9rem" id="artist-listeners">3.961.093 ascoltatori mensili</p>
           </div>
@@ -123,12 +134,10 @@
         <div class="container-fluid px-4 py-3">
           <div class="d-flex align-items-center gap-3">
             <div class="order-3 order-lg-1 ms-auto ms-lg-0">
-              <i class="bi bi-play-circle-fill text-success" style="font-size: 3.5rem"></i>
+              <i class="bi bi-play-circle-fill play-button"></i>
             </div>
 
-            <div class="order-1 order-lg-2">
-              <button class="btn btn-outline-light rounded-pill px-4 btn-sm fw-bold">Seguiti</button>
-            </div>
+            <button class="btn btn-outline-light px-3 py-1 fw-bold btn-follow">Seguiti</button>
 
             <div class="order-2 order-lg-3">
               <i class="bi bi-three-dots text-secondary fs-3"></i>
@@ -247,7 +256,7 @@
 
       <!-- FRIEND ACTIVITY SIDE -->
 
-      <aside class="d-none d-xl-flex flex-column sp-right h-100 flex-shrink-0" style="width: 280px">
+      <aside class="d-none d-xl-flex flex-column sp-right min-vh-100 flex-shrink-0" style="width: 280px">
         <div class="sp-panel rounded-3 p-3 d-flex flex-column h-100 overflow-hidden">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <span class="fw-bold small">Attività amici</span>
@@ -377,6 +386,7 @@
         <span>La tua libreria</span>
       </a>
     </nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/artist.js"></script>
   </body>
 </html>
