@@ -205,6 +205,7 @@ window.onload = () => {
     window.location.search = `?id=${newId}`;
   });
 
+  
   nextBtn.addEventListener("click", () => {
     const currentId = Number(artistId);
     const randomOffset = Math.floor(Math.random() * 10) + 1; //

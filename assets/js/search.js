@@ -62,12 +62,15 @@ async function tokenSearch() {
 }
 
 function saveID() {
+  
   const songContainerChildren = document.querySelectorAll(".searcheSongsContainer");
   songContainerChildren.forEach((element) => {
     element.addEventListener("click", (e) => {
-      let idSong = e.currentTarget.lastElementChild.innerText;
+     let idArtist = e.currentTarget.lastElementChild.innerText;
+
     });
   });
+  return idArtist
 }
 
 async function playSong(songs) {
@@ -223,3 +226,13 @@ window.onload = () => {
   tokenSearch();
   cardColorsGenerator();
 };
+
+function redirectArtist (idArtist){
+const artistElements = document.querySelectorAll('.artistElement')
+artistElements.forEach(element => {
+  element.onclick = () => {
+    window.location.href = `./artist.html?id=${saveID}`
+  }
+  
+});
+}
