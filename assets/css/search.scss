@@ -245,14 +245,10 @@ header div form input::placeholder {
 // FIX PER PLAYER DESKTOP
 
 @mixin fix-player-desktop {
-  #containerFirstSection {
-    height: 100vh;
-  }
+  height: 100vh;
 
   @media screen and (min-width: 1200px) {
-    #containerFirstSection {
-      height: calc(100vh - 98px);
-    }
+    height: calc(100vh - 98px);
   }
 }
 // la classe funziona se data a questo div <div id="containerFirstSection" class="d-flex gap-2 vh-100 p-2">
@@ -349,6 +345,11 @@ header div form input::placeholder {
   display: inline-block;
 }
 
+.duration,
+.realTime {
+  white-space: nowrap !important;
+}
+
 // PROGRESS BAR PLAYER
 .progress {
   height: 4px;
@@ -362,5 +363,7 @@ header div form input::placeholder {
 }
 
 // HOVER TASTI PLAYER DESKTOP
-.player-center-section i:hover {
+.player-center-section i:hover,
+.player-utility-section i:hover {
+  color: #3be477 !important;
 }
