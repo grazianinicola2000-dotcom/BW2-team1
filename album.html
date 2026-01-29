@@ -102,8 +102,10 @@
           </div>
         </nav>
 
+        <!-- MAIN ALBUM -->
         <main class="col-12 col-lg-7 album-page overflow-y-auto">
           <div class="album-bg">
+            <!-- HEADER -->
             <section class="album-header">
               <img id="albumCover" src="https://picsum.photos/400" crossorigin="anonymous" class="album-cover" alt="Album cover" />
 
@@ -120,43 +122,51 @@
 
             <!-- ACTIONS -->
             <section class="album-actions">
-              <button class="btn-play">
+              <button class="btn-play text-black bg-success">
                 <i class="bi bi-play-fill"></i>
               </button>
-              <i class="bi bi-heart"></i>
-              <i class="bi bi-three-dots"></i>
+              <i class="bi bi-heart text-secondary"></i>
+              <i class="bi bi-three-dots text-secondary"></i>
             </section>
 
             <!-- TRACKLIST -->
-            <section class="tracklist">
-              <div class="track-header">
-                <span>#</span>
-                <span>Titolo</span>
-                <span>Durata</span>
-              </div>
-
-              <div class="track-row">
+            <section class="tracklist mt-4 px-3">
+              <div class="track-row" data-title="Montanelli - Intro" data-artist="Pinguini Tattici Nucleari" data-duration="1:28">
                 <span>1</span>
                 <span>Montanelli - Intro</span>
                 <span>1:28</span>
               </div>
 
-              <div class="track-row">
+              <div class="track-row" data-title="Sciare" data-artist="Pinguini Tattici Nucleari" data-duration="4:41">
                 <span>2</span>
                 <span>Sciare</span>
                 <span>4:41</span>
               </div>
-
-              <div class="track-row">
-                <span>3</span>
-                <span>Gioventù Bruciata</span>
-                <span>5:24</span>
+              <div class="track-row" data-title="Sciare" data-artist="Pinguini Tattici Nucleari" data-duration="4:41">
+                <span>2</span>
+                <span>Sciare</span>
+                <span>4:41</span>
+              </div>
+              <div class="track-row" data-title="Sciare" data-artist="Pinguini Tattici Nucleari" data-duration="4:41">
+                <span>2</span>
+                <span>Sciare</span>
+                <span>4:41</span>
+              </div>
+              <div class="track-row" data-title="Sciare" data-artist="Pinguini Tattici Nucleari" data-duration="4:41">
+                <span>2</span>
+                <span>Sciare</span>
+                <span>4:41</span>
+              </div>
+              <div class="track-row" data-title="Sciare" data-artist="Pinguini Tattici Nucleari" data-duration="4:41">
+                <span>2</span>
+                <span>Sciare</span>
+                <span>4:41</span>
               </div>
             </section>
           </div>
         </main>
 
-        <!-- ASIDE -->
+        <!-- ASIDE RIGHT -->
         <aside class="col-2 d-none d-lg-flex flex-column p-3 bg-black border-start border-dark h-100">
           <div class="d-flex justify-content-between align-items-center mb-4">
             <span class="fw-bold small">Friend Activity</span>
@@ -207,10 +217,51 @@
       </div>
     </div>
 
+    <!-- PLAYER -->
+    <div
+      class="player-desktop d-lg-flex align-items-center px-3 py-2"
+      style="background: #181818; border-top: 1px solid rgba(255, 255, 255, 0.08); position: fixed; bottom: 0; left: 0; right: 0; z-index: 2000"
+    >
+      <div class="player-info-section d-flex align-items-center gap-2">
+        <img src="https://picsum.photos/400" class="player-desk-cover rounded" style="width: 60px; height: 60px; object-fit: cover" alt="Cover Album" />
+        <div class="d-flex flex-column text-truncate">
+          <span class="fw-bold text-white text-truncate">Gioventù bruciata</span>
+          <span class="text-white-50 small text-truncate">Pinguini Tattici Nucleari</span>
+        </div>
+        <i class="bi bi-heart text-white-50 ms-2"></i>
+      </div>
+
+      <div class="player-center-section d-flex flex-column align-items-center flex-grow-1 px-3">
+        <div class="player-controls d-flex align-items-center gap-3 mb-1">
+          <i class="bi bi-shuffle text-white-50"></i>
+          <i class="bi bi-skip-start-fill text-white-50"></i>
+          <i class="bi bi-play-circle-fill text-gray fs-2"></i>
+          <i class="bi bi-skip-end-fill text-white-50"></i>
+          <i class="bi bi-repeat text-white-50"></i>
+        </div>
+        <div class="player-songbar d-flex align-items-center gap-2 w-100" style="max-width: 600px">
+          <span class="text-white-50 small">0:00</span>
+          <div class="player-progress flex-grow-1 rounded" style="height: 5px; background: rgba(255, 255, 255, 0.2); position: relative">
+            <div class="player-progress-fill" style="width: 0%; background: white; height: 100%; border-radius: 5px"></div>
+          </div>
+          <span class="text-white-50 small">5:24</span>
+        </div>
+      </div>
+
+      <div class="player-utility-section d-flex align-items-center gap-3">
+        <i class="bi bi-mic text-white-50"></i>
+        <i class="bi bi-list-ul text-white-50"></i>
+        <i class="bi bi-pc-display text-white-50"></i>
+        <i class="bi bi-volume-up text-white-50"></i>
+        <div class="player-volume d-none d-sm-block rounded" style="width: 100px; height: 5px; background: rgba(255, 255, 255, 0.2); position: relative">
+          <div class="player-volume-fill" style="width: 60%; background: white; height: 100%; border-radius: 5px"></div>
+        </div>
+        <i class="bi bi-arrows-angle-expand text-white-50 ms-2"></i>
+      </div>
+    </div>
+
     <!-- COLOR THIEF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.umd.js"></script>
-
-    <!-- ALBUM JS -->
     <script src="./assets/js/album.js"></script>
   </body>
 </html>
