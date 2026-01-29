@@ -318,6 +318,11 @@ header div form input::placeholder {
   display: inline-block;
 }
 
+.duration,
+.realTime {
+  white-space: nowrap !important;
+}
+
 .progress {
   height: 4px;
   background-color: #404040;
@@ -329,13 +334,12 @@ header div form input::placeholder {
   border-radius: 10px;
 }
 
-<<<<<<< Updated upstream
 .player-center-section i:hover,
 .player-utility-section i:hover {
   color: #3be477 !important;
-=======
+}
+
 .duration,
 .realTime {
   white-space: nowrap !important;
->>>>>>> Stashed changes
 }/*# sourceMappingURL=search.css.map */
