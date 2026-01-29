@@ -309,11 +309,22 @@ header div form input::placeholder {
   }
 }
 #playerDesktopTitleWrapper {
-  width: 100px;
+  width: 20%;
   animation: scrollingTitle 10s linear infinite;
 }
 
 #playerDesktopTitle {
   white-space: nowrap;
   display: inline-block;
+}
+
+.progress {
+  height: 4px;
+  background-color: #404040;
+  border-radius: 2px;
+}
+
+.progress-bar {
+  background: white;
+  border-radius: 10px;
 }/*# sourceMappingURL=search.css.map */
