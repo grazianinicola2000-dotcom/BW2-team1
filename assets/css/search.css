@@ -318,6 +318,11 @@ header div form input::placeholder {
   display: inline-block;
 }
 
+.duration,
+.realTime {
+  white-space: nowrap !important;
+}
+
 .progress {
   height: 4px;
   background-color: #404040;
