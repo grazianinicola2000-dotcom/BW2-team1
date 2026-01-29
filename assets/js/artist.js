@@ -84,16 +84,22 @@ type
 Object */
 
 const renderArtistPage = async (artistId) => {
-  document.getElementById("artist-name").innerText = "Caricamento..."; //aggiunte per non far vedere html di sotto
+  document.getElementById("artist-name").innerText = "Caricamento...";
   document.getElementById("artist-listeners").innerText = "";
   document.getElementById("popular-songs-container").innerHTML = "";
+
   const artistUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`;
   const tracksUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=8`;
+  const verifiedBadge = document.getElementById("artist-verified");
+  if (verifiedBadge) verifiedBadge.style.visibility = "hidden"; //devo farlo sparire nel caricamento
 
   const artistData = await getData(artistUrl);
   const tracksData = await getData(tracksUrl);
+
   if (artistData && tracksData) {
+    if (verifiedBadge) verifiedBadge.style.visibility = "visible";
     // --- HEADER ARTISTA ---
+
     const artistNameElem = document.getElementById("artist-name");
     artistNameElem.innerText = artistData.name;
     artistNameElem.textContent = artistData.name;
