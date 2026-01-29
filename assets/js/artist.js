@@ -84,27 +84,26 @@ type
 Object */
 
 const renderArtistPage = async (artistId) => {
-  document.getElementById("artist-name").innerText = "Caricamento..."; //aggiunte per non far vedere html di sotto
+  document.getElementById("artist-name").innerText = "Caricamento...";
   document.getElementById("artist-listeners").innerText = "";
   document.getElementById("popular-songs-container").innerHTML = "";
+
   const artistUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`;
   const tracksUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=8`;
+  const verifiedBadge = document.getElementById("artist-verified");
+  if (verifiedBadge) verifiedBadge.style.visibility = "hidden"; //devo farlo sparire nel caricamento
 
   const artistData = await getData(artistUrl);
   const tracksData = await getData(tracksUrl);
+
   if (artistData && tracksData) {
+    if (verifiedBadge) verifiedBadge.style.visibility = "visible";
     // --- HEADER ARTISTA ---
+
     const artistNameElem = document.getElementById("artist-name");
     artistNameElem.innerText = artistData.name;
-
-    // Applichiamo le classi Bootstrap
-    artistNameElem.className = "fw-black mb-0 text-white lh-1";
-
-    // Applichiamo lo stile GIGANTE via JS per saltare i problemi del file CSS
-    artistNameElem.style.fontSize = "clamp(3.5rem, 12vw, 10rem)";
-    artistNameElem.style.fontWeight = "900";
-    artistNameElem.style.letterSpacing = "-4px";
-    artistNameElem.style.display = "block";
+    artistNameElem.textContent = artistData.name;
+    artistNameElem.classList.add("artist-title");
 
     // Immagine e ascoltatori
     document.getElementById("artist-img").src = artistData.picture_xl;
@@ -127,49 +126,90 @@ const renderArtistPage = async (artistId) => {
 
     for (const [index, track] of tracksData.data.entries()) {
       const duration = await secondsToMinutes(track);
-      container.innerHTML += `   
-        <div class="row align-items-center mb-3 g-0 song-row position-relative">
-          <div class="col-auto text-secondary small pe-3" style="width: 30px">
-            ${index + 1}
-          </div>
-          <div class="col d-flex align-items-center overflow-hidden">
-            <img src="${track.album.cover_small}" class="song-cover me-3 flex-shrink-0" alt="${track.title}" />
-            <div class="text-white overflow-hidden">
-              <div class="fw-bold lh-1 text-truncate">
-                <a href="#" class="text-white text-decoration-none stretched-link"> 
-                  ${track.title}
-                </a>
-              </div>
-              <div class="small text-secondary d-lg-none mt-1">
-                ${track.rank.toLocaleString()}
-              </div>
-            </div>
-          </div>
-          <div class="col-xxl-3 text-end text-secondary small d-none d-xxl-block px-3">
-            ${track.rank.toLocaleString()}
-          </div>
-          <div class="col-auto col-lg-2 text-end text-secondary small d-none d-lg-block pe-3 ms-auto" style="min-width: 70px;">
-            ${duration}
-          </div>
-          <div class="col-auto flex-shrink-0 position-relative" style="z-index: 2;">
-            <i class="bi bi-three-dots-vertical text-secondary"></i>
-          </div>
+
+      container.innerHTML += `
+  <div class="song-row" data-track-id="${track.id}">
+    <div class="row align-items-center mb-3 g-0 song-row-inner">
+
+      <div class="col-auto text-secondary small pe-3" style="width: 30px">
+        ${index + 1}
+      </div>
+
+      <div class="col d-flex align-items-center overflow-hidden">
+        <img src="${track.album.cover_small}" class="song-cover me-3 flex-shrink-0" alt="${track.title}" />
+        <div class="overflow-hidden">
+          <div class="fw-bold lh-1 text-truncate">${track.title}</div>
+          <div class="small text-secondary d-lg-none mt-1">${track.rank.toLocaleString()}</div>
         </div>
-      `;
+      </div>
+
+      <div class="col-xxl-3 text-end text-secondary small d-none d-xxl-block px-3">
+        ${track.rank.toLocaleString()}
+      </div>
+
+      <div class="col-auto col-lg-2 text-end text-secondary small d-none d-lg-block pe-3 ms-auto" style="min-width: 70px;">
+        ${duration}
+      </div>
+
+      <div class="col-auto flex-shrink-0 dropdown">
+        <button class="btn btn-link p-0 text-secondary more-btn dropdown-toggle"
+                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-three-dots-vertical"></i>
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+          <li><a class="dropdown-item" href="#">Vai all’album</a></li>
+          <li><a class="dropdown-item" href="#">Aggiungi alla playlist</a></li>
+          <li><a class="dropdown-item" href="#">Condividi</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+`;
     }
+
     // visualizza altro
     container.innerHTML += `
-      <div class="mt-3 ps-2">
-        <button class="btn btn-link text-secondary text-decoration-none fw-bold small p-0 text-uppercase" style="font-size: 0.75rem; letter-spacing: 1px">
-          Visualizza altro
-        </button>
-      </div>`;
+    <div class="mt-3 ps-2">
+    <button class="btn btn-link text-secondary text-decoration-none fw-bold small p-0 text-uppercase" style="font-size: 0.75rem; letter-spacing: 1px">
+    Visualizza altro
+    </button>
+    </div>`;
   }
 };
+document.addEventListener("click", (e) => {
+  const row = e.target.closest(".song-row");
+  if (!row) return;
+
+  // tentativi per hover non sempre visualizzabile e click
+  if (e.target.closest(".dropdown, .more-btn, .dropdown-menu")) return;
+
+  const trackId = row.dataset.trackId;
+  console.log("click riga:", trackId);
+});
 
 // Avvio
 window.onload = () => {
   const params = new URLSearchParams(window.location.search);
-  const artistId = params.get("id") || "412";
+  const artistId = params.get("id") || "226";
   renderArtistPage(artistId);
+  const prevBtn = document.getElementById("artist-prev"); //per freccine in alto
+  const nextBtn = document.getElementById("artist-next");
+
+  prevBtn.addEventListener("click", () => {
+    const currentId = Number(artistId);
+    const randomOffset = Math.floor(Math.random() * 10) + 1; // cambiare artista random
+    const newId = Math.max(1, currentId - randomOffset);
+
+    window.location.search = `?id=${newId}`;
+  });
+
+  nextBtn.addEventListener("click", () => {
+    const currentId = Number(artistId);
+    const randomOffset = Math.floor(Math.random() * 10) + 1; //
+    const newId = currentId + randomOffset;
+
+    window.location.search = `?id=${newId}`;
+  });
 };

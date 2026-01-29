@@ -56,12 +56,31 @@ body {
   padding: 4px 12px 4px 4px !important;
   font-size: 0.8rem;
   font-weight: 600;
+  color: white !important;
 }
 .artist-header .fw-black {
   font-weight: 900 !important;
 }
 .artist-header .btn-dark.rounded-circle {
   background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.play-button {
+  color: #1ed760;
+  font-size: 3.5rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+.play-button:hover {
+  transform: scale(1.05);
+  color: rgb(44.8265306122, 225.6734693878, 109.3448979592);
+}
+
+.artist-title {
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -4px;
+  display: block;
 }
 
 /* immagine hero */
@@ -77,6 +96,19 @@ body {
   z-index: 0;
 }
 
+@media (min-width: 992px) {
+  .artist-hero-img {
+    -o-object-position: center 25%;
+       object-position: center 25%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .artist-header {
+    height: 55vh;
+    min-height: 560px;
+    max-height: 520px;
+  }
+}
 /* testo e bottone SOPRA overlay */
 .artist-hero-text {
   position: relative;
@@ -94,11 +126,11 @@ body {
 /* ===== ACTION BAR ===== */
 .play-icon {
   font-size: 3.5rem;
-  color: #1db954;
+  color: #1ed760;
 }
 
 .shuffle-icon {
-  color: #1db954;
+  color: #1ed760;
 }
 
 /* ===== BRANI CHE TI PIACCIONO ===== */
@@ -118,6 +150,34 @@ body {
   height: 45px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.song-row {
+  border-radius: 6px;
+  padding: 8px 0;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.song-row:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* FOLLIA PER UN CAVOLO DI HOVER NON FUNZIONANTE ALLA FINE DOPO 3MILA MODI PENSO SIA COLPA DELL INSPECTOR */
+/* ma i 3 puntini devono restare cliccabili */
+.song-row .dropdown,
+.song-row .more-btn,
+.song-row .dropdown-menu {
+  pointer-events: auto;
+}
+
+.more-btn {
+  position: relative;
+  z-index: 3;
+}
+
+.more-btn::after {
+  display: none !important;
 }
 
 /* ===== FRIEND ACTIVITY ===== */
@@ -227,62 +287,60 @@ body {
     border-radius: 4px;
     flex-shrink: 0;
   }
-  /* CENTRO: La parte "grande" che si rimpicciolisce */
-  .player-center-section {
-    flex: 1 1 auto; /* Prende tutto lo spazio centrale disponibile SOLUZIONE TROVATA NON CERTA VEDI SU   */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 30px; /* Spazio dai lati per non "sbattere" contro icone e cover */
+  /* CENTRO:  */
+  .player-spacer {
+    height: 100vh;
   }
-  /* Rende i controlli proporzionati */
-  .player-controls {
-    margin-bottom: 8px;
-    transform: scale(1.1);
+}
+@media screen and (min-width: 992px) and (min-width: 1200px) {
+  .player-spacer {
+    height: calc(100vh - 98px);
   }
-  /* barra  larga quanto tutto il centro disponibile */
-  .player-songbar {
-    width: 100%;
-    max-width: 800px; /* LIMITE GRANDEZZA */
-    display: flex;
-    align-items: center;
-    gap: 12px;
+}
+@media (min-width: 992px) {
+  @keyframes scrollingTitle {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(-200%);
+    }
   }
-  .player-progress {
-    flex-grow: 1;
-    height: 5px; /* Più spessa */
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    position: relative;
+  #playerDesktopTitleWrapper {
+    width: 20%;
+    animation: scrollingTitle 10s linear infinite;
   }
-  .player-progress::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 40%;
+  #playerDesktopTitle {
+    white-space: nowrap;
+    display: inline-block;
+  }
+  .duration,
+  .realTime {
+    white-space: nowrap !important;
+  }
+  .progress {
+    height: 4px;
+    background-color: #404040;
+    border-radius: 2px;
+  }
+  .progress-bar {
     background: white;
     border-radius: 10px;
   }
-  /* DX: Utility e Volume */
-  .player-utility-section {
-    flex: 0 1 30%; /* Speculare alla sezione SX VEDI SOPRA */
-    min-width: 180px;
-    justify-content: flex-end;
+  .player-center-section i:hover,
+  .player-utility-section i:hover {
+    color: #3be477 !important;
   }
-  .player-volume {
-    width: 100px; /* Volume leggermente più lungo */
-    height: 5px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    flex-shrink: 0;
-  }
-  .player-volume::after {
-    content: "";
-    display: block;
-    height: 100%;
-    width: 60%;
-    background: white;
+}
+.btn-follow {
+  border-radius: 999px;
+}
+
+@media (min-width: 992px) {
+  .btn-follow {
+    border-radius: 0.25rem;
   }
 }/*# sourceMappingURL=artist.css.map */
