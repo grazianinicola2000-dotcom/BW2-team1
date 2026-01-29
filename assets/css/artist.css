@@ -56,12 +56,31 @@ body {
   padding: 4px 12px 4px 4px !important;
   font-size: 0.8rem;
   font-weight: 600;
+  color: white !important;
 }
 .artist-header .fw-black {
   font-weight: 900 !important;
 }
 .artist-header .btn-dark.rounded-circle {
   background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.play-button {
+  color: #1ed760;
+  font-size: 3.5rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+.play-button:hover {
+  transform: scale(1.05);
+  color: rgb(44.8265306122, 225.6734693878, 109.3448979592);
+}
+
+.artist-title {
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -4px;
+  display: block;
 }
 
 /* immagine hero */
@@ -94,11 +113,11 @@ body {
 /* ===== ACTION BAR ===== */
 .play-icon {
   font-size: 3.5rem;
-  color: #1db954;
+  color: #1ed760;
 }
 
 .shuffle-icon {
-  color: #1db954;
+  color: #1ed760;
 }
 
 /* ===== BRANI CHE TI PIACCIONO ===== */
@@ -118,6 +137,32 @@ body {
   height: 45px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.song-row {
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+}
+.song-row:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.more-btn {
+  pointer-events: auto;
+}
+
+.song-row .stretched-link {
+  pointer-events: auto;
+}
+
+.more-btn {
+  position: relative;
+  z-index: 3;
+}
+
+.more-btn::after {
+  display: none !important;
 }
 
 /* ===== FRIEND ACTIVITY ===== */
@@ -227,7 +272,7 @@ body {
     border-radius: 4px;
     flex-shrink: 0;
   }
-  /* CENTRO: La parte "grande" che si rimpicciolisce */
+  /* CENTRO:  */
   .player-center-section {
     flex: 1 1 auto; /* Prende tutto lo spazio centrale disponibile SOLUZIONE TROVATA NON CERTA VEDI SU   */
     display: flex;
@@ -284,5 +329,14 @@ body {
     height: 100%;
     width: 60%;
     background: white;
+  }
+}
+.btn-follow {
+  border-radius: 999px;
+}
+
+@media (min-width: 992px) {
+  .btn-follow {
+    border-radius: 0.25rem;
   }
 }/*# sourceMappingURL=artist.css.map */

@@ -411,12 +411,10 @@
 
     <!-- PLAYER DESKTOP -->
     <div class="player-desktop d-none d-xl-flex align-items-center">
-      <div class="container-fluid px-3 ">
+      <div class="container-fluid px-3">
         <div class="d-flex align-items-center justify-content-between gap-3">
           <!-- SX: info brano -->
-          <div class="player-info-section d-flex align-items-center gap-3 min-w-0">
-            
-          </div>
+          <div class="player-info-section d-flex align-items-center gap-3 w-20"></div>
 
           <!-- CENTRO: controlli + barra -->
           <div class="player-center-section flex-grow-1 px-4 d-none d-md-block">
@@ -428,15 +426,17 @@
               <i class="bi bi-repeat text-white-50"></i>
             </div>
 
-            <div class="player-songbar w-100 mx-auto d-flex align-items-center gap-2">
+            <div class="player-songbar w-100 mx-auto d-flex align-items-center justify-content-center gap-2">
               <span class="text-white-50" style="font-size: 0.7rem">0:58</span>
-              <div class="player-progress flex-grow-1"></div>
+              <div class="progress w-100" role="progressbar" aria-label="Basic example" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar w-16"></div>
+              </div>
               <span class="text-white-50" style="font-size: 0.7rem">3:20</span>
             </div>
           </div>
 
           <!-- DX: utility -->
-          <div class="player-utility-section d-flex align-items-center justify-content-end gap-2">
+          <div class="player-utility-section d-flex align-items-center w-20 justify-content-end gap-2">
             <i class="bi bi-mic text-white-50"></i>
             <i class="bi bi-list-ul text-white-50"></i>
             <i class="bi bi-pc-display text-white-50"></i>
