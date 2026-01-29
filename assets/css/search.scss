@@ -345,6 +345,11 @@ header div form input::placeholder {
   display: inline-block;
 }
 
+.duration,
+.realTime {
+  white-space: nowrap !important;
+}
+
 // PROGRESS BAR PLAYER
 .progress {
   height: 4px;
