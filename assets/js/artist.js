@@ -127,9 +127,9 @@ const renderArtistPage = async (artistId) => {
     for (const [index, track] of tracksData.data.entries()) {
       const duration = await secondsToMinutes(track);
 
-      container.innerHTML += `
+     container.innerHTML += `
   <div class="song-row" data-track-id="${track.id}">
-    <div class="row align-items-center mb-3 g-0 song-row-inner">
+    <div class="row align-items-center mb-3 g-0">
 
       <div class="col-auto text-secondary small pe-3" style="width: 30px">
         ${index + 1}
@@ -152,13 +152,17 @@ const renderArtistPage = async (artistId) => {
       </div>
 
       <div class="col-auto flex-shrink-0 dropdown">
-        <button class="btn btn-link p-0 text-secondary more-btn dropdown-toggle"
-                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button
+          class="btn btn-link p-0 text-secondary more-btn dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
           <i class="bi bi-three-dots-vertical"></i>
         </button>
 
         <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">Vai all’album</a></li>
+          <li><a class="dropdown-item" href="#">Vai all'album</a></li>
           <li><a class="dropdown-item" href="#">Aggiungi alla playlist</a></li>
           <li><a class="dropdown-item" href="#">Condividi</a></li>
         </ul>
@@ -167,7 +171,7 @@ const renderArtistPage = async (artistId) => {
     </div>
   </div>
 `;
-    }
+
 
     // visualizza altro
     container.innerHTML += `
