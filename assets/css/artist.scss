@@ -107,6 +107,19 @@ body {
   z-index: 0;
 }
 
+@media (min-width: 992px) {
+  .artist-hero-img {
+    object-position: center 25%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .artist-header {
+    height: 55vh;
+    min-height: 560px;
+    max-height: 520px; //test per grandezza hero BAH immagine un po a
+  }
+}
 /* testo e bottone SOPRA overlay */
 .artist-hero-text {
   position: relative;
@@ -151,22 +164,23 @@ body {
   height: 45px;
   object-fit: cover;
 }
-
 .song-row {
-  cursor: pointer;
   border-radius: 6px;
-  transition: background-color 0.15s ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.08);
-  }
+  padding: 8px 0;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
 }
 
-.more-btn {
-  pointer-events: auto;
+.song-row:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
 
-.song-row .stretched-link {
+/* FOLLIA PER UN CAVOLO DI HOVER NON FUNZIONANTE ALLA FINE DOPO 3MILA MODI PENSO SIA COLPA DELL INSPECTOR */
+
+/* ma i 3 puntini devono restare cliccabili */
+.song-row .dropdown,
+.song-row .more-btn,
+.song-row .dropdown-menu {
   pointer-events: auto;
 }
 
@@ -294,70 +308,64 @@ body {
   }
 
   /* CENTRO:  */
-  .player-center-section {
-    flex: 1 1 auto; /* Prende tutto lo spazio centrale disponibile SOLUZIONE TROVATA NON CERTA VEDI SU   */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 30px; /* Spazio dai lati per non "sbattere" contro icone e cover */
+  @mixin fix-player-desktop {
+    height: 100vh;
+
+    @media screen and (min-width: 1200px) {
+      height: calc(100vh - 98px);
+    }
+  }
+  // la classe funziona se data a questo div <div id="containerFirstSection" class="d-flex gap-2 vh-100 p-2">
+  // bisogna anche rimuovere vh-100
+  .player-spacer {
+    @include fix-player-desktop;
   }
 
-  /* Rende i controlli proporzionati */
-  .player-controls {
-    margin-bottom: 8px;
-    transform: scale(1.1);
+  // ANIMAZIONE TITOLO SCORRIMENTO PLAYER DESKTOP
+
+  @keyframes scrollingTitle {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(-200%);
+    }
   }
 
-  /* barra  larga quanto tutto il centro disponibile */
-  .player-songbar {
-    width: 100%;
-    max-width: 800px; /* LIMITE GRANDEZZA */
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  #playerDesktopTitleWrapper {
+    width: 20%;
+    animation: scrollingTitle 10s linear infinite;
   }
 
-  .player-progress {
-    flex-grow: 1;
-    height: 5px; /* Più spessa */
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    position: relative;
+  #playerDesktopTitle {
+    white-space: nowrap;
+    display: inline-block;
   }
 
-  .player-progress::after {
-    content: ""; //OBBLIGATORIO PER FINTO FIGLIO CON QUESTO SELETTORE .. il finto figlio è la barra bianca che indica a che punto è il brano
-    position: absolute; // per farla stare esattamente sopra la barra scura
-    left: 0;
-    top: 0;
-    bottom: 0; //per bloccarla all inizio di quella scura
-    width: 40%; // qui per test lunghezza barra bianca per esempio svolgimento canzone
+  .duration,
+  .realTime {
+    white-space: nowrap !important;
+  }
+
+  // PROGRESS BAR PLAYER
+  .progress {
+    height: 4px;
+    background-color: #404040;
+    border-radius: 2px;
+  }
+
+  .progress-bar {
     background: white;
     border-radius: 10px;
   }
 
-  /* DX: Utility e Volume */
-  .player-utility-section {
-    flex: 0 1 30%; /* Speculare alla sezione SX VEDI SOPRA */
-    min-width: 180px;
-    justify-content: flex-end;
-  }
-
-  .player-volume {
-    width: 100px; /* Volume leggermente più lungo */
-    height: 5px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    flex-shrink: 0;
-  }
-
-  .player-volume::after {
-    //vedi sopra stessa cosa per barra
-    content: "";
-    display: block;
-    height: 100%;
-    width: 60%;
-    background: white;
+  // HOVER TASTI PLAYER DESKTOP
+  .player-center-section i:hover,
+  .player-utility-section i:hover {
+    color: #3be477 !important;
   }
 }
 
