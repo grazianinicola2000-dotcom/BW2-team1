@@ -159,3 +159,12 @@ body {
     display: none;
   }
 }
+
+.player-desktop {
+  position: sticky;
+  bottom: 0;
+  background-color: #181818;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  height: 90px;
+  z-index: 100;
+}
