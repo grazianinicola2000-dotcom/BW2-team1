@@ -23,6 +23,9 @@ async function secondsToMinutes(data) {
   return finalDuration;
 }
 
+let likedCount = 0;
+let updateLikedText = () => {};
+
 const renderArtistPage = async (artistId) => {
   document.getElementById("artist-name").innerText = "Caricamento...";
   document.getElementById("artist-listeners").innerText = "";
@@ -37,7 +40,26 @@ const renderArtistPage = async (artistId) => {
   const tracksData = await getData(tracksUrl);
 
   if (artistData && tracksData) {
+    likedCount = Math.floor(Math.random() * 26); // numero canzoni piaciute random
+
+    updateLikedText = () => {
+      document.querySelectorAll(".liked-artist-name").forEach((el) => {
+        el.innerText = `${likedCount} brani di ${artistData.name}`;
+      });
+    };
+
+    // prima render iniziale testo
+    updateLikedText();
     if (verifiedBadge) verifiedBadge.style.visibility = "visible";
+    const goToArtistAlbum = document.getElementById("goToArtistAlbum"); // per album
+    if (goToArtistAlbum && tracksData.data?.length > 0) {
+      const firstAlbumId = tracksData.data[0].album.id;
+
+      goToArtistAlbum.onclick = (e) => {
+        e.preventDefault();
+        window.location.href = `album.html?id=${firstAlbumId}`;
+      };
+    }
 
     const artistNameElem = document.getElementById("artist-name");
     artistNameElem.innerText = artistData.name;
@@ -48,7 +70,7 @@ const renderArtistPage = async (artistId) => {
     document.getElementById("artist-listeners").innerText = `${artistData.nb_fan.toLocaleString()} ascoltatori mensili`;
 
     document.querySelectorAll(".liked-artist-name").forEach((el) => {
-      el.innerText = `8 brani di ${artistData.name}`;
+      el.innerText = `${likedCount} brani di ${artistData.name}`;
     });
 
     const imgMob = document.getElementById("artist-liked-img-mobile");
@@ -97,8 +119,18 @@ const renderArtistPage = async (artistId) => {
         </button>
 
         <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">Vai all'album</a></li>
-          <li><a class="dropdown-item" href="#">Aggiungi alla playlist</a></li>
+        <li>
+  <a
+    class="dropdown-item go-to-album"
+    href="#"
+    data-album-id="${track.album.id}"
+  >
+    Vai all'album
+  </a>
+</li>
+          <li>
+  <a class="dropdown-item add-to-playlist" href="#">Aggiungi alla playlist</a>
+</li>
           <li><a class="dropdown-item" href="#">Condividi</a></li>
         </ul>
       </div>
@@ -127,7 +159,90 @@ document.addEventListener("click", (e) => {
   console.log("click riga:", trackId);
 });
 
+//PARTE ABA DI USER
+
+// ===== PROFILO: Nome + Cognome (come homepage del tuo compagno) =====
+
+// aggiorna nome e avatar nel profilo
+function updateProfileUI(fullName) {
+  const nameEl = document.getElementById("profileName");
+  const avatarEl = document.getElementById("profileAvatar");
+
+  if (nameEl) nameEl.textContent = fullName;
+  if (avatarEl) avatarEl.textContent = (fullName?.trim()?.[0] || "U").toUpperCase();
+}
+
+// modal per inserire Nome e Cognome (obbligatorio)
+function openNameModal(onDone) {
+  const wrap = document.createElement("div");
+
+  wrap.innerHTML = `
+    <div style="position:fixed;inset:0;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;z-index:9999">
+      <div style="width:min(520px,92vw);background:#121212;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px;color:#fff;font-family:system-ui">
+        <div style="font-weight:700;font-size:18px;margin-bottom:10px">Benvenuto 👋</div>
+        <div style="opacity:.8;margin-bottom:8px">Inserisci Nome e Cognome</div>
+        <input id="fullName" type="text" style="width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0b0b0b;color:#fff" />
+        <div style="display:flex;justify-content:flex-end;margin-top:12px;gap:10px">
+          <button id="okBtn" disabled style="padding:10px 14px;border-radius:999px;border:0;background:#1db954;color:#000;font-weight:700;opacity:.4;cursor:not-allowed">Ok</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(wrap);
+
+  const input = wrap.querySelector("#fullName");
+  const okBtn = wrap.querySelector("#okBtn");
+
+  const normalize = (v) => v.trim().replace(/\s+/g, " ");
+  const isValid = (v) => normalize(v).split(" ").length >= 2;
+
+  input.addEventListener("input", () => {
+    const ok = isValid(input.value);
+    okBtn.disabled = !ok;
+    okBtn.style.opacity = ok ? "1" : ".4";
+    okBtn.style.cursor = ok ? "pointer" : "not-allowed";
+  });
+
+  okBtn.addEventListener("click", () => {
+    const name = normalize(input.value);
+    wrap.remove();
+    onDone(name);
+  });
+
+  input.focus();
+}
+
+// controlla localStorage: se manca il nome apre la modal
+function ensureUserName() {
+  const saved = localStorage.getItem("spUserFullName");
+
+  if (saved) {
+    updateProfileUI(saved);
+  } else {
+    openNameModal((name) => {
+      localStorage.setItem("spUserFullName", name);
+      updateProfileUI(name);
+    });
+  }
+}
+
+// collega il tasto Esci già presente nella tua pagina artist
+function initLogout() {
+  const logoutBtn = document.getElementById("logoutBtn");
+  if (!logoutBtn) return;
+
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("spUserFullName");
+    ensureUserName();
+  });
+}
+
+//FINE PARTE ABA DI USER
+
 window.onload = () => {
+  ensureUserName();
+  initLogout();
   const params = new URLSearchParams(window.location.search);
   const artistId = params.get("id") || "226";
   renderArtistPage(artistId);
@@ -137,12 +252,13 @@ window.onload = () => {
   prevBtn.addEventListener("click", () => {
     const currentId = Number(artistId);
     const randomOffset = Math.floor(Math.random() * 10) + 1;
-    const newId = Math.max(1, currentId - randomOffset);
+    const newId = Math.max(1, currentId - randomOffset); //numero causale artista piaciute dell artista PER SINISTRA MENO
 
     window.location.search = `?id=${newId}`;
   });
-
+  // AVREI POTUTO RAGGRUPPARLE VABBEH
   nextBtn.addEventListener("click", () => {
+    //numero causale artista piaciute dell artista PER PIU
     const currentId = Number(artistId);
     const randomOffset = Math.floor(Math.random() * 10) + 1;
     const newId = currentId + randomOffset;
@@ -150,3 +266,22 @@ window.onload = () => {
     window.location.search = `?id=${newId}`;
   });
 };
+// vai all album
+document.addEventListener("click", (e) => {
+  const albumLink = e.target.closest(".go-to-album");
+  if (!albumLink) return;
+
+  e.preventDefault();
+  const albumId = albumLink.dataset.albumId;
+  window.location.href = `album.html?id=${albumId}`;
+});
+//per playlist
+document.addEventListener("click", (e) => {
+  const addBtn = e.target.closest(".add-to-playlist");
+  if (!addBtn) return;
+
+  e.preventDefault();
+
+  likedCount++;
+  updateLikedText();
+});

@@ -44,6 +44,13 @@ body {
   z-index: 1;
   pointer-events: none;
 }
+.artist-header .btn-nav i.bi-chevron-left {
+  transform: translateX(10px);
+  transform: translateY(1px);
+}
+.artist-header .btn-nav i.bi-chevron-right {
+  transform: translateX(1px);
+}
 .artist-header .btn-nav {
   width: 32px;
   height: 32px;
@@ -67,6 +74,25 @@ body {
 }
 .artist-header .btn-dark.rounded-circle {
   background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.sp-panel {
+  background-color: #121212;
+}
+
+.sp-right .d-flex.gap-3 {
+  align-items: center;
+}
+
+.sp-right i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.sp-right .bi-x-lg {
+  transform: translateY(1px);
 }
 
 .play-button {
@@ -246,6 +272,24 @@ body {
   padding-bottom: 140px; /* 60 nav + ~70 player + margini */
 }
 
+.artist-liked.d-xxl-none .liked-badge {
+  background-color: #1ed760;
+}
+
+.artist-liked.d-xxl-none .liked-badge i {
+  font-size: 0.65rem;
+  transform: translateY(1.5px);
+}
+
+.d-xxl-block .liked-badge {
+  background-color: #1ed760;
+}
+
+.d-xxl-block .liked-badge i {
+  font-size: 0.9rem;
+  transform: translateY(1px);
+}
+
 /* Desktop: niente player mobile, niente padding extra */
 @media (min-width: 992px) {
   .main-content {
@@ -271,14 +315,11 @@ body {
   }
   /* ===== PLAYER DESKTOP GRANDE E DINAMICO ===== */
   .player-desktop {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 95px;
-    background: #181818;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    z-index: 2000;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
   /* SX: Prende spazio ma si adatta SPERO E CREDO FUNZIONI */
   .player-info-section {
