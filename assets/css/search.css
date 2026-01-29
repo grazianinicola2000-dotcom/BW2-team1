@@ -327,4 +327,11 @@ header div form input::placeholder {
 .progress-bar {
   background: white;
   border-radius: 10px;
+}
+
+.player-center-section i:hover > div > .bi-shuffle,
+.bi-skip-start-fill,
+.bi-skip-end-fill,
+.bi-arrow-repeat {
+  color: #3be477;
 }/*# sourceMappingURL=search.css.map */
