@@ -245,14 +245,10 @@ header div form input::placeholder {
 // FIX PER PLAYER DESKTOP
 
 @mixin fix-player-desktop {
-  #containerFirstSection {
-    height: 100vh;
-  }
+  height: 100vh;
 
   @media screen and (min-width: 1200px) {
-    #containerFirstSection {
-      height: calc(100vh - 98px);
-    }
+    height: calc(100vh - 98px);
   }
 }
 // la classe funziona se data a questo div <div id="containerFirstSection" class="d-flex gap-2 vh-100 p-2">
