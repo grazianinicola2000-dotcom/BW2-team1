@@ -225,12 +225,6 @@ async function getData(searchAPI) {
   }
 }
 
-window.onload = () => {
-  
-  tokenSearch();
-  cardColorsGenerator();
-
-};
 
 function redirectArtist() {
   const artistElements = document.querySelectorAll('.artistElement');
@@ -245,3 +239,11 @@ function redirectArtist() {
     };
   });
 }
+
+window.onload = () => {
+  
+  tokenSearch();
+  cardColorsGenerator();
+
+};
+
