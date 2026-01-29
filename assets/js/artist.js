@@ -128,10 +128,8 @@ const renderArtistPage = async (artistId) => {
       const duration = await secondsToMinutes(track);
 
       container.innerHTML += `
-    <div class="row align-items-center mb-3 g-0 song-row position-relative">
-      
-   
-      <a href="" class="stretched-link" aria-label="Apri brano ${track.title}"></a>
+  <div class="song-row" data-track-id="${track.id}">
+    <div class="row align-items-center mb-3 g-0 song-row-inner">
 
       <div class="col-auto text-secondary small pe-3" style="width: 30px">
         ${index + 1}
@@ -139,7 +137,6 @@ const renderArtistPage = async (artistId) => {
 
       <div class="col d-flex align-items-center overflow-hidden">
         <img src="${track.album.cover_small}" class="song-cover me-3 flex-shrink-0" alt="${track.title}" />
-
         <div class="overflow-hidden">
           <div class="fw-bold lh-1 text-truncate">${track.title}</div>
           <div class="small text-secondary d-lg-none mt-1">${track.rank.toLocaleString()}</div>
@@ -155,46 +152,42 @@ const renderArtistPage = async (artistId) => {
       </div>
 
       <div class="col-auto flex-shrink-0 dropdown">
-  <button
-    class="btn btn-link p-0 text-secondary more-btn dropdown-toggle"
-    type="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    <i class="bi bi-three-dots-vertical"></i>
-  </button>
+        <button class="btn btn-link p-0 text-secondary more-btn dropdown-toggle"
+                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-three-dots-vertical"></i>
+        </button>
 
-  <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
-    <li>
-      <a class="dropdown-item" href="#">
-        Vai all’album
-      </a>
-    </li>
-    <li>
-      <a class="dropdown-item" href="#">
-        Aggiungi alla playlist
-      </a>
-    </li>
-    <li>
-      <a class="dropdown-item" href="#">
-        Condividi
-      </a>
-    </li>
-  </ul>
-</div>
+        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+          <li><a class="dropdown-item" href="#">Vai all’album</a></li>
+          <li><a class="dropdown-item" href="#">Aggiungi alla playlist</a></li>
+          <li><a class="dropdown-item" href="#">Condividi</a></li>
+        </ul>
+      </div>
+
     </div>
-  `;
+  </div>
+`;
     }
 
     // visualizza altro
     container.innerHTML += `
-      <div class="mt-3 ps-2">
-        <button class="btn btn-link text-secondary text-decoration-none fw-bold small p-0 text-uppercase" style="font-size: 0.75rem; letter-spacing: 1px">
-          Visualizza altro
-        </button>
-      </div>`;
+    <div class="mt-3 ps-2">
+    <button class="btn btn-link text-secondary text-decoration-none fw-bold small p-0 text-uppercase" style="font-size: 0.75rem; letter-spacing: 1px">
+    Visualizza altro
+    </button>
+    </div>`;
   }
 };
+document.addEventListener("click", (e) => {
+  const row = e.target.closest(".song-row");
+  if (!row) return;
+
+  // tentativi per hover non sempre visualizzabile e click
+  if (e.target.closest(".dropdown, .more-btn, .dropdown-menu")) return;
+
+  const trackId = row.dataset.trackId;
+  console.log("click riga:", trackId);
+});
 
 // Avvio
 window.onload = () => {
