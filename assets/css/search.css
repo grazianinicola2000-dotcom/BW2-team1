@@ -296,4 +296,35 @@ header div form input::placeholder {
   100% {
     transform: translateX(0);
   }
+}
+@keyframes scrollingTitle {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+#playerDesktopTitleWrapper {
+  width: 20%;
+  animation: scrollingTitle 10s linear infinite;
+}
+
+#playerDesktopTitle {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.progress {
+  height: 4px;
+  background-color: #404040;
+  border-radius: 2px;
+}
+
+.progress-bar {
+  background: white;
+  border-radius: 10px;
 }/*# sourceMappingURL=search.css.map */

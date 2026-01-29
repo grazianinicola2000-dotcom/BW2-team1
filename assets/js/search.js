@@ -4,20 +4,7 @@ let urlAPI = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
 let currentAudio = null;
 
 function cardColorsGenerator() {
-  const cardColors = [
-    "#e13300",
-    "#1e3264",
-    "#e8125c",
-    "#158a08",
-    "#bc5800",
-    "#7a5a95",
-    "#503750",
-    "#2d46b9",
-    "#777777",
-    "#8c1932",
-    "#a56752",
-    "#7d4b32",
-  ];
+  const cardColors = ["#e13300", "#1e3264", "#e8125c", "#158a08", "#bc5800", "#7a5a95", "#503750", "#2d46b9", "#777777", "#8c1932", "#a56752", "#7d4b32"];
 
   const randomIndex = () => {
     return Math.floor(Math.random() * cardColors.length);
@@ -120,7 +107,9 @@ function populatePlayer(songs) {
   const songDetails = document.querySelector(".player-info-section");
   songDetails.innerHTML = `<img src="${songs.album.cover_medium}" class="player-desk-cover" alt="cover" />
             <div class="text-truncate min-w-0">
-              <div class="small fw-bold mb-0 text-truncate">${songs.title}</div>
+              <div id="playerDesktopTitleWrapper" >
+                <div id="playerDesktopTitle" class="small fw-bold mb-0 text-truncate">${songs.title}</div>
+              </div >
               <div class="text-white-50" style="font-size: 0.75rem">${songs.artist.name}</div>
             </div>
             <i class="bi bi-heart text-white-50 ms-2"></i`;
