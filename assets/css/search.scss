@@ -362,9 +362,7 @@ header div form input::placeholder {
 }
 
 // HOVER TASTI PLAYER DESKTOP
-.player-center-section i:hover > div > .bi-shuffle,
-.bi-skip-start-fill,
-.bi-skip-end-fill,
-.bi-arrow-repeat {
-  color: #3be477;
+.player-center-section i:hover,
+.player-utility-section i:hover {
+  color: #3be477 !important;
 }
