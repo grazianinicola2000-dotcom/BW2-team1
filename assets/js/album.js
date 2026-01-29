@@ -1,10 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 const albumId = params.get("id");
 
-if (!albumId) {
-  alert("Album non trovato");
-}
-
 // ELEMENTI DOM
 const albumCover = document.getElementById("albumCover");
 const albumTitle = document.getElementById("albumTitle");
@@ -33,8 +29,48 @@ const fetchAlbum = async () => {
   }
 };
 
+// USERNAME
+
+function ensureUserName() {
+  const saved = localStorage.getItem("spUserFullName"); // leggo nome salvato
+
+  if (saved) {
+    updateProfileUI(saved); // aggiorno profilo
+  } else {
+    openNameModal((name) => {
+      localStorage.setItem("spUserFullName", name); // salvo
+      updateProfileUI(name); // aggiorno icona
+    });
+  }
+}
+
+// aggiunge il bottone Esci nel menu profilo e resetta il nome quando clicchi
+function initLogout() {
+  const menu = document.querySelector(".dropdown-menu.sp-dd"); // menu dropdown
+  if (!menu) return;
+
+  // lo aggiungo una sola volta
+  if (!document.querySelector("#logoutBtn")) {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <hr class="dropdown-divider">
+      <button class="dropdown-item text-danger" id="logoutBtn" type="button">
+        <i class="bi bi-box-arrow-right me-2"></i>Esci
+      </button>
+    `;
+    menu.appendChild(li);
+  }
+
+  // click su esci e cancella e riapre la modal
+  const logoutBtn = document.querySelector("#logoutBtn");
+  logoutBtn.onclick = () => {
+    localStorage.removeItem("spUserFullName"); // reset
+    ensureUserName(); // richiede di nuovo nome
+  };
+}
+
+// HEADER
 const populateAlbum = (album) => {
-  // HEADER
   albumCover.src = album.cover_big;
   albumTitle.textContent = album.title;
   albumArtist.textContent = album.artist.name;
