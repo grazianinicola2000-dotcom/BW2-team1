@@ -336,6 +336,30 @@ body {
   color: #1ed760 !important;
 }
 
+.player-desktop .container-fluid > .d-flex {
+  position: relative;
+}
+
+/* === CENTRO SEMPRE CENTRATO === */
+.player-center-section {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 720px;
+  width: 100%;
+  pointer-events: auto;
+}
+
+/* evita che flex-grow lo sposti */
+.player-center-section.flex-grow-1 {
+  flex-grow: 0 !important;
+}
+
+.player-info-section,
+.player-utility-section {
+  max-width: 30%;
+}
+
 /* ======================================================
    PLAYER MOBILE (FIX DEFINITIVO)
 ====================================================== */
@@ -512,4 +536,16 @@ body {
 
 .sp-profile:hover {
   background-color: #282828 !important;
+}
+
+.player-songbar span {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.player-info-section img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
 }
