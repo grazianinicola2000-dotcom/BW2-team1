@@ -11,6 +11,24 @@ async function getData(searchAPI) {
   }
 }
 
+
+
+async function getDataTrack(searchAPIsong) {
+  try {
+    const response = await fetch(searchAPIsong);
+    if (!response.ok) {
+      throw new Error("Errore nel recupero dati");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Errore durante la fetch:", error);
+  }
+}
+
+
+
+
 async function secondsToMinutes(data) {
   let duration = data.duration;
 
@@ -31,13 +49,22 @@ const renderArtistPage = async (artistId) => {
   document.getElementById("artist-listeners").innerText = "";
   document.getElementById("popular-songs-container").innerHTML = "";
 
+
+
+
+const songUrl = `https://striveschool-api.herokuapp.com/api/deezer/track/${localStorage.getItem("songId")}`;
+
   const artistUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`;
   const tracksUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=8`;
   const verifiedBadge = document.getElementById("artist-verified");
   if (verifiedBadge) verifiedBadge.style.visibility = "hidden";
 
+
+const songData = await getData(songUrl);
   const artistData = await getData(artistUrl);
   const tracksData = await getData(tracksUrl);
+
+populatePlayer(songData);
 
   if (artistData && tracksData) {
     likedCount = Math.floor(Math.random() * 26); // numero canzoni piaciute random
@@ -298,3 +325,5 @@ document.addEventListener("click", (e) => {
   // IMPORTANTISSIMO: toglie lo stato "attivo/focus" di bootstrap
   btn.blur();
 });
+
+

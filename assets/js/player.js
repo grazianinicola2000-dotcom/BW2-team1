@@ -29,6 +29,8 @@ if (currentAudio.src) {
   }
 }
 
+
+
 function audioTimes(audio) {
   audio.onloadedmetadata = () => {
     const songDuration = document.querySelector(".duration");
