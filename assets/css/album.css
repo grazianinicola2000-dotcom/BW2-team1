@@ -1,12 +1,23 @@
+/* ======================================================
+   ROOT
+====================================================== */
+
 :root {
   --spotify-black: #121212;
   --spotify-black-soft: #1e1e1e;
   --spotify-gray: #b3b3b3;
+  --spotify-green: #1ed760;
 }
 
-/* =======================
-   RESET & BODY
-======================= */
+/* ======================================================
+   RESET
+====================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html,
 body {
@@ -15,7 +26,7 @@ body {
 }
 
 body {
-  background-color: #000;
+  background: #000;
   color: #fff;
   font-family:
     "Circular",
@@ -29,13 +40,32 @@ body {
   overflow: hidden;
 }
 
-/* =======================
+@media (max-width: 991px) {
+  body {
+    overflow-y: auto;
+  }
+}
+
+/* ======================================================
    APP LAYOUT
-======================= */
+====================================================== */
 
 .sp-app {
-  height: calc(100vh - 100px);
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  height: 100vh;
 }
+
+@media (min-width: 1200px) {
+  .sp-app {
+    height: calc(100vh - 95px); /* player desktop */
+  }
+}
+
+/* ======================================================
+   SIDE PANELS
+====================================================== */
 
 .sp-left {
   width: 280px;
@@ -45,39 +75,65 @@ body {
   width: 300px;
 }
 
-/* =======================
-   PANELS
-======================= */
-
 .sp-panel {
   background: var(--spotify-black);
+  border-radius: 12px;
   min-height: 0;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
+
+/* ======================================================
+   MAIN
+====================================================== */
 
 .sp-main {
-  background: linear-gradient(to bottom, var(--spotify-black-soft) 0%, var(--spotify-black) 100%);
+  flex: 1;
+  background: linear-gradient(to bottom, var(--spotify-black-soft), var(--spotify-black));
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-/* =======================
-   SCROLLBAR 
-======================= */
-
-.sp-scroll::-webkit-scrollbar {
-  width: 12px;
+.sp-main-content {
+  height: 100%;
+  overflow-y: auto;
 }
 
-.sp-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
+/* spazio per player + footer mobile */
+@media (max-width: 991px) {
+  .sp-main-content {
+    padding-bottom: 140px;
+  }
 }
 
-.sp-scroll::-webkit-scrollbar-track {
+/* ======================================================
+   SCROLLBAR (GLOBAL ROUNDED)
+====================================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* =======================
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* ======================================================
    TYPOGRAPHY
-======================= */
+====================================================== */
 
 .x-small {
   font-size: 0.75rem;
@@ -87,14 +143,13 @@ body {
   color: var(--spotify-gray);
 }
 
-/* =======================
-   SIDEBAR
-======================= */
+/* ======================================================
+   NAV / SIDEBAR
+====================================================== */
 
 .nav-link {
   color: var(--spotify-gray);
-  font-weight: 700;
-  transition: color 0.2s;
+  font-weight: 500;
 }
 
 .nav-link:hover,
@@ -102,153 +157,238 @@ body {
   color: #fff;
 }
 
+.nav-pills .nav-link.active {
+  background-color: transparent !important;
+  color: #fff;
+}
+
+/* Effetto SOLO on hover */
+.nav-pills .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+}
+
 .icon-square {
   width: 24px;
   height: 24px;
+  border-radius: 4px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 2px;
 }
 
 .liked-gradient {
   background: linear-gradient(135deg, #450af5, #c4efd9);
-  color: white;
 }
 
 .episodes-bg {
-  background-color: #006450;
-  color: #1ed760;
+  background: #006450;
+  color: var(--spotify-green);
 }
 
-.nav-link-playlist {
-  color: var(--spotify-gray);
-  text-decoration: none;
-  font-size: 0.85rem;
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.nav-link-playlist:hover {
-  color: #fff;
-}
-
-/* =======================
+/* ======================================================
    TOP BAR
-======================= */
+====================================================== */
 
-.top-bar .arrow-circle {
-  background-color: rgba(0, 0, 0, 0.7);
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.arrow-circle {
   width: 32px;
   height: 32px;
   border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.user-badge {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 2px 8px 2px 2px;
-  border-radius: 20px;
+/* ======================================================
+   ALBUM HEADER
+====================================================== */
+
+.album-header {
+  display: flex;
+  align-items: flex-end;
+  padding: 32px;
+  gap: 24px;
 }
 
-/* =======================
-   ALBUM HEADER
-======================= */
-
 .album-cover-container {
-  flex-shrink: 0;
   width: 232px;
   height: 232px;
+  flex-shrink: 0;
 }
 
 .album-cover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
 }
 
 .album-title {
   font-size: 5rem;
   font-weight: 900;
-  letter-spacing: -3px;
   line-height: 1;
+  letter-spacing: -3px;
 }
 
-/* Responsive header */
+.album-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ======================================================
+   ALBUM HEADER MOBILE (FIX DEFINITIVO)
+====================================================== */
+
 @media (max-width: 768px) {
   .album-header {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 24px 16px;
   }
 
   .album-cover-container {
-    margin-right: 0 !important;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   .album-title {
     font-size: 3rem;
+    letter-spacing: -1px;
+  }
+
+  .album-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .album-meta {
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
 
-/* =======================
-   CONTENT BOX (gradient)
-======================= */
-
-#box {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(18, 18, 18, 1) 240px);
-  min-height: 100%;
-  margin-top: -20px;
-  position: relative;
-}
-
-/* =======================
+/* ======================================================
    TRACKLIST
-======================= */
+====================================================== */
+
+.tracklist-container {
+  padding: 0 24px;
+}
 
 .track-row {
   cursor: pointer;
-  transition: background-color 0.2s;
+  border-radius: 6px;
+  transition: background 0.2s;
 }
 
 .track-row:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-/* =======================
-   PLAYER
-======================= */
+/* ======================================================
+   PLAYER DESKTOP
+====================================================== */
 
 .player-desktop {
-  background-color: #181818;
-  border-radius: 12px;
-  height: 90px;
-
-  margin: 8px;
-  margin-bottom: 8px;
-
-  border-top: none;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-
-  z-index: 1000;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 95px;
+  background: #181818;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 2000;
 }
 
-/* =======================
-   GLOBAL SCROLLBAR (fallback)
-======================= */
-
-::-webkit-scrollbar {
-  width: 12px;
+.player-info-section {
+  flex: 0 1 30%;
+  min-width: 180px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.25);
+.progress {
+  height: 4px;
+  background: #404040;
+  border-radius: 2px;
+}
+
+.progress-bar {
+  background: #fff;
+  border-radius: 10px;
+}
+
+.player-center-section i:hover,
+.player-utility-section i:hover {
+  color: #1ed760 !important;
+}
+
+/* ======================================================
+   MOBILE FOOTER NAV (IDENTICO A SEARCH)
+====================================================== */
+
+.mobile-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: rgba(18, 18, 18, 0.95);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 3000;
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  color: var(--spotify-gray);
+  text-decoration: none;
+}
+
+.mobile-nav-item i {
+  font-size: 1.2rem;
+}
+
+.mobile-nav-item.active {
+  color: #fff;
+}
+
+/* kill bootstrap blue */
+.mobile-nav a,
+.mobile-nav a:hover,
+.mobile-nav a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ======================================================
+   VISIBILITY
+====================================================== */
+
+@media (min-width: 1200px) {
+  .mobile-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 1199px) {
+  .sp-left,
+  .sp-right {
+    display: none;
+  }
 }
