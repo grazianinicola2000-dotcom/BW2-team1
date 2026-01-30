@@ -468,3 +468,17 @@ btn.onclick = async (e) => {
     }),
   );
 };
+
+function redirectArtist() {
+  const artistElements = document.querySelectorAll(".artistElement");
+  const idElements = document.querySelectorAll(".song");
+
+  artistElements.forEach((element, index) => {
+    element.onclick = (e) => {
+      e.preventDefault();
+
+      const correctId = idElements[index].innerText;
+      window.location.href = `./artist.html?id=${correctId}`;
+    };
+  });
+}
