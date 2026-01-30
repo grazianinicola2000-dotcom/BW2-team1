@@ -149,7 +149,7 @@ body {
 
 .nav-link {
   color: var(--spotify-gray);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .nav-link:hover,
@@ -209,39 +209,40 @@ body {
 /* ======================================================
    ALBUM HEADER
 ====================================================== */
+@media (min-width: 768px) {
+  .album-header {
+    display: flex;
+    align-items: flex-end;
+    padding: 32px;
+    gap: 24px;
+  }
 
-.album-header {
-  display: flex;
-  align-items: flex-end;
-  padding: 32px;
-  gap: 24px;
-}
+  .album-cover-container {
+    width: 232px;
+    height: 232px;
+    flex-shrink: 0;
+  }
 
-.album-cover-container {
-  width: 232px;
-  height: 232px;
-  flex-shrink: 0;
-}
+  .album-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  }
 
-.album-cover {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-}
+  .album-title {
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -3px;
+  }
 
-.album-title {
-  font-size: 5rem;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -3px;
-}
-
-.album-meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  .album-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 }
 
 /* ======================================================
@@ -249,32 +250,35 @@ body {
 ====================================================== */
 
 @media (max-width: 768px) {
-  .album-header {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 24px 16px;
+  /* Usiamo il body per alzare la specificità e forzare il centramento */
+  body .album-header {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 40px 20px !important;
   }
 
-  .album-cover-container {
-    margin-bottom: 16px;
+  /* Rimuoviamo il margine destro che sposta la cover */
+  body .album-cover-container {
+    margin-right: 0 !important;
+    margin-bottom: 20px;
   }
 
-  .album-title {
-    font-size: 3rem;
-    letter-spacing: -1px;
-  }
-
-  .album-info {
+  /* Forziamo i testi interni a occupare tutta la larghezza per centrarsi */
+  .album-info,
+  .album-title,
+  .album-meta {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 
   .album-meta {
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: row; /* Rimettiamo i meta in riga ma centrati */
+    gap: 10px;
   }
 }
 
@@ -391,4 +395,71 @@ body {
   .sp-right {
     display: none;
   }
+}
+
+/* Stile del menu Dropdown */
+.sp-dd {
+  background-color: #282828 !important; /* Colore grigio scuro Spotify */
+  border: none !important;
+  box-shadow:
+    0 16px 24px rgba(0, 0, 0, 0.3),
+    0 6px 8px rgba(0, 0, 0, 0.2);
+  min-width: 190px;
+  padding: 4px;
+  margin-top: 8px !important;
+}
+
+.sp-dd .dropdown-item {
+  color: #b3b3b3 !important;
+  padding: 10px 12px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.sp-dd .dropdown-item:hover {
+  background-color: #3e3e3e !important;
+  color: #fff !important;
+}
+
+/* Divisore */
+.sp-dd .dropdown-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 4px 0;
+}
+
+/* Colore rosso per il tasto Esci */
+.sp-dd .dropdown-item.text-danger {
+  color: #e91429 !important;
+}
+
+.sp-dd .dropdown-item.text-danger:hover {
+  background-color: #3e3e3e !important;
+}
+
+.sp-avatar {
+  width: 28px;
+  height: 28px;
+  background-color: #535353;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.sp-profile {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  border: none !important;
+  border-radius: 500px !important;
+  color: white !important;
+  padding: 2px 8px 2px 2px !important; /* Padding ridotto a sinistra per l'avatar */
+}
+
+.sp-profile:hover {
+  background-color: #282828 !important;
 }
