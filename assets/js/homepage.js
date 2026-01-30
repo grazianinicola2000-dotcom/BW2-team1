@@ -172,7 +172,7 @@ async function updateSlide(slide) {
     slide.querySelector(".sp-hero-title").textContent = t.title; // setto titolo slide
     slide.querySelector(".sp-hero-meta").textContent = t.artist.name; // setto artista slide
     slide.querySelector(".sp-btn-play").dataset.preview = t.preview; // setto url preview
-    slide.querySelector(".song").textContent = t.artist.id; // setto id artista
+    slide.querySelector(".artistElement").dataset.artistId = t.artist.id; // setto id artista
   } finally {
     slide.dataset.loading = "0"; // unlock caricamento
   }
@@ -366,6 +366,7 @@ async function refreshMoreLikeCards() {
       card.querySelector("img.sp-card-img").src = t.album.cover_medium; // setto img card
       card.querySelector(".fw-bold").textContent = t.title; // setto titolo card
       card.querySelector(".text-white-50.small").textContent = t.artist.name; // setto artista card
+      card.querySelector(".artistElement").dataset.artistId = t.artist.id;
       card.querySelector(".sp-card-play").onclick = () => playPreview(t.preview); // click play card
     }),
   );
@@ -452,8 +453,7 @@ btn.onclick = async (e) => {
             <button class="sp-card-play" type="button"><i class="bi bi-play-fill"></i></button>
           </div>
           <div class="fw-bold mt-2"></div>
-          <a href="#" class="artistElement text-white-50 small"></a>
-          <div class="d-none song" ></div>
+          <a href="#" class="artistElement text-white-50 small" data-artist-id=""></a>
         </article>
       `;
       row.appendChild(col); // appendo col alla row
@@ -462,8 +462,8 @@ btn.onclick = async (e) => {
         col.querySelector("img").src = t.album.cover_medium; // setto img extra
         col.querySelector(".fw-bold").textContent = t.title; // setto titolo extra
         col.querySelector(".text-white-50").textContent = t.artist.name; // setto artista extra
+        col.querySelector(".artistElement").dataset.artistId = t.artist.id;
         col.querySelector(".sp-card-play").onclick = () => playPreview(t.preview); // click play extra
-        col.querySelector(".song").textContent = t.artist.id;
       }
       redirectArtist();
       return col;
@@ -472,13 +472,12 @@ btn.onclick = async (e) => {
 };
 
 function redirectArtist() {
-  const artistElements = document.querySelectorAll(".artistElement");
-
-  artistElements.forEach((element, index) => {
-    element.onclick = (e) => {
+  document.querySelectorAll(".artistElement").forEach((element) => {
+    element.addEventListener("click", (e) => {
       e.preventDefault();
 
-      window.location.href = `./artist.html?id=${localStorage.getItem("artistId")}`;
-    };
+      const artistId = element.dataset.artistId;
+      window.location.href = `./artist.html?id=${artistId}`;
+    });
   });
 }
