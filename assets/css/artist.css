@@ -44,6 +44,13 @@ body {
   z-index: 1;
   pointer-events: none;
 }
+.artist-header .btn-nav i.bi-chevron-left {
+  transform: translateX(10px);
+  transform: translateY(1px);
+}
+.artist-header .btn-nav i.bi-chevron-right {
+  transform: translateX(1px);
+}
 .artist-header .btn-nav {
   width: 32px;
   height: 32px;
@@ -69,11 +76,32 @@ body {
   background-color: rgba(0, 0, 0, 0.7) !important;
 }
 
+.sp-panel {
+  background-color: #121212;
+}
+
+.sp-right .d-flex.gap-3 {
+  align-items: center;
+}
+
+.sp-right i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.sp-right .bi-x-lg {
+  transform: translateY(1px);
+}
+
 .play-button {
   color: #1ed760;
   font-size: 3.5rem;
   cursor: pointer;
-  transition: transform 0.15s ease, color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    color 0.15s ease;
 }
 .play-button:hover {
   transform: scale(1.05);
@@ -93,9 +121,9 @@ body {
   height: 100%;
   display: block;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   -o-object-position: top;
-     object-position: top;
+  object-position: top;
   position: relative;
   z-index: 0;
 }
@@ -103,7 +131,7 @@ body {
 @media (min-width: 992px) {
   .artist-hero-img {
     -o-object-position: center 25%;
-       object-position: center 25%;
+    object-position: center 25%;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -153,12 +181,12 @@ body {
   width: 45px;
   height: 45px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .song-row {
   border-radius: 6px;
-  padding: 8px 0;
+  padding: 10px 10px 10px 10px;
   transition: background-color 0.2s ease;
   cursor: pointer;
 }
@@ -210,7 +238,7 @@ body {
   width: 40px;
   height: 40px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 /* bottom nav */
@@ -246,6 +274,24 @@ body {
   padding-bottom: 140px; /* 60 nav + ~70 player + margini */
 }
 
+.artist-liked.d-xxl-none .liked-badge {
+  background-color: #1ed760;
+}
+
+.artist-liked.d-xxl-none .liked-badge i {
+  font-size: 0.65rem;
+  transform: translateY(1.2px);
+}
+
+.d-xxl-block .liked-badge {
+  background-color: #1ed760;
+}
+
+.d-xxl-block .liked-badge i {
+  font-size: 0.9rem;
+  transform: translateY(1px);
+}
+
 /* Desktop: niente player mobile, niente padding extra */
 @media (min-width: 992px) {
   .main-content {
@@ -264,21 +310,18 @@ body {
     height: 100%;
     width: 100%;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
   .mobile-nav {
     display: none;
   }
   /* ===== PLAYER DESKTOP GRANDE E DINAMICO ===== */
   .player-desktop {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 95px;
-    background: #181818;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    z-index: 2000;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
   /* SX: Prende spazio ma si adatta SPERO E CREDO FUNZIONI */
   .player-info-section {
@@ -347,4 +390,9 @@ body {
   .btn-follow {
     border-radius: 0.25rem;
   }
-}/*# sourceMappingURL=artist.css.map */
+}
+.btn-follow.is-following {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+} /*# sourceMappingURL=artist.css.map */
