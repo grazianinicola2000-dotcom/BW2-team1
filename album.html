@@ -92,10 +92,47 @@
                 <div class="arrow-circle opacity-50"><i class="bi bi-chevron-right"></i></div>
               </div>
 
-              <div class="user-badge d-flex align-items-center gap-2">
-                <img src="https://ui-avatars.com/api/?name=Lidia+Nautilus&background=random" class="rounded-circle" width="28" />
-                <span class="fw-bold small me-1">Lidia Nautilus ...</span>
-                <i class="bi bi-caret-down-fill x-small"></i>
+              <!-- Icone -->
+              <div class="d-flex d-lg-none align-items-center gap-4 fs-4 ms-auto">
+                <button class="btn btn-link p-0 text-white position-relative" type="button" aria-label="Notifiche">
+                  <i class="bi bi-bell"></i>
+                  <span class="position-absolute top-0 start-100 translate-middle p-1 bg-primary border border-dark rounded-circle">
+                    <span class="visually-hidden">Nuove notifiche</span>
+                  </span>
+                </button>
+
+                <button class="btn btn-link p-0 text-white" type="button" aria-label="Recenti">
+                  <i class="bi bi-clock"></i>
+                </button>
+
+                <button class="btn btn-link p-0 text-white" type="button" aria-label="Impostazioni">
+                  <i class="bi bi-gear"></i>
+                </button>
+              </div>
+
+              <!-- Profilo -->
+              <div class="dropdown d-none d-lg-block ms-auto">
+                <button class="btn sp-profile dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Profilo">
+                  <span class="sp-avatar">L</span>
+                  <span class="text-truncate fw-semibold" style="max-width: 150px">Lidia Nautilus</span>
+                </button>
+
+                <ul class="dropdown-menu dropdown-menu-end sp-dd">
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="bi bi-bell me-2"></i>Notifiche</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="bi bi-clock me-2"></i>Recenti</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Impostazioni</a>
+                  </li>
+
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <button class="dropdown-item text-danger" id="logoutBtn" type="button"><i class="bi bi-box-arrow-right me-2"></i>Esci</button>
+                  </li>
+                </ul>
               </div>
             </div>
 
@@ -185,48 +222,83 @@
       </aside>
     </div>
 
-    <!-- PLAYER -->
-    <footer class="player-desktop d-lg-flex align-items-center px-3 py-2 fixed-bottom">
-      <div class="col-3 player-info-section d-flex align-items-center gap-3">
-        <img
-          src="https://i.scdn.co/image/ab67616d0000b2737603f909564639c063b40026"
-          class="rounded"
-          style="width: 56px; height: 56px; object-fit: cover"
-          alt="Cover"
-        />
-        <div class="d-flex flex-column text-truncate">
-          <span class="fw-bold text-white text-truncate small">Gioventù bruciata</span>
-          <span class="text-secondary-custom x-small text-truncate">Pinguini Tattici Nucleari</span>
-        </div>
-        <i class="bi bi-heart text-secondary ms-2"></i>
-      </div>
+    <!-- PLAYER MOBILE -->
 
-      <div class="col-6 d-flex flex-column align-items-center">
-        <div class="player-controls d-flex align-items-center gap-4 mb-1">
-          <i class="bi bi-shuffle text-secondary"></i>
-          <i class="bi bi-skip-start-fill text-secondary fs-4"></i>
-          <i class="bi bi-play-circle-fill text-white fs-1"></i>
-          <i class="bi bi-skip-end-fill text-secondary fs-4"></i>
-          <i class="bi bi-repeat text-secondary"></i>
-        </div>
-        <div class="player-songbar d-flex align-items-center gap-2 w-100" style="max-width: 500px">
-          <span class="text-secondary x-small">0:58</span>
-          <div class="progress flex-grow-1" style="height: 4px; background: #4f4f4f">
-            <div class="progress-bar bg-light" style="width: 30%"></div>
+    <div id="player" class="d-xl-none">
+      <div class="player-bar d-flex align-items-center justify-content-between">
+        <!-- SX: cover + titolo -->
+        <div class="d-flex align-items-center gap-3 overflow-hidden">
+          <img src="./assets/imgs/main/image-10.jpg" class="rounded" alt="cover" />
+          <div class="text-truncate">
+            <div class="small fw-bold">Supernatural Parody</div>
+            <div class="text-secondary extra-small">The Hillwood...</div>
           </div>
-          <span class="text-secondary x-small">3:20</span>
+        </div>
+
+        <!-- DX: icone -->
+        <div class="d-flex gap-3 align-items-center ps-2">
+          <i class="bi bi-pc-display text-secondary"></i>
+          <i class="bi bi-heart text-white"></i>
+          <i class="bi bi-play-fill text-white fs-3"></i>
         </div>
       </div>
+    </div>
 
-      <div class="col-3 d-flex justify-content-end align-items-center gap-3 text-secondary">
-        <i class="bi bi-mic"></i>
-        <i class="bi bi-list-ul"></i>
-        <i class="bi bi-pc-display"></i>
-        <i class="bi bi-volume-up"></i>
-        <div style="width: 90px; height: 4px; background: #4f4f4f" class="rounded"></div>
+    <!-- PLAYER DESKTOP -->
+    <div class="player-desktop d-none d-xl-flex align-items-center">
+      <div class="container-fluid px-3">
+        <div class="d-flex align-items-center justify-content-between gap-3">
+          <!-- SX: info brano -->
+          <div class="player-info-section d-flex align-items-center gap-3 w-20"></div>
+
+          <!-- CENTRO: controlli + barra -->
+          <div class="player-center-section flex-grow-1 px-4 d-none d-md-block">
+            <div class="d-flex align-items-center justify-content-center gap-3 mb-2 player-controls">
+              <i class="bi bi-shuffle text-white-50"></i>
+              <i class="bi bi-skip-start-fill text-white-50 fs-5"></i>
+              <i class="bi bi-play-circle-fill text-white fs-2"></i>
+              <i class="bi bi-skip-end-fill text-white-50 fs-5"></i>
+              <i class="bi bi-repeat text-white-50"></i>
+            </div>
+
+            <div class="player-songbar w-100 mx-auto d-flex align-items-center justify-content-center gap-2">
+              <span class="text-white-50" style="font-size: 0.7rem">0:58</span>
+              <div class="progress w-100" role="progressbar" aria-label="Basic example" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar w-16"></div>
+              </div>
+              <span class="text-white-50" style="font-size: 0.7rem">3:20</span>
+            </div>
+          </div>
+
+          <!-- DX: utility -->
+          <div class="player-utility-section d-flex align-items-center w-20 justify-content-end gap-2">
+            <i class="bi bi-mic text-white-50"></i>
+            <i class="bi bi-list-ul text-white-50"></i>
+            <i class="bi bi-pc-display text-white-50"></i>
+            <i class="bi bi-volume-up text-white-50"></i>
+            <div class="player-volume d-none d-sm-block"></div>
+            <i class="bi bi-arrows-angle-expand text-white-50 player-expand ms-2"></i>
+          </div>
+        </div>
       </div>
-    </footer>
+    </div>
+    <!-- FOOTER NAVBAR MOBILE -->
+    <nav class="mobile-nav d-xl-none">
+      <a href="./homepage.html" class="mobile-nav-item">
+        <i class="bi bi-house-door-fill"></i>
+        <span>Home</span>
+      </a>
 
+      <a href="./search.html" class="mobile-nav-item active">
+        <i class="bi bi-search"></i>
+        <span>Cerca</span>
+      </a>
+
+      <a href="#" class="mobile-nav-item">
+        <i class="bi bi-collection-play-fill"></i>
+        <span>La tua libreria</span>
+      </a>
+    </nav>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.umd.js"></script>
     <script src="./assets/js/album.js"></script>
   </body>

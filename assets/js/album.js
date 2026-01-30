@@ -31,6 +31,66 @@ const fetchAlbum = async () => {
 
 // USERNAME
 
+// aggiorna nome e avatar nel profilo
+function updateProfileUI(fullName) {
+  const nameEl = document.querySelector(".sp-profile .fw-semibold"); // testo nome
+  const avatarEl = document.querySelector(".sp-profile .sp-avatar"); // cerchio avatar
+
+  if (nameEl) nameEl.textContent = fullName; // set nome
+  if (avatarEl) avatarEl.textContent = (fullName[0] || "U").toUpperCase(); // set iniziale
+}
+
+// apre una modal che obbliga l’utente a inserire Nome e Cognome
+function openNameModal(onDone) {
+  const wrap = document.createElement("div"); // overlay
+
+  // HTML della modal con input e bottone ok
+  wrap.innerHTML = `
+    <div style="position:fixed;inset:0;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;z-index:9999">
+      <div style="width:min(520px,92vw);background:#121212;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px;color:#fff;font-family:system-ui">
+        <div style="font-weight:700;font-size:18px;margin-bottom:10px">Benvenuto 👋</div>
+        <div style="opacity:.8;margin-bottom:8px">Inserisci Nome e Cognome</div>
+        <input id="fullName" type="text" style="width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0b0b0b;color:#fff" />
+        <div style="display:flex;justify-content:flex-end;margin-top:12px;gap:10px">
+          <button id="okBtn" disabled style="padding:10px 14px;border-radius:999px;border:0;background:#1db954;color:#000;font-weight:700;opacity:.4;cursor:not-allowed">Ok</button>
+        </div>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(wrap); // mostra modal
+
+  const input = wrap.querySelector("#fullName"); // campo testo
+  const okBtn = wrap.querySelector("#okBtn"); // bottone ok
+
+  // pulisce spazi extra
+  function normalize(v) {
+    return v.trim().replace(/\s+/g, " ");
+  }
+
+  // valida: almeno nome + cognome
+  function isValid(v) {
+    return normalize(v).split(" ").length >= 2;
+  }
+
+  // abilita/disabilita ok mentre scrivi
+  input.addEventListener("input", () => {
+    const ok = isValid(input.value);
+    okBtn.disabled = !ok;
+    okBtn.style.opacity = ok ? "1" : ".4";
+    okBtn.style.cursor = ok ? "pointer" : "not-allowed";
+  });
+
+  // conferma: salva e chiude
+  okBtn.addEventListener("click", () => {
+    const name = normalize(input.value);
+    wrap.remove(); // chiude modal
+    onDone(name); // ritorna nome al chiamante
+  });
+
+  input.focus();
+}
+
+// controlla localStorage, se manca il nome apre la modal, altrimenti aggiorna subito icona
 function ensureUserName() {
   const saved = localStorage.getItem("spUserFullName"); // leggo nome salvato
 
@@ -141,11 +201,11 @@ const initPlayer = () => {
 
 // COLOR THIEF
 const applyAlbumColor = () => {
-  if (albumCover.complete) {
+  try {
     const color = colorThief.getColor(albumCover);
     document.documentElement.style.setProperty("--album-color", `rgb(${color[0]}, ${color[1]}, ${color[2]})`);
-  } else {
-    albumCover.addEventListener("load", applyAlbumColor);
+  } catch {
+    document.documentElement.style.setProperty("--album-color", "#1e1e1e");
   }
 };
 
