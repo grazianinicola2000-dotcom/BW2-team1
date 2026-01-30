@@ -3,20 +3,7 @@ let id = "";
 let urlAPI = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
 
 function cardColorsGenerator() {
-  const cardColors = [
-    "#e13300",
-    "#1e3264",
-    "#e8125c",
-    "#158a08",
-    "#bc5800",
-    "#7a5a95",
-    "#503750",
-    "#2d46b9",
-    "#777777",
-    "#8c1932",
-    "#a56752",
-    "#7d4b32",
-  ];
+  const cardColors = ["#e13300", "#1e3264", "#e8125c", "#158a08", "#bc5800", "#7a5a95", "#503750", "#2d46b9", "#777777", "#8c1932", "#a56752", "#7d4b32"];
 
   const randomIndex = () => {
     return Math.floor(Math.random() * cardColors.length);
@@ -38,7 +25,7 @@ async function tokenSearch() {
     let urlAPI = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
 
     e.preventDefault();
-    localStorage.clear();
+    clearStorageExceptUser();
     if (searchBar.value.toLowerCase() == "") {
       addAnimationSearchBar(searchBar);
     } else {
@@ -76,9 +63,7 @@ function saveID() {
 
 async function playSong(songs) {
   const songContainerChildren = document.querySelectorAll(".searcheSongsContainer");
-  const play =
-    document.querySelector(".player-controls .bi-play-circle-fill") ||
-    document.querySelector(".player-controls .bi-pause-circle-fill");
+  const play = document.querySelector(".player-controls .bi-play-circle-fill") || document.querySelector(".player-controls .bi-pause-circle-fill");
 
   songContainerChildren.forEach((element, index) => {
     localStorage.setItem("artistId", songs[index].artist.id);
@@ -101,7 +86,7 @@ async function playSong(songs) {
       localStorage.setItem("audioVolume", currentAudio.volume);
 
       const currentTimeToPass = currentAudio.currentTime;
-      
+
       localStorage.setItem("duration", currentAudio.duration);
 
       populatePlayer(songs[index]);
@@ -247,7 +232,6 @@ async function getData(searchAPI) {
 function redirectArtist() {
   const artistElements = document.querySelectorAll(".artistElement");
 
-
   artistElements.forEach((element, index) => {
     element.onclick = (e) => {
       e.preventDefault();
@@ -257,6 +241,15 @@ function redirectArtist() {
   });
 }
 
+function clearStorageExceptUser() {
+  const user = localStorage.getItem("spUserFullName");
+
+  localStorage.clear();
+
+  if (user) {
+    localStorage.setItem("spUserFullName", user);
+  }
+}
 
 window.onload = () => {
   tokenSearch();
