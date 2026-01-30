@@ -184,7 +184,7 @@ body {
 
 .song-row {
   border-radius: 6px;
-  padding: 8px 0;
+  padding: 8px 12px;
   transition: background-color 0.2s ease;
   cursor: pointer;
 }
@@ -278,7 +278,7 @@ body {
 
 .artist-liked.d-xxl-none .liked-badge i {
   font-size: 0.65rem;
-  transform: translateY(1.5px);
+  transform: translateY(1.2px);
 }
 
 .d-xxl-block .liked-badge {
@@ -388,4 +388,9 @@ body {
   .btn-follow {
     border-radius: 0.25rem;
   }
+}
+.btn-follow.is-following {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
 }/*# sourceMappingURL=artist.css.map */

@@ -244,7 +244,7 @@ window.onload = () => {
   ensureUserName();
   initLogout();
   const params = new URLSearchParams(window.location.search);
-  const artistId = params.get("id") || "226";
+  const artistId = params.get("id") || "218";
   renderArtistPage(artistId);
   const prevBtn = document.getElementById("artist-prev");
   const nextBtn = document.getElementById("artist-next");
@@ -284,4 +284,17 @@ document.addEventListener("click", (e) => {
 
   likedCount++;
   updateLikedText();
+});
+
+//bottone seguiti
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".btn-follow");
+  if (!btn) return;
+
+  const following = btn.classList.toggle("is-following");
+
+  btn.textContent = following ? "Seguito" : "Segui";
+
+  // IMPORTANTISSIMO: toglie lo stato "attivo/focus" di bootstrap
+  btn.blur();
 });
