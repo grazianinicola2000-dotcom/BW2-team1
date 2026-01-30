@@ -99,7 +99,9 @@ body {
   color: #1ed760;
   font-size: 3.5rem;
   cursor: pointer;
-  transition: transform 0.15s ease, color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    color 0.15s ease;
 }
 .play-button:hover {
   transform: scale(1.05);
@@ -119,9 +121,9 @@ body {
   height: 100%;
   display: block;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   -o-object-position: top;
-     object-position: top;
+  object-position: top;
   position: relative;
   z-index: 0;
 }
@@ -129,7 +131,7 @@ body {
 @media (min-width: 992px) {
   .artist-hero-img {
     -o-object-position: center 25%;
-       object-position: center 25%;
+    object-position: center 25%;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -179,7 +181,7 @@ body {
   width: 45px;
   height: 45px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .song-row {
@@ -236,7 +238,7 @@ body {
   width: 40px;
   height: 40px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 /* bottom nav */
@@ -308,7 +310,7 @@ body {
     height: 100%;
     width: 100%;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
   .mobile-nav {
     display: none;
@@ -323,7 +325,6 @@ body {
   }
   /* SX: Prende spazio ma si adatta SPERO E CREDO FUNZIONI */
   .player-info-section {
-    flex: 0 1 30%; /* Può occupare fino al 30% ma si stringe se serve DI COME FUNZIONI BENE LA USO ANCHE A DX FLEX NON CHIARO*/
     min-width: 180px;
   }
   .player-desk-cover {
@@ -393,4 +394,4 @@ body {
   background: #fff;
   color: #000;
   border-color: #fff;
-}/*# sourceMappingURL=artist.css.map */
+} /*# sourceMappingURL=artist.css.map */

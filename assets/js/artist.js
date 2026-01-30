@@ -46,15 +46,17 @@ const renderArtistPage = async (artistId) => {
 
   const songUrl = `https://striveschool-api.herokuapp.com/api/deezer/track/${localStorage.getItem("songId")}`;
 
+
   const artistUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`;
   const tracksUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=8`;
   const verifiedBadge = document.getElementById("artist-verified");
   if (verifiedBadge) verifiedBadge.style.visibility = "hidden";
 
-  const songData = await getData(songUrl);
+  const songData = await getDataTrack(songUrl);
   const artistData = await getData(artistUrl);
   const tracksData = await getData(tracksUrl);
 
+  populatePlayer(songData);
   populatePlayer(songData);
 
   if (artistData && tracksData) {
