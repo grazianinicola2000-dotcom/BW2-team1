@@ -244,7 +244,7 @@ window.onload = () => {
   ensureUserName();
   initLogout();
   const params = new URLSearchParams(window.location.search);
-  const artistId = params.get("id") || "218";
+  const artistId = params.get("id") || "239";
   renderArtistPage(artistId);
   const prevBtn = document.getElementById("artist-prev");
   const nextBtn = document.getElementById("artist-next");
