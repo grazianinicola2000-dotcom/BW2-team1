@@ -361,6 +361,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: #2a2a2a;
 }
 
 /* cover */
