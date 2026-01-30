@@ -11,8 +11,6 @@ async function getData(searchAPI) {
   }
 }
 
-
-
 async function getDataTrack(searchAPIsong) {
   try {
     const response = await fetch(searchAPIsong);
@@ -25,9 +23,6 @@ async function getDataTrack(searchAPIsong) {
     console.error("Errore durante la fetch:", error);
   }
 }
-
-
-
 
 async function secondsToMinutes(data) {
   let duration = data.duration;
@@ -49,25 +44,22 @@ const renderArtistPage = async (artistId) => {
   document.getElementById("artist-listeners").innerText = "";
   document.getElementById("popular-songs-container").innerHTML = "";
 
-
-
-
-const songUrl = `https://striveschool-api.herokuapp.com/api/deezer/track/${localStorage.getItem("songId")}`;
+  const songUrl = `https://striveschool-api.herokuapp.com/api/deezer/track/${localStorage.getItem("songId")}`;
 
   const artistUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`;
   const tracksUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=8`;
   const verifiedBadge = document.getElementById("artist-verified");
   if (verifiedBadge) verifiedBadge.style.visibility = "hidden";
 
-
-const songData = await getData(songUrl);
+  const songData = await getData(songUrl);
   const artistData = await getData(artistUrl);
   const tracksData = await getData(tracksUrl);
 
-populatePlayer(songData);
+  populatePlayer(songData);
 
   if (artistData && tracksData) {
-    likedCount = Math.floor(Math.random() * 26); // numero canzoni piaciute random
+    const visibleSongs = Math.min(5, tracksData.data.length); // per evitare canzoni poiaciute piu di quelle a sx disponibili
+    likedCount = Math.floor(Math.random() * (visibleSongs + 1));
 
     updateLikedText = () => {
       document.querySelectorAll(".liked-artist-name").forEach((el) => {
@@ -111,8 +103,10 @@ populatePlayer(songData);
     for (const [index, track] of tracksData.data.entries()) {
       const duration = await secondsToMinutes(track);
 
+      const isHidden = index >= 5 ? 'style="display:none"' : "";
+
       container.innerHTML += `
-  <div class="song-row" data-track-id="${track.id}">
+<div class="song-row" data-track-id="${track.id}" ${isHidden}>
     <div class="row align-items-center g-0">
 
       <div class="col-auto text-secondary small pe-3" style="width: 30px">
@@ -167,12 +161,16 @@ populatePlayer(songData);
 `;
     }
 
-    container.innerHTML += `
+    if (tracksData.data.length > 5) {
+      container.innerHTML += `
     <div class="mt-3 ps-2">
-    <button class="btn btn-link text-secondary text-decoration-none fw-bold small p-0 text-uppercase" style="font-size: 0.75rem; letter-spacing: 1px">
-    Visualizza altro
-    </button>
+      <button id="showMoreBtn"
+        class="btn btn-link text-secondary text-decoration-none fw-bold small p-0 text-uppercase"
+        style="font-size: 0.75rem; letter-spacing: 1px">
+        Visualizza altro
+      </button>
     </div>`;
+    }
   }
 };
 
@@ -188,7 +186,7 @@ document.addEventListener("click", (e) => {
 
 //PARTE ABA DI USER
 
-// ===== PROFILO: Nome + Cognome (come homepage del tuo compagno) =====
+// ===== PROFILO: Nome + Cognome  =====
 
 // aggiorna nome e avatar nel profilo
 function updateProfileUI(fullName) {
@@ -326,4 +324,15 @@ document.addEventListener("click", (e) => {
   btn.blur();
 });
 
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest("#showMoreBtn");
+  if (!btn) return;
 
+  // mostra tutte le canzoni nascoste
+  document.querySelectorAll("#popular-songs-container .song-row").forEach((row) => {
+    row.style.display = "";
+  });
+
+  // nascondi il bottone
+  btn.style.display = "none";
+});
