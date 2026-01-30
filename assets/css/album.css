@@ -209,39 +209,40 @@ body {
 /* ======================================================
    ALBUM HEADER
 ====================================================== */
+@media (min-width: 768px) {
+  .album-header {
+    display: flex;
+    align-items: flex-end;
+    padding: 32px;
+    gap: 24px;
+  }
 
-.album-header {
-  display: flex;
-  align-items: flex-end;
-  padding: 32px;
-  gap: 24px;
-}
+  .album-cover-container {
+    width: 232px;
+    height: 232px;
+    flex-shrink: 0;
+  }
 
-.album-cover-container {
-  width: 232px;
-  height: 232px;
-  flex-shrink: 0;
-}
+  .album-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  }
 
-.album-cover {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-}
+  .album-title {
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -3px;
+  }
 
-.album-title {
-  font-size: 5rem;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -3px;
-}
-
-.album-meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  .album-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 }
 
 /* ======================================================
@@ -249,32 +250,35 @@ body {
 ====================================================== */
 
 @media (max-width: 768px) {
-  .album-header {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 24px 16px;
+  /* Usiamo il body per alzare la specificità e forzare il centramento */
+  body .album-header {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 40px 20px !important;
   }
 
-  .album-cover-container {
-    margin-bottom: 16px;
+  /* Rimuoviamo il margine destro che sposta la cover */
+  body .album-cover-container {
+    margin-right: 0 !important;
+    margin-bottom: 20px;
   }
 
-  .album-title {
-    font-size: 3rem;
-    letter-spacing: -1px;
-  }
-
-  .album-info {
+  /* Forziamo i testi interni a occupare tutta la larghezza per centrarsi */
+  .album-info,
+  .album-title,
+  .album-meta {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 
   .album-meta {
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: row; /* Rimettiamo i meta in riga ma centrati */
+    gap: 10px;
   }
 }
 
