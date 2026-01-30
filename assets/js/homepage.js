@@ -33,7 +33,6 @@ window.addEventListener("DOMContentLoaded", () => {
       });
     }
   };
-
   // 5) aggancio tasti hide
   document.querySelectorAll(".sp-hero-hide-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -173,6 +172,7 @@ async function updateSlide(slide) {
     slide.querySelector(".sp-hero-title").textContent = t.title; // setto titolo slide
     slide.querySelector(".sp-hero-meta").textContent = t.artist.name; // setto artista slide
     slide.querySelector(".sp-btn-play").dataset.preview = t.preview; // setto url preview
+    slide.querySelector(".song").textContent = t.artist.id; // setto id artista
   } finally {
     slide.dataset.loading = "0"; // unlock caricamento
   }
@@ -421,7 +421,7 @@ window.addEventListener("DOMContentLoaded", refreshBuonaseraTiles); // avvio ref
 
 const btn = document.getElementById("viewAllMoreLike"); // prendo bottone view all
 let extra = []; // lista col extra
-
+redirectArtist();
 btn.onclick = async (e) => {
   e.preventDefault(); // blocco default click
 
@@ -452,7 +452,8 @@ btn.onclick = async (e) => {
             <button class="sp-card-play" type="button"><i class="bi bi-play-fill"></i></button>
           </div>
           <div class="fw-bold mt-2"></div>
-          <div class="text-white-50 small"></div>
+          <a href="#" class="artistElement text-white-50 small"></a>
+          <div class="d-none song" ></div>
         </article>
       `;
       row.appendChild(col); // appendo col alla row
@@ -462,8 +463,9 @@ btn.onclick = async (e) => {
         col.querySelector(".fw-bold").textContent = t.title; // setto titolo extra
         col.querySelector(".text-white-50").textContent = t.artist.name; // setto artista extra
         col.querySelector(".sp-card-play").onclick = () => playPreview(t.preview); // click play extra
+        col.querySelector(".song").textContent = t.artist.id;
       }
-
+      redirectArtist();
       return col;
     }),
   );
@@ -479,6 +481,7 @@ function redirectArtist() {
 
       const correctId = idElements[index].innerText;
       window.location.href = `./artist.html?id=${correctId}`;
+      console.log(correctId);
     };
   });
 }
