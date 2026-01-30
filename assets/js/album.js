@@ -128,6 +128,9 @@ const populateAlbum = (album) => {
   albumCover.src = album.cover_big;
   albumTitle.textContent = album.title;
   albumArtist.textContent = album.artist.name;
+  // redirect a pagina artista
+  albumArtist.href = `./artist.html?id=${album.artist.id}`;
+  albumArtist.style.cursor = "pointer";
   artistImg.src = album.artist.picture_small;
 
   albumMeta.textContent = `• ${album.release_date.slice(0, 4)} • ${album.nb_tracks} brani`;
