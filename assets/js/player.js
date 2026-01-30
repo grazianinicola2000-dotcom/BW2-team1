@@ -1,4 +1,4 @@
-let currentAudio = new Audio();
+const currentAudio = new Audio();
 
 function populatePlayer(songs) {
   const songDetails = document.querySelector(".player-info-section");
@@ -14,17 +14,44 @@ function populatePlayer(songs) {
   }
 }
 
+
+currentAudio.src = localStorage.getItem("GetAudio");
+currentAudio.volume = localStorage.getItem("audioVolume");
+
+
+if (currentAudio.src) {
+  audioTimes(currentAudio); 
+  
+  if (!currentAudio.paused) {
+    currentAudio.pause();
+  } else {
+    currentAudio.play();
+  }
+}
+
 function audioTimes(audio) {
   audio.onloadedmetadata = () => {
     const songDuration = document.querySelector(".duration");
+    const savedTime = localStorage.getItem("currentTime");
+
+    if (savedTime) {
+        
+        audio.currentTime = parseFloat(savedTime);
+    }
+
     if (songDuration) {
       const minutesDuration = String(Math.round(audio.duration / 60));
-      songDuration.innerText = `${minutesDuration} : ${String(Math.round(audio.duration))}`;
+      const seconds = String(Math.round(audio.duration % 60)).padStart(2, "0");
+      songDuration.innerText = `${minutesDuration} : ${seconds}`;
     }
   };
 
   audio.ontimeupdate = () => {
     const realTime = document.querySelector(".realTime");
+    
+    if (audio.currentTime > 0) {
+        localStorage.setItem("currentTime", audio.currentTime);
+    }
 
     if (realTime) {
       const minutes = String(Math.floor(audio.currentTime / 60));
@@ -43,23 +70,21 @@ function animateProgress(currentTime, duration) {
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  const play =
-    document.querySelector(".player-controls .bi-play-circle-fill") ||
-    document.querySelector(".player-controls .bi-pause-circle-fill");
+const play =
+  document.querySelector(".player-controls .bi-play-circle-fill") ||
+  document.querySelector(".player-controls .bi-pause-circle-fill");
 
-  if (play) {
-    play.onclick = () => {
-      if (currentAudio.paused && currentAudio.src) {
-        currentAudio.play();
-        play.classList.remove("bi-play-circle-fill");
-        play.classList.add("bi-pause-circle-fill");
-      } else if (!currentAudio.paused) {
-        currentAudio.pause();
-        play.classList.remove("bi-pause-circle-fill");
-        play.classList.add("bi-play-circle-fill");
-      }
-    };
-  }
-});
-
+if (play) {
+  play.onclick = () => {
+    localStorage.setItem("audioState", currentAudio.paused);
+    if (currentAudio.paused && currentAudio.src) {
+      currentAudio.play();
+      play.classList.remove("bi-play-circle-fill");
+      play.classList.add("bi-pause-circle-fill");
+    } else if (!currentAudio.paused) {
+      currentAudio.pause();
+      play.classList.remove("bi-pause-circle-fill");
+      play.classList.add("bi-play-circle-fill");
+    }
+  };
+}

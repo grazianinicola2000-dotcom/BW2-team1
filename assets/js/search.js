@@ -57,6 +57,7 @@ async function tokenSearch() {
         await generateAlbumCard(dataToken.data);
         saveID();
         playSong(dataToken.data);
+        console.log(dataToken.data);
       }
     }
   });
@@ -80,7 +81,9 @@ async function playSong(songs) {
     document.querySelector(".player-controls .bi-pause-circle-fill");
 
   songContainerChildren.forEach((element, index) => {
+    localStorage.setItem("artistId", songs[index].artist.id);
     element.onclick = () => {
+      localStorage.setItem("audioState", currentAudio.paused);
       if (play) {
         play.classList.remove("bi-play-circle-fill");
         play.classList.add("bi-pause-circle-fill");
@@ -88,12 +91,18 @@ async function playSong(songs) {
 
       if (currentAudio) {
         currentAudio.pause();
-        currentAudio.currentTime = 0;
       }
-
+      localStorage.setItem("songId", songs[index].id);
       currentAudio.src = songs[index].preview;
       currentAudio.volume = 0.2;
       currentAudio.play();
+
+      localStorage.setItem("GetAudio", songs[index].preview);
+      localStorage.setItem("audioVolume", currentAudio.volume);
+
+      const currentTimeToPass = currentAudio.currentTime;
+      
+      localStorage.setItem("duration", currentAudio.duration);
 
       populatePlayer(songs[index]);
       audioTimes(currentAudio);
@@ -119,9 +128,9 @@ async function generateSongsCard(data) {
 
   const limit = Math.min(data.length, 4);
 
-  for (let i = 0; i < limit; i++) {
+  for (let i = 0; i < 4; i++) {
     let duration = await secondsToMinutes(data[i]);
-    localStorage.setItem(`artistId${i}`, data[i].artist.id);
+
     console.log(localStorage);
     songsContainer.innerHTML += `
   <div class="d-flex rounded-2 searcheSongsContainer p-2">
@@ -237,17 +246,17 @@ async function getData(searchAPI) {
 
 function redirectArtist() {
   const artistElements = document.querySelectorAll(".artistElement");
-  const idElements = document.querySelectorAll(".song");
+
 
   artistElements.forEach((element, index) => {
     element.onclick = (e) => {
       e.preventDefault();
 
-      const correctId = idElements[index].innerText;
-      window.location.href = `./artist.html?id=${correctId}`;
+      window.location.href = `./artist.html?id=${localStorage.getItem("artistId")}`;
     };
   });
 }
+
 
 window.onload = () => {
   tokenSearch();
