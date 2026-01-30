@@ -3,7 +3,20 @@ let id = "";
 let urlAPI = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
 
 function cardColorsGenerator() {
-  const cardColors = ["#e13300", "#1e3264", "#e8125c", "#158a08", "#bc5800", "#7a5a95", "#503750", "#2d46b9", "#777777", "#8c1932", "#a56752", "#7d4b32"];
+  const cardColors = [
+    "#e13300",
+    "#1e3264",
+    "#e8125c",
+    "#158a08",
+    "#bc5800",
+    "#7a5a95",
+    "#503750",
+    "#2d46b9",
+    "#777777",
+    "#8c1932",
+    "#a56752",
+    "#7d4b32",
+  ];
 
   const randomIndex = () => {
     return Math.floor(Math.random() * cardColors.length);
@@ -25,6 +38,7 @@ async function tokenSearch() {
     let urlAPI = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
 
     e.preventDefault();
+    localStorage.clear();
     if (searchBar.value.toLowerCase() == "") {
       addAnimationSearchBar(searchBar);
     } else {
@@ -43,6 +57,7 @@ async function tokenSearch() {
         await generateAlbumCard(dataToken.data);
         saveID();
         playSong(dataToken.data);
+        console.log(dataToken.data);
       }
     }
   });
@@ -61,10 +76,14 @@ function saveID() {
 
 async function playSong(songs) {
   const songContainerChildren = document.querySelectorAll(".searcheSongsContainer");
-  const play = document.querySelector(".player-controls .bi-play-circle-fill") || document.querySelector(".player-controls .bi-pause-circle-fill");
+  const play =
+    document.querySelector(".player-controls .bi-play-circle-fill") ||
+    document.querySelector(".player-controls .bi-pause-circle-fill");
 
   songContainerChildren.forEach((element, index) => {
+    localStorage.setItem("artistId", songs[index].artist.id);
     element.onclick = () => {
+      localStorage.setItem("audioState", currentAudio.paused);
       if (play) {
         play.classList.remove("bi-play-circle-fill");
         play.classList.add("bi-pause-circle-fill");
@@ -72,12 +91,18 @@ async function playSong(songs) {
 
       if (currentAudio) {
         currentAudio.pause();
-        currentAudio.currentTime = 0;
       }
-
+      localStorage.setItem("songId", songs[index].id);
       currentAudio.src = songs[index].preview;
       currentAudio.volume = 0.2;
       currentAudio.play();
+
+      localStorage.setItem("GetAudio", songs[index].preview);
+      localStorage.setItem("audioVolume", currentAudio.volume);
+
+      const currentTimeToPass = currentAudio.currentTime;
+      
+      localStorage.setItem("duration", currentAudio.duration);
 
       populatePlayer(songs[index]);
       audioTimes(currentAudio);
@@ -103,8 +128,10 @@ async function generateSongsCard(data) {
 
   const limit = Math.min(data.length, 4);
 
-  for (let i = 0; i < limit; i++) {
+  for (let i = 0; i < 4; i++) {
     let duration = await secondsToMinutes(data[i]);
+
+    console.log(localStorage);
     songsContainer.innerHTML += `
   <div class="d-flex rounded-2 searcheSongsContainer p-2">
                 <img class="songCover me-2 artistElement" src="${data[i].album.cover_medium}" alt="song_cover" />
@@ -169,7 +196,6 @@ async function albumNumber(data, lengthNumber) {
   albumContainer.innerHTML = "";
   const limit = Math.min(data.length, lengthNumber);
 
-  localStorage.clear();
   for (let i = 0; i < limit; i++) {
     albumContainer.innerHTML += `<div class="searchedAlbum rounded-3">
                 <img class="rounded-3 mb-2 px-0 mx-0" src="${data[i].album.cover_medium}" alt="album_cover">
@@ -180,6 +206,7 @@ async function albumNumber(data, lengthNumber) {
                 <div class="d-none song" >${data[i].artist.id}</div>
               </div>`;
     localStorage.setItem(`albumId${i}`, data[i].album.id);
+    localStorage.setItem(`artistAlbumId${i}`, data[i].artist.id);
     console.log(localStorage);
   }
 }
@@ -219,17 +246,17 @@ async function getData(searchAPI) {
 
 function redirectArtist() {
   const artistElements = document.querySelectorAll(".artistElement");
-  const idElements = document.querySelectorAll(".song");
+
 
   artistElements.forEach((element, index) => {
     element.onclick = (e) => {
       e.preventDefault();
 
-      const correctId = idElements[index].innerText;
-      window.location.href = `./artist.html?id=${correctId}`;
+      window.location.href = `./artist.html?id=${localStorage.getItem("artistId")}`;
     };
   });
 }
+
 
 window.onload = () => {
   tokenSearch();
