@@ -215,13 +215,12 @@ header div form input::placeholder {
   width: 180px;
 }
 
-.searchedAlbum p,
-.searchedAlbum p a {
-  color: #aaaaaa;
+.artistElement {
   text-decoration: none;
+  color: #aaaaaa;
 }
 
-.searchedAlbum p a:hover {
+.artistElement:hover {
   text-decoration: underline;
 }
 
