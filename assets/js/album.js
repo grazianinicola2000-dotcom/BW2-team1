@@ -18,6 +18,30 @@ const playBtn = document.querySelector(".bi-play-circle-fill");
 // COLOR THIEF
 const colorThief = new ColorThief();
 
+async function getDataTrack(searchAPIsong) {
+  try {
+    const response = await fetch(searchAPIsong);
+    if (!response.ok) {
+      throw new Error("Errore nel recupero dati");
+    }
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error("Errore durante la fetch:", error);
+  }
+}
+console.log(localStorage.getItem("songId"));
+const songUrl = `https://striveschool-api.herokuapp.com/api/deezer/track/${localStorage.getItem("songId")}`;
+
+async function test() {
+  const songData = await getDataTrack(songUrl);
+  console.log(songData);
+  populatePlayer(songData);
+}
+
+test();
+
 // FETCH ALBUM
 const fetchAlbum = async () => {
   try {
