@@ -367,3 +367,8 @@ header div form input::placeholder {
 .player-utility-section i:hover {
   color: #3be477 !important;
 }
+
+.duration,
+.realTime {
+  white-space: nowrap !important;
+}
