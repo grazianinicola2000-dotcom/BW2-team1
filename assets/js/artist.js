@@ -86,7 +86,7 @@ const renderArtistPage = async (artistId) => {
 
       container.innerHTML += `
   <div class="song-row" data-track-id="${track.id}">
-    <div class="row align-items-center mb-3 g-0">
+    <div class="row align-items-center g-0">
 
       <div class="col-auto text-secondary small pe-3" style="width: 30px">
         ${index + 1}
